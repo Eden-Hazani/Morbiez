@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "c1ec615b04f771dbcbc45ffbec0e0f71",
+    "revision": "0267e25bdb9b6fb9f5fc1154862b7664",
     "url": "/Morbiez/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Morbiez/static/css/2.20270b56.chunk.css"
   },
   {
-    "revision": "198f5f53b37459fae766",
+    "revision": "47ce381c7b8d25422cab",
     "url": "/Morbiez/static/css/main.e25e654d.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Morbiez/static/js/2.12d17ab6.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "198f5f53b37459fae766",
-    "url": "/Morbiez/static/js/main.ac90c4ee.chunk.js"
+    "revision": "47ce381c7b8d25422cab",
+    "url": "/Morbiez/static/js/main.8e5a1e49.chunk.js"
   },
   {
     "revision": "9f50657dc5ef24b96619",
