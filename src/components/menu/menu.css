@@ -32,5 +32,5 @@ hr {
 
 @font-face {
     font-family: menuFont;
-    src: url("/assets/fonts/menuFont.otf");
+    src: url("assets/fonts/menuFont.otf");
 }
