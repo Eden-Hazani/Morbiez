@@ -1,5 +1,4 @@
 {
-    "homepage": "http://ShockHit.github.io/Morbiez",
     "name": "morbiez",
     "version": "0.1.0",
     "private": true,
@@ -20,6 +19,7 @@
         "react-scripts": "3.4.1",
         "typescript": "^3.7.5"
     },
+    "homepage": "http://ShockHit.github.io/Morbiez",
     "scripts": {
         "start": "react-scripts start",
         "build": "react-scripts build",
