@@ -1,0 +1,36 @@
+.menu>a {
+    color: white;
+    margin-bottom: 20px;
+    display: block;
+    font-size: 30px;
+    text-decoration: none;
+    text-shadow: 1px 1px 1px black;
+    font-family: menuFont;
+}
+
+.menu {
+    width: 300px;
+}
+
+.menu>.active {
+    color: wheat;
+    font-weight: bold;
+}
+
+hr {
+    height: 1px;
+}
+
+@media (max-width: 1000px) {
+    .menu>a {
+        font-size: 40px;
+    }
+    .menu {
+        width: 0px;
+    }
+}
+
+@font-face {
+    font-family: menuFont;
+    src: url("/assets/fonts/menuFont.otf");
+}

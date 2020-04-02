@@ -1,0 +1,29 @@
+div>img {
+    width: 500px;
+    height: 500px;
+    border-radius: 50px;
+}
+
+.carousel {
+    width: 800px;
+    display: inline-block;
+}
+
+.carousel.carousel-slider .control-arrow {
+    border-radius: 40px;
+    width: 100px;
+    top: 100px;
+    height: 300px;
+}
+
+@media (max-width: 1000px) {
+    .carousel {
+        width: 400px;
+    }
+    div>img {
+        height: 400px;
+    }
+    .carousel.carousel-slider .control-arrow {
+        top: 50px;
+    }
+}

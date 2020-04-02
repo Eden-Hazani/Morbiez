@@ -1,0 +1,50 @@
+.layout {
+    height: 100%;
+    box-sizing: border-box;
+    /* רוחב וגובה של רכיב מוגדרים עד לגבול שלו*/
+    text-align: center;
+    display: grid;
+    grid-template-rows: 8% 80% 5%;
+    grid-template-columns: repeat(12, 1fr);
+    /*1fr = 1 fraction - כל עמודה תופסת חלק אחד מהדף */
+}
+
+.layout>header,
+.layout>footer {
+    grid-column: span 6/10;
+}
+
+.layout>aside {
+    grid-column: span 3.5;
+}
+
+.layout>main {
+    grid-column: span 10/12;
+}
+
+header>h1 {
+    color: wheat;
+    text-shadow: 1px 1px 2px black;
+    margin-top: 15px;
+    padding: 5px;
+    font-size: 80px;
+    font-family: Burgerfont;
+}
+
+header {
+    height: 350px;
+}
+
+@font-face {
+    font-family: Burgerfont;
+    src: url("/assets/fonts/HamburgerHeavenNF.otf");
+}
+
+@media (max-width: 1000px) {
+    .layout>header {
+        grid-column: span 1/6.5;
+    }
+    .layout>aside {
+        grid-column: span 1;
+    }
+}

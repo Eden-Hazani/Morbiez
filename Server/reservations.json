@@ -1,0 +1,10 @@
+{
+  "reservations": [
+    {
+      "fullName": "Eden",
+      "numberOfPeople": 4,
+      "date": "2020-04-05",
+      "id": 1
+    }
+  ]
+}
