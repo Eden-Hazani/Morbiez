@@ -10,13 +10,13 @@ export class ImageSilder extends Component{
         return (
             <Carousel className='carousel' showArrows={true} infiniteLoop={true} showStatus={false} autoPlay={true} interval={3000}>
                 <div>
-                    <img src="assets/images/burger1.jpg" alt='burger'/>
+                    <img src="Morbiez/assets/images/burger1.jpg" alt='burger'/>
                 </div>
                 <div>
-                    <img src="assets/images/burger2.jpg" alt='burger'/>
+                    <img src="Morbiez/assets/images/burger2.jpg" alt='burger'/>
                 </div>
                 <div>
-                    <img src="assets/images/burger3.jpg" alt='burger'/>
+                    <img src="Morbiez/assets/images/burger3.jpg" alt='burger'/>
                 </div>
             </Carousel>
         );
