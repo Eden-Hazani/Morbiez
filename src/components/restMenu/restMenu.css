@@ -39,7 +39,7 @@ hr {
 
 @font-face {
     font-family: Burgerfont;
-    src: url("assets/fonts/HamburgerHeavenNF.otf");
+    src: url("/assets/fonts/HamburgerHeavenNF.otf");
 }
 
 div>h3 {

@@ -37,7 +37,7 @@ header {
 
 @font-face {
     font-family: Burgerfont;
-    src: url("assets/fonts/HamburgerHeavenNF.otf");
+    src: url("/assets/fonts/HamburgerHeavenNF.otf");
 }
 
 @media (max-width: 1000px) {
