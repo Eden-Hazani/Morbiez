@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/build/static/css/main.329464f3.chunk.css",
-    "main.js": "/build/static/js/main.e19986ba.chunk.js",
-    "main.js.map": "/build/static/js/main.e19986ba.chunk.js.map",
-    "runtime-main.js": "/build/static/js/runtime-main.3b566f56.js",
-    "runtime-main.js.map": "/build/static/js/runtime-main.3b566f56.js.map",
-    "static/css/2.20270b56.chunk.css": "/build/static/css/2.20270b56.chunk.css",
-    "static/js/2.12d17ab6.chunk.js": "/build/static/js/2.12d17ab6.chunk.js",
-    "static/js/2.12d17ab6.chunk.js.map": "/build/static/js/2.12d17ab6.chunk.js.map",
-    "index.html": "/build/index.html",
-    "precache-manifest.eacf980f828542ae1d72a59cd15c8efb.js": "/build/precache-manifest.eacf980f828542ae1d72a59cd15c8efb.js",
-    "service-worker.js": "/build/service-worker.js",
-    "static/css/2.20270b56.chunk.css.map": "/build/static/css/2.20270b56.chunk.css.map",
-    "static/css/main.329464f3.chunk.css.map": "/build/static/css/main.329464f3.chunk.css.map",
-    "static/js/2.12d17ab6.chunk.js.LICENSE.txt": "/build/static/js/2.12d17ab6.chunk.js.LICENSE.txt"
+    "main.css": "/Morbiez/static/css/main.329464f3.chunk.css",
+    "main.js": "/Morbiez/static/js/main.ac90c4ee.chunk.js",
+    "main.js.map": "/Morbiez/static/js/main.ac90c4ee.chunk.js.map",
+    "runtime-main.js": "/Morbiez/static/js/runtime-main.c6eba1cc.js",
+    "runtime-main.js.map": "/Morbiez/static/js/runtime-main.c6eba1cc.js.map",
+    "static/css/2.20270b56.chunk.css": "/Morbiez/static/css/2.20270b56.chunk.css",
+    "static/js/2.12d17ab6.chunk.js": "/Morbiez/static/js/2.12d17ab6.chunk.js",
+    "static/js/2.12d17ab6.chunk.js.map": "/Morbiez/static/js/2.12d17ab6.chunk.js.map",
+    "index.html": "/Morbiez/index.html",
+    "precache-manifest.521a3c10c9b9269aaea7e961de34a408.js": "/Morbiez/precache-manifest.521a3c10c9b9269aaea7e961de34a408.js",
+    "service-worker.js": "/Morbiez/service-worker.js",
+    "static/css/2.20270b56.chunk.css.map": "/Morbiez/static/css/2.20270b56.chunk.css.map",
+    "static/css/main.329464f3.chunk.css.map": "/Morbiez/static/css/main.329464f3.chunk.css.map",
+    "static/js/2.12d17ab6.chunk.js.LICENSE.txt": "/Morbiez/static/js/2.12d17ab6.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.3b566f56.js",
+    "static/js/runtime-main.c6eba1cc.js",
     "static/css/2.20270b56.chunk.css",
     "static/js/2.12d17ab6.chunk.js",
     "static/css/main.329464f3.chunk.css",
-    "static/js/main.e19986ba.chunk.js"
+    "static/js/main.ac90c4ee.chunk.js"
   ]
 }
