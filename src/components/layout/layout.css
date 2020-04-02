@@ -6,7 +6,7 @@
     display: grid;
     grid-template-rows: 8% 80% 5%;
     grid-template-columns: repeat(12, 1fr);
-    /*1fr = 1 fraction - כל עמודה תופסת חלק אחד מהדף */
+    /*1fr = 1 fraction - כל עמודה תופסת חלק אחד מהד */
 }
 
 .layout>header,
