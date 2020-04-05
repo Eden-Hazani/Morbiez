@@ -18,12 +18,12 @@ div>img {
 
 @media (max-width: 1000px) {
     .carousel {
-        width: 400px;
+        width: auto;
     }
     div>img {
-        height: 400px;
+        height: auto;
     }
     .carousel.carousel-slider .control-arrow {
-        top: 50px;
+        top: 10px;
     }
 }

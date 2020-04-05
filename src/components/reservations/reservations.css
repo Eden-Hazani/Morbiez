@@ -46,3 +46,10 @@ input {
     text-shadow: .5px .5px 3.5px wheat;
     margin-top: 0px
 }
+
+@media (max-width: 1000px) {
+    .reservations {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}

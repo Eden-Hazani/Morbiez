@@ -1,0 +1,16 @@
+h1 {
+    font-family: menuFont;
+    font-size: 70px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    color: wheat;
+    text-shadow: 1px 4px 1px black;
+}
+
+h4 {
+    text-shadow: 1px 4px 1px black;
+    color: wheat;
+    margin-top: 0px;
+    font-size: 40px;
+    font-family: menuFont;
+}

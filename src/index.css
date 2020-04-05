@@ -9,6 +9,14 @@ body {
     background-attachment: fixed;
 }
 
+#LoadingGif {
+    width: 500px;
+    margin: auto;
+    height: 500px;
+    background-image: url("/Morbiez/assets/images/burderLoading.gif");
+    background-position: center;
+}
+
 @media (max-width: 1000px) {
     body {
         background-attachment: fixed;

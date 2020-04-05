@@ -4,6 +4,7 @@ import { ReservationsModel } from '../../models/reservationsModel';
 import axios from 'axios';
 
 interface ReservationsState{
+    showText:boolean;
     reservations: ReservationsModel;
     errors: {fullnameError:string, dateError:string, NumberOfPeopleError:string};
 }
@@ -12,6 +13,7 @@ export class Reservations extends Component<any,ReservationsState>{
     public constructor(props:any){
         super(props)
         this.state = {
+            showText: false,
             reservations: new ReservationsModel(),
             errors: { fullnameError: "*",dateError: '*',NumberOfPeopleError: '*'}
         }
@@ -106,25 +108,36 @@ export class Reservations extends Component<any,ReservationsState>{
             this.state.errors.dateError === '' &&
             this.state.errors.fullnameError === '';
     }
+    componentDidMount(){
+        setTimeout(() => {
+            this.setState({showText:true})
+        }, 2000);
+    }
 
     public render(){
+        const  {showText} = this.state
         return(
-            <div className = 'reservations'>
-                <h1>Reserve your table now!</h1>
-                <hr/>
-                <span className='fieldTitle'>Full Name</span>
-                <input type ='text' value={this.state.reservations.fullName|| ""} onChange={this.setFullName}/>
-                <span>{this.state.errors.fullnameError}</span>
-                <br /><br />
-                <span className='fieldTitle'>Date</span>
-                <input type='date' value={this.state.reservations.date || undefined} onChange={this.setDate}/>
-                <span>{this.state.errors.dateError}</span>
-                <br /><br />
-                <span className='fieldTitle'>Number of Diners</span>
-                <input type='number' value={this.state.reservations.numberOfPeople || undefined} onChange={this.setNumberOfPeople}/>
-                <span>{this.state.errors.NumberOfPeopleError}</span>
-                <br /><br />
-                <button onClick={this.addReservation}>Approve Reservation</button>
+            <div className = 'reservation'>
+                {showText === false && <div id="LoadingGif"></div>}
+                {showText && 
+                        <div className = 'reservations'  data-aos='fade-up'>
+                            <h1>Reserve your table now!</h1>
+                            <hr/>
+                            <span className='fieldTitle'>Full Name</span>
+                            <input type ='text' value={this.state.reservations.fullName|| ""} onChange={this.setFullName}/>
+                            <span>{this.state.errors.fullnameError}</span>
+                            <br /><br />
+                            <span className='fieldTitle'>Date</span>
+                            <input type='date' value={this.state.reservations.date || undefined} onChange={this.setDate}/>
+                            <span>{this.state.errors.dateError}</span>
+                            <br /><br />
+                            <span className='fieldTitle'>Number of Diners</span>
+                            <input type='number' value={this.state.reservations.numberOfPeople || undefined} onChange={this.setNumberOfPeople}/>
+                            <span>{this.state.errors.NumberOfPeopleError}</span>
+                            <br /><br />
+                            <button onClick={this.addReservation}>Approve Reservation</button>
+                        </div>
+                }
             </div>
         )
     }

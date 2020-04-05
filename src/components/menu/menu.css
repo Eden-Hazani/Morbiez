@@ -9,7 +9,8 @@
 }
 
 .menu {
-    width: 300px;
+    width: auto;
+    margin-left: 100px;
 }
 
 .menu>.active {
@@ -26,7 +27,8 @@ hr {
         font-size: 40px;
     }
     .menu {
-        width: 0px;
+        width: auto;
+        margin-left: 0px;
     }
 }
 
