@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/Morbiez/static/css/main.e25e654d.chunk.css",
-    "main.js": "/Morbiez/static/js/main.8e5a1e49.chunk.js",
-    "main.js.map": "/Morbiez/static/js/main.8e5a1e49.chunk.js.map",
+    "main.css": "/Morbiez/static/css/main.9e3f56f1.chunk.css",
+    "main.js": "/Morbiez/static/js/main.deebfd8f.chunk.js",
+    "main.js.map": "/Morbiez/static/js/main.deebfd8f.chunk.js.map",
     "runtime-main.js": "/Morbiez/static/js/runtime-main.c6eba1cc.js",
     "runtime-main.js.map": "/Morbiez/static/js/runtime-main.c6eba1cc.js.map",
     "static/css/2.20270b56.chunk.css": "/Morbiez/static/css/2.20270b56.chunk.css",
-    "static/js/2.12d17ab6.chunk.js": "/Morbiez/static/js/2.12d17ab6.chunk.js",
-    "static/js/2.12d17ab6.chunk.js.map": "/Morbiez/static/js/2.12d17ab6.chunk.js.map",
+    "static/js/2.41d8a28a.chunk.js": "/Morbiez/static/js/2.41d8a28a.chunk.js",
+    "static/js/2.41d8a28a.chunk.js.map": "/Morbiez/static/js/2.41d8a28a.chunk.js.map",
     "index.html": "/Morbiez/index.html",
-    "precache-manifest.6904a101e53a83e104a4d3f6705bd85b.js": "/Morbiez/precache-manifest.6904a101e53a83e104a4d3f6705bd85b.js",
+    "precache-manifest.4f120de9100562f23c906fafe5d23f3e.js": "/Morbiez/precache-manifest.4f120de9100562f23c906fafe5d23f3e.js",
     "service-worker.js": "/Morbiez/service-worker.js",
     "static/css/2.20270b56.chunk.css.map": "/Morbiez/static/css/2.20270b56.chunk.css.map",
-    "static/css/main.e25e654d.chunk.css.map": "/Morbiez/static/css/main.e25e654d.chunk.css.map",
-    "static/js/2.12d17ab6.chunk.js.LICENSE.txt": "/Morbiez/static/js/2.12d17ab6.chunk.js.LICENSE.txt"
+    "static/css/main.9e3f56f1.chunk.css.map": "/Morbiez/static/css/main.9e3f56f1.chunk.css.map",
+    "static/js/2.41d8a28a.chunk.js.LICENSE.txt": "/Morbiez/static/js/2.41d8a28a.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.c6eba1cc.js",
     "static/css/2.20270b56.chunk.css",
-    "static/js/2.12d17ab6.chunk.js",
-    "static/css/main.e25e654d.chunk.css",
-    "static/js/main.8e5a1e49.chunk.js"
+    "static/js/2.41d8a28a.chunk.js",
+    "static/css/main.9e3f56f1.chunk.css",
+    "static/js/main.deebfd8f.chunk.js"
   ]
 }
