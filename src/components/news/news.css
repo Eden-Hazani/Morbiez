@@ -1,0 +1,167 @@
+.news {
+    display: inline-flex;
+}
+
+.flipCard {
+    margin: 30px;
+}
+
+.frontCard1 {
+    width: 400px;
+    height: 400px;
+    background-color: rgba(238, 130, 238, 0.445);
+    border: black 1px solid;
+}
+
+.frontCard1>h1 {
+    position: absolute;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    margin-left: 110px;
+    margin-top: 50px;
+}
+
+.frontCard1>h5 {
+    position: absolute;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    margin-top: 130px;
+    color: wheat;
+    text-shadow: black 1px 1px 1px;
+}
+
+.frontCard1>button,
+.backCard1>button {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 10px;
+    left: 170px;
+    padding: 10px;
+    border: black solid 1px;
+}
+
+.cardGif {
+    margin-top: 150px;
+    left: 100px;
+    position: absolute;
+    height: 200px;
+    width: 200px;
+    background-image: url('/Morbiez/assets/images/burderLoading.gif');
+    background-position: center;
+    background-size: cover;
+}
+
+.backCard1 {
+    width: 400px;
+    height: 400px;
+    background-color: yellow;
+}
+
+.backCard1>h1 {
+    position: absolute;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+
+/* ------------------------------------------------------------------------------------------------------------------*/
+
+.frontCard2 {
+    width: 400px;
+    height: 400px;
+    background-color: rgba(238, 130, 238, 0.445);
+    border: black 1px solid;
+}
+
+.frontCard2>button,
+.backCard2>button {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 10px;
+    left: 160px;
+    padding: 10px;
+    border: black solid 1px;
+}
+
+.frontCard2>h1 {
+    position: absolute;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    margin-left: 20px;
+    margin-top: 55px;
+}
+
+.frontCard2>h5 {
+    position: absolute;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    margin-top: 155px;
+    margin-left: 60px;
+    color: wheat;
+    text-shadow: black 1px 1px 1px;
+}
+
+.cardGif2 {
+    margin-top: 190px;
+    left: 140px;
+    position: absolute;
+    height: 120px;
+    width: 120px;
+    background-image: url('/Morbiez/assets/images/burgerDel.png');
+    background-position: center;
+    background-size: cover;
+}
+
+.backCard2 {
+    width: 400px;
+    height: 400px;
+    background-color: yellow;
+}
+
+
+/* ------------------------------------------------------------------------------------------------------------------*/
+
+.frontCard3 {
+    width: 400px;
+    height: 400px;
+    background-color: rgba(238, 130, 238, 0.445);
+    border: black 1px solid;
+}
+
+.frontCard3>button,
+.backCard3>button {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 10px;
+    left: 160px;
+    padding: 10px;
+    border: black solid 1px;
+}
+
+.frontCard3>h1 {
+    position: absolute;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    margin-left: 60px;
+    margin-top: 55px;
+}
+
+.frontCard3>h5 {
+    position: absolute;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    margin-top: 155px;
+    margin-left: 20px;
+    color: wheat;
+    text-shadow: black 1px 1px 1px;
+}
+
+.backCard3 {
+    width: 400px;
+    height: 400px;
+    background-color: yellow;
+}
+
+.cardGif3 {
+    margin-top: 190px;
+    left: 140px;
+    position: absolute;
+    height: 120px;
+    width: 120px;
+    background-image: url('/Morbiez/assets/images/reviewStars.gif');
+    background-position: center;
+    background-size: cover;
+}
