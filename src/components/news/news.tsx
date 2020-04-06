@@ -1,12 +1,13 @@
-import React, { Component } from 'react';
+import React, { Component, ChangeEvent } from 'react';
 import './news.css';
 import ReactCardFlip from 'react-card-flip';
 
 
 interface NewsState{
-    isFlipped1:boolean
-    isFlipped2:boolean
-    isFlipped3:boolean
+    isFlipped1:boolean;
+    isFlipped2:boolean;
+    isFlipped3:boolean;
+    errors:{emailError:string,nameError:string}
 }
 
 export class News extends Component<any,NewsState>{
@@ -15,24 +16,62 @@ export class News extends Component<any,NewsState>{
           this.state = {
           isFlipped1: false,
           isFlipped2:false,
-          isFlipped3:false
+          isFlipped3:false,
+          errors:{emailError: '*',nameError:'*'}
         };
         this.handleClick1 = this.handleClick1.bind(this);
         this.handleClick2 = this.handleClick2.bind(this);
         this.handleClick3 = this.handleClick3.bind(this);
       }
-      handleClick1(e:any) {
-        e.preventDefault();
+      handleClick1() {
         this.setState(prevState => ({ isFlipped1: !prevState.isFlipped1 }));
       }
-      handleClick2(e:any) {
-        e.preventDefault();
+      handleClick2() {
         this.setState(prevState => ({ isFlipped2: !prevState.isFlipped2 }));
       }
-      handleClick3(e:any) {
-        e.preventDefault();
+      handleClick3() {
         this.setState(prevState => ({ isFlipped3: !prevState.isFlipped3 }));
       }
+      setName = (args: ChangeEvent<HTMLInputElement>) =>{
+        const name = args.target.value;
+        let nameError = '';
+        if(name === ''){
+            nameError = 'Missing Name!'
+        }
+        if(name.length>2){
+            nameError = 'Must Be a Real Name'
+        }
+        if(/\d/.test(name)){
+            nameError = 'Name cannot contain numbers!'
+        }
+        const errors = {...this.state.errors}
+        errors.nameError = nameError;
+        this.setState({errors})
+      }
+      validateEmail = (email:any) =>{
+        const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(email);
+      }
+
+      setMail = (args: ChangeEvent<HTMLInputElement>) =>{
+        const mail = args.target.value;
+        let mailError = '';
+        if(mail === ''){
+            mailError = 'Mail is Missing!'
+        }
+        if(!this.validateEmail(mail)){
+            mailError = 'Incorrect Mail Adress'
+        }
+        const errors = {...this.state.errors}
+        errors.emailError = mailError;
+        this.setState({errors})
+      }
+    
+      private isNewsFormCorrect = () =>{
+        return this.state.errors.emailError === ''
+            && this.state.errors.nameError === '';
+      }
+  
     public render(){
         return(
             <div className='news'>
@@ -47,8 +86,17 @@ export class News extends Component<any,NewsState>{
                     </div>
             
                     <div className='backCard1'> 
-                        <h1>Burgers</h1>
-                        <button onClick={this.handleClick1}>Submit</button>
+                        <h1>Join Now and start reciving cool burger news!</h1>
+                        <div className ='formError'>{this.state.errors.emailError}</div>
+                        <span>Email</span>
+                        <input type='text' onChange={this.setMail}/>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <div className ='formError'>{this.state.errors.nameError}</div>
+                        <span>Name</span>
+                        <input type='text' onChange={this.setName}/>
+                        <button onClick={() => this.isNewsFormCorrect() ? this.handleClick1() : alert('Must complete form')} >Submit</button>
                     </div>
                     </ReactCardFlip>
                 </div>

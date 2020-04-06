@@ -34,13 +34,13 @@ export class Home extends Component <any,HomeState>{
                             <h1>Welcome to Morbize, Best Burger Joint in Tel Aviv</h1>
                             <h4>Open Since 2001</h4>
                             <hr/>
-                            <div>
-                                <News/>
-                            </div>
                             <br></br>
                             <br></br>
                             <div>
                                 <ImageSilder/>
+                            </div>
+                            <div>
+                                <News/>
                             </div>
                             <div className='about'  data-aos="zoom-in-up">
                                 <div className ='mainChef'>

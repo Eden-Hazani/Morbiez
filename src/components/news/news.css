@@ -6,6 +6,12 @@
     margin: 30px;
 }
 
+.formError {
+    position: absolute;
+    margin-top: 150px;
+    left: 300px;
+}
+
 .frontCard1 {
     width: 400px;
     height: 400px;
@@ -52,12 +58,27 @@
 .backCard1 {
     width: 400px;
     height: 400px;
-    background-color: yellow;
+    background-color: rgba(238, 130, 238, 0.445);
+    border: black 1px solid;
 }
 
 .backCard1>h1 {
     position: absolute;
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    margin-top: 50px;
+    font-size: 20px;
+}
+
+.backCard1>input {
+    position: absolute;
+    margin-top: 150px;
+    right: 100px;
+}
+
+.backCard1>span {
+    position: absolute;
+    margin-top: 165px;
+    right: 300px;
 }
 
 
