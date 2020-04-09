@@ -15,7 +15,9 @@ export class Layout extends Component{
             <div className ='layout'>
                 <BrowserRouter>
                 <header>
-                    <h1> - Morbeiz - </h1>
+                <div className="neon-wrapper">
+                    <div className="neon-text">- Morbeiz -</div>
+                </div>
                 </header>
                 <aside>
                     <Menu/>

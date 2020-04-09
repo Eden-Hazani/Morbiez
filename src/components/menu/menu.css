@@ -1,21 +1,21 @@
 .menu>a {
-    color: white;
-    margin-bottom: 20px;
+    color: rgb(245, 245, 245);
+    margin-top: 50px;
+    margin-bottom: 70px;
     display: block;
-    font-size: 30px;
+    font-size: 2.5rem;
     text-decoration: none;
+    font-family: neonFont;
     text-shadow: 1px 1px 1px black;
-    font-family: menuFont;
 }
 
 .menu {
     width: auto;
-    margin-left: 100px;
+    margin-left: 50px;
 }
 
 .menu>.active {
-    color: wheat;
-    font-weight: bold;
+    text-shadow: .1vw 0vw .25vw #ffd8d8, .2vw 0vw .25vw #ffd8d8, .4vw 0vw .25vw #ffd8d8, .1vw 0vw 0vw #f257dd, .2vw 0vw 0vw #d857f2, .4vw 0vw 0vw #d357f2, .1vw 0vw .1vw #f257d0, .2vw 0vw .1vw #e057f2, .4vw 0vw .1vw #f257dd, .1vw 0vw 2vw #f257f2, .2vw 0vw 2vw #ed57f2, .4vw 0vw 2vw #e057f2, .1vw 0vw 1vw #e50bd3, .2vw 0vw 1vw #e50be5, .4vw 0vw 5vw #e50bd3, .1vw 0vw 5vw #d30be5, .2vw 0vw 20vw #c10be5, .4vw 0vw 10vw #e50be5, .1vw 0vw 10vw #e50bd3, .2vw 0vw 30vw #de0be5, .4vw 0vw 10vw #e50bda;
 }
 
 hr {

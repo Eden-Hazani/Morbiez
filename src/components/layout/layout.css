@@ -24,14 +24,17 @@
     grid-column: span 8/11;
 }
 
-header>h1 {
-    color: wheat;
-    text-shadow: 1px 1px 2px black;
+.neon-text {
+    color: rgba(245, 245, 245, 0.801);
     margin-top: 15px;
     padding: 5px;
     font-size: 80px;
-    font-family: Burgerfont;
+    font-family: neonFont;
     margin-bottom: 0px;
+}
+
+.neon-text {
+    text-shadow: .1vw 0vw .25vw #ffd8d8, .2vw 0vw .25vw #ffd8d8, .4vw 0vw .25vw #ffd8d8, .1vw 0vw 0vw #f257dd, .2vw 0vw 0vw #d857f2, .4vw 0vw 0vw #d357f2, .1vw 0vw .1vw #f257d0, .2vw 0vw .1vw #e057f2, .4vw 0vw .1vw #f257dd, .1vw 0vw 2vw #f257f2, .2vw 0vw 2vw #ed57f2, .4vw 0vw 2vw #e057f2, .1vw 0vw 1vw #e50bd3, .2vw 0vw 1vw #e50be5, .4vw 0vw 5vw #e50bd3, .1vw 0vw 5vw #d30be5, .2vw 0vw 20vw #c10be5, .4vw 0vw 10vw #e50be5, .1vw 0vw 10vw #e50bd3, .2vw 0vw 30vw #de0be5, .4vw 0vw 10vw #e50bda;
 }
 
 header {
@@ -41,6 +44,11 @@ header {
 @font-face {
     font-family: Burgerfont;
     src: url("/Morbiez/assets/fonts/HamburgerHeavenNF.otf");
+}
+
+@font-face {
+    font-family: neonFont;
+    src: url("/Morbiez/assets/fonts/neonFuture.ttf");
 }
 
 @media (max-width: 1000px) {
