@@ -22,6 +22,8 @@ export class Home extends Component <any,HomeState>{
           duration : 1000
         })
       }
+
+
     public render(){
         const  {showText} = this.state
         return(

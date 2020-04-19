@@ -4,6 +4,7 @@ import ReactCardFlip from 'react-card-flip';
 import { NewsModel } from '../../models/newsModel';
 import Axios from 'axios';
 import swal from 'sweetalert'
+import { NavLink } from 'react-router-dom';
 
 
 
@@ -139,7 +140,7 @@ export class News extends Component<any,NewsState>{
                     <div className='backCard2'>
                         <h1>Delivering at light speed</h1> 
                         <h3>*times may very</h3>
-                        <button onClick={this.handleClick2}>Order Now!</button>
+                        <button><NavLink to='/takeAway'>Order Now</NavLink></button>
                     </div>
                     </ReactCardFlip>
                 </div>

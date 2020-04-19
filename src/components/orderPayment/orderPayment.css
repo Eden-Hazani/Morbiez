@@ -1,0 +1,21 @@
+.singleBurger {
+    background-color: rgba(255, 255, 255, 0.432);
+    border-radius: 25px;
+    margin-bottom: 25px;
+    padding: 20px;
+    display: block;
+    margin-right: 400px;
+    margin-left: 400px;
+    border: 1px black solid;
+    font-family: quoteText;
+    font-size: 25px;
+    color: white;
+    text-shadow: 1px 2px 2px black;
+}
+
+#totalPrice {
+    font-family: quoteText;
+    font-size: 25px;
+    color: white;
+    text-shadow: 1px 2px 2px black;
+}

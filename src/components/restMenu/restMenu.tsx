@@ -38,15 +38,15 @@ export class RestMenu extends Component<any,RestMenuState>{
                             <hr/>
                             <p>Our special Meat blend in a garlic butter rosted brioche bun topped with lettce tomatos pickles and onion</p>
                             <br/>
-                            <p>Toppings - Egg, Bacon, Blue Cheese, Mushrooms, Chile Pepers - 1.5$ -</p>
+                            <p>Toppings - Egg, Bacon, Blue Cheese, Mushrooms, Chile Pepers - 2$ -</p>
                             <p>- 12$ -</p>
                             <br/>
                             <h3> -Double Cheese Burger - </h3>
                             <hr/>
                             <p>Our special Meat blend in a garlic butter rosted brioche bun topped with lettce tomatos pickles and onion with some good ol' american cheese</p>
                             <br/>
-                            <p>Toppings - Egg, Bacon, Blue Cheese, Mushrooms, Chile Pepers - 1.5$ -</p>
-                            <p>- 12$ -</p>
+                            <p>Toppings - Egg, Bacon, Blue Cheese, Mushrooms, Chile Pepers - 2$ -</p>
+                            <p>- 17$ -</p>
                         </div>
                         <br/>
                         <br/>

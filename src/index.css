@@ -3,7 +3,7 @@ body {
     margin: 0;
     padding: 0;
     font-size: large;
-    background: linear-gradient(0deg, rgba(255, 0, 149, 0.144), rgba(255, 0, 149, 0.219)), url("/Morbiez/assets/images/home_background.jpg");
+    background: linear-gradient(0deg, rgba(216, 95, 166, 0.541), rgba(153, 71, 119, 0.438)), url("/Morbiez/assets/images/home_background.jpg");
     font-family: 'Rubik', sans-serif;
     background-size: cover;
     background-attachment: fixed;
@@ -21,5 +21,8 @@ body {
     body {
         background-attachment: fixed;
         background-position: center;
+    }
+    #LoadingGif {
+        width: 0px;
     }
 }

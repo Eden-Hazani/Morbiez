@@ -1,0 +1,95 @@
+.takeAwayOrder>h1 {
+    font-size: 40px;
+}
+
+.takeAway span {
+    font-size: 20px;
+    font-weight: 600;
+    color: wheat;
+    text-shadow: 2px 2px 1px black;
+}
+
+.marginSpan {
+    margin: 20px;
+}
+
+.order {
+    display: inline-block;
+    margin-right: 400px;
+}
+
+.takeAwayItem {
+    display: inline-block;
+    position: absolute;
+    right: 0px;
+}
+
+.burger {
+    background-color: rgba(255, 255, 255, 0.301);
+    border-radius: 45px;
+}
+
+.burger>h1 {
+    display: block;
+    font-size: 30px;
+    margin-bottom: 0px;
+}
+
+.burger>h3 {
+    margin-top: 0px;
+    font-size: 30px;
+    color: white;
+    text-shadow: 2px 2px 1px black;
+}
+
+.burger>button,
+.burger>div>button {
+    margin: 15px;
+    background-color: wheat;
+    border: 1px black solid;
+    border-radius: 10px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.cheeseBurger {
+    background-color: rgba(255, 255, 255, 0.301);
+    border-radius: 45px;
+}
+
+.cheeseBurger>h1 {
+    display: block;
+    font-size: 30px;
+    margin-bottom: 0px;
+}
+
+.cheeseBurger>h3 {
+    margin-top: 0px;
+    font-size: 30px;
+    color: white;
+    text-shadow: 2px 2px 1px black;
+}
+
+.cheeseBurger>button {
+    margin: 15px;
+    background-color: wheat;
+    border: 1px black solid;
+    border-radius: 10px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.topping {
+    color: white;
+    text-shadow: 2px 2px 1px black;
+    font-weight: 600;
+    font-family: quoteText;
+}
+
+@media (max-width: 1000px) {
+    .takeAwayOrder>h1 {
+        font-size: 20px;
+    }
+}

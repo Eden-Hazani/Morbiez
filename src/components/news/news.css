@@ -44,6 +44,7 @@
     border: black solid 1px;
     border-radius: 20px;
     background-color: rgba(137, 43, 226, 0.377);
+    color: white;
 }
 
 .cardGif {
@@ -103,6 +104,12 @@
     border: black solid 1px;
     border-radius: 20px;
     background-color: rgba(137, 43, 226, 0.377);
+    color: white;
+}
+
+.backCard2>button>a {
+    color: white;
+    text-decoration: none;
 }
 
 .frontCard2>h1 {
@@ -178,6 +185,7 @@
     border: black solid 1px;
     border-radius: 20px;
     background-color: rgba(137, 43, 226, 0.377);
+    color: white;
 }
 
 .frontCard3>h1 {
@@ -211,4 +219,14 @@
     background-image: url('/Morbiez/assets/images/reviewStars.gif');
     background-position: center;
     background-size: cover;
+}
+
+@media (max-width: 1000px) {
+    .news {
+        display: inline-block;
+    }
+    .flipCard {
+        position: relative;
+        right: 50px;
+    }
 }
