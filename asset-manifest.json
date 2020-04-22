@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/Morbiez/static/css/main.121658ac.chunk.css",
-    "main.js": "/Morbiez/static/js/main.92722d83.chunk.js",
-    "main.js.map": "/Morbiez/static/js/main.92722d83.chunk.js.map",
+    "main.css": "/Morbiez/static/css/main.4fca63f9.chunk.css",
+    "main.js": "/Morbiez/static/js/main.b55ee47d.chunk.js",
+    "main.js.map": "/Morbiez/static/js/main.b55ee47d.chunk.js.map",
     "runtime-main.js": "/Morbiez/static/js/runtime-main.c6eba1cc.js",
     "runtime-main.js.map": "/Morbiez/static/js/runtime-main.c6eba1cc.js.map",
     "static/css/2.20270b56.chunk.css": "/Morbiez/static/css/2.20270b56.chunk.css",
     "static/js/2.ffc4e08d.chunk.js": "/Morbiez/static/js/2.ffc4e08d.chunk.js",
     "static/js/2.ffc4e08d.chunk.js.map": "/Morbiez/static/js/2.ffc4e08d.chunk.js.map",
     "index.html": "/Morbiez/index.html",
-    "precache-manifest.69a3a441ee02270c54b84d29be7752b7.js": "/Morbiez/precache-manifest.69a3a441ee02270c54b84d29be7752b7.js",
+    "precache-manifest.9d2035c3291df48dbc860b092bcf87db.js": "/Morbiez/precache-manifest.9d2035c3291df48dbc860b092bcf87db.js",
     "service-worker.js": "/Morbiez/service-worker.js",
     "static/css/2.20270b56.chunk.css.map": "/Morbiez/static/css/2.20270b56.chunk.css.map",
-    "static/css/main.121658ac.chunk.css.map": "/Morbiez/static/css/main.121658ac.chunk.css.map",
+    "static/css/main.4fca63f9.chunk.css.map": "/Morbiez/static/css/main.4fca63f9.chunk.css.map",
     "static/js/2.ffc4e08d.chunk.js.LICENSE.txt": "/Morbiez/static/js/2.ffc4e08d.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.c6eba1cc.js",
     "static/css/2.20270b56.chunk.css",
     "static/js/2.ffc4e08d.chunk.js",
-    "static/css/main.121658ac.chunk.css",
-    "static/js/main.92722d83.chunk.js"
+    "static/css/main.4fca63f9.chunk.css",
+    "static/js/main.b55ee47d.chunk.js"
   ]
 }
