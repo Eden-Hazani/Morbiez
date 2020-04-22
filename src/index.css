@@ -10,9 +10,10 @@ body {
 }
 
 #LoadingGif {
+    background-repeat: no-repeat;
     width: 500px;
     margin: auto;
-    height: 500px;
+    height: 70vh;
     background-image: url("/Morbiez/assets/images/burderLoading.gif");
     background-position: center;
 }

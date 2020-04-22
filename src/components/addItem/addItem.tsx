@@ -75,16 +75,11 @@ export class AddItem extends Component<any,AddItemState>{
                         <br/>
                         <span>Toppings:</span>
                             <div>
-                                {b.Onions && <span className='topping'>&nbsp;- Carmelized Onions - Amount: {b.Onions}</span>}
-                                <br/>
-                                {b.Bacon && <span className='topping'>&nbsp;- Bacon Jam - Amount: {b.Bacon}</span>}
-                                <br/>
-                                {b.Mushrooms && <span className='topping'>&nbsp;- Mushrooms - Amount: {b.Mushrooms}</span>}
-                                <br/>
-                                {b.BlueCheese && <span className='topping'>&nbsp;- Blue Cheese - Amount: {b.BlueCheese}</span>}
-                                <br/>
-                                {b.ChiliPepers && <span className='topping'>&nbsp;- Chili Pepers - Amount: {b.ChiliPepers}</span>}
-                                <br/>
+                                {b.Onions && <span className='topping'>&nbsp;- Carmelized Onions - Amount: {b.Onions}<br/></span>}
+                                {b.Bacon && <span className='topping'>&nbsp;- Bacon Jam - Amount: {b.Bacon}<br/></span>}
+                                {b.Mushrooms && <span className='topping'>&nbsp;- Mushrooms - Amount: {b.Mushrooms}<br/></span>}
+                                {b.BlueCheese && <span className='topping'>&nbsp;- Blue Cheese - Amount: {b.BlueCheese}<br/></span>}
+                                {b.ChiliPepers && <span className='topping'>&nbsp;- Chili Pepers - Amount: {b.ChiliPepers}<br/></span>}
                                 {b.Egg && <span className='topping'>&nbsp;- Egg - Amount: {b.Egg}</span>}
                             </div>
                         <hr/>

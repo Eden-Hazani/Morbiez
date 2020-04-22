@@ -39,16 +39,11 @@ export class OrderPayment extends Component<any,OrderPaymentState>{
                         <div className='typeOfBurger'>{burger.burgerType}</div>
                             <div className='burgerToppings'>Toppings
                                 <hr/>
-                                <span>{burger.Onions && `Caramelized Onions ${+burger.Onions * 2} $`}</span>
-                                <br/>
-                                <span>{burger.Bacon && `Bacon Jam ${+burger.Bacon * 2} $`}</span>
-                                <br/>
-                                <span>{burger.Mushrooms && ` Mushrooms ${+burger.Mushrooms * 2} $`}</span>
-                                <br/>
-                                <span>{burger.Egg && `Egg ${+burger.Egg * 2} $`}</span>
-                                <br/>
-                                <span>{burger.BlueCheese && `Blue Cheese ${+burger.BlueCheese * 2} $`}</span>
-                                <br/>
+                                <span>{burger.Onions && `Caramelized Onions ${+burger.Onions * 2} $`}<br/></span>
+                                <span>{burger.Bacon && `Bacon Jam ${+burger.Bacon * 2} $`}<br/></span>
+                                <span>{burger.Mushrooms && ` Mushrooms ${+burger.Mushrooms * 2} $`}<br/></span>
+                                <span>{burger.Egg && `Egg ${+burger.Egg * 2} $`}<br/></span>
+                                <span>{burger.BlueCheese && `Blue Cheese ${+burger.BlueCheese * 2} $`}<br/></span>
                                 <span>{burger.ChiliPepers && `Chili Pepers ${+burger.ChiliPepers * 2} $`}</span>
                             </div>
                         <hr/>

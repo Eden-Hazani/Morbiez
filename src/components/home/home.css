@@ -50,6 +50,7 @@ hr {
 }
 
 .chefTxt {
+    padding-right: 65px;
     font-size: 30px;
     display: inline-block;
     position: absolute;

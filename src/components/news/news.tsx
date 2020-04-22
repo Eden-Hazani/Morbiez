@@ -101,14 +101,13 @@ export class News extends Component<any,NewsState>{
     public render(){
         return(
             <div className='news'>
-                <div className='flipCard'>
+                <div className='flipCard' onClick={this.handleClick1}>
                     <ReactCardFlip isFlipped={this.state.isFlipped1} flipDirection="horizontal">
-                    <div className='frontCard1'>
+                    <div className='frontCard1' >
                         <h1>News</h1> 
                         <hr/>
                         <h5>Join our News letter to get the hottest burger related news!</h5>
                         <div className='cardGif'></div>
-                        <button onClick={this.handleClick1}>Sign Up</button>
                     </div>
             
                     <div className='backCard1'> 
@@ -122,25 +121,26 @@ export class News extends Component<any,NewsState>{
                         <div className ='formError'>{this.state.errors.nameError}</div>
                         <span>Name</span>
                         <input type='text' onChange={this.setName}/>
-                        <button onClick={() => this.isNewsFormCorrect() ? this.signUp() : swal({title: "Please Complete The Form",icon:"warning"})} >Submit</button>
+                        <button onClick={() => this.isNewsFormCorrect() ? this.signUp() : swal({title: "Please Complete The Form",icon:"warning"}) && this.handleClick1()} >Submit</button>
                     </div>
                     </ReactCardFlip>
                 </div>
 {/* ----------------------------------------------------------------------------------- */}
-                <div className='flipCard'>
+                <div className='flipCard' onClick={this.handleClick2}>
                     <ReactCardFlip isFlipped={this.state.isFlipped2} flipDirection="horizontal">
                     <div  className='frontCard2'>
                         <h1>TakeAway!</h1>
                         <h5>New! order deliveries to entire Tel-Aviv</h5>
+                        <br/>
+                        <h5 className='orderNow'>Order Now!</h5>
                         <hr/>
                         <div className='cardGif2'></div>
-                    <button onClick={this.handleClick2}>Order Now!</button>
                     </div>
             
                     <div className='backCard2'>
                         <h1>Delivering at light speed</h1> 
                         <h3>*times may very</h3>
-                        <button><NavLink to='/takeAway'>Order Now</NavLink></button>
+                        <button><NavLink to='/takeAway'>Start Your Order Here!</NavLink></button>
                     </div>
                     </ReactCardFlip>
                 </div>

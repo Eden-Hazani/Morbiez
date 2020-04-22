@@ -9,6 +9,7 @@ import { PageNotFound } from '../page_not_found/page_not_found';
 import { TakeAway } from '../takeAway/takeAway';
 import { TakeOrderMenu } from '../takeOrderMenu/takeOrderMenu';
 import { OrderPayment } from '../orderPayment/orderPayment';
+import { ContactUs } from '../contactUs/contatsUs';
 
 
 
@@ -47,7 +48,7 @@ export class Layout extends Component{
                     </Switch> 
                 </main>
                 <footer>
-
+                    <ContactUs/>
                 </footer>
                 </BrowserRouter>
             </div>

@@ -197,21 +197,21 @@ export class TakeOrderMenu extends Component<any,TakeAwayState>{
                 <button onClick={()=>{this.detract('cheeseBurgerMushrooms')}}>-</button>
                 <span className='marginSpan'>|</span>
                 <span>Egg</span>
-                <button onClick={()=>{this.add('plainBurgerEgg')}}>+</button>
-                <span id='plainBurgerEgg'>0</span>
-                <button onClick={()=>{this.detract('plainBurgerEgg')}}>-</button>
+                <button onClick={()=>{this.add('cheeseBurgerEgg')}}>+</button>
+                <span id='cheeseBurgerEgg'>0</span>
+                <button onClick={()=>{this.detract('cheeseBurgerEgg')}}>-</button>
                 <br/>
                 {/* --- */}
                 <span>Blue Cheese</span>
-                <button onClick={()=>{this.add('plainBurgerBlueCheese')}}>+</button>
-                <span id='plainBurgerBlueCheese'>0</span>
-                <button onClick={()=>{this.detract('plainBurgerBlueCheese')}}>-</button>
+                <button onClick={()=>{this.add('cheeseBurgerBlueCheese')}}>+</button>
+                <span id='cheeseBurgerBlueCheese'>0</span>
+                <button onClick={()=>{this.detract('cheeseBurgerBlueCheese')}}>-</button>
                 <span className='marginSpan'>|</span>
                 {/* --- */}
                 <span>Chili Pepers</span>
-                <button onClick={()=>{this.add('plainBurgerChiliPepers')}}>+</button>
-                <span id='plainBurgerChiliPepers'>0</span>
-                <button onClick={()=>{this.detract('plainBurgerChiliPepers')}}>-</button>
+                <button onClick={()=>{this.add('cheeseBurgerChiliPepers')}}>+</button>
+                <span id='cheeseBurgerChiliPepers'>0</span>
+                <button onClick={()=>{this.detract('cheeseBurgerChiliPepers')}}>-</button>
                 <br/>
                 <button onClick={()=>{this.newBurger('cheeseBurger')}}>Add</button>
             </div>
