@@ -22,13 +22,6 @@ export class AddItem extends Component<any,AddItemState>{
         }
         this.unsubscribeStore = store.subscribe(()=>{
             this.setState({burger: store.getState().burger})
-            let totalPrice = 0
-            for(let item of store.getState().burger){
-                totalPrice = totalPrice + (+item.price*2) + (+item.Onions*2) + (+item.Mushrooms*2) + (+item.Bacon*2) ;
-                console.log(+item.price , +item.Onions  ,+item.Mushrooms , +item.Bacon) 
-            }
-            document.getElementById('totalPrice').innerHTML =`Total: ${totalPrice}$`
-            
         })
 
     }
@@ -41,6 +34,33 @@ export class AddItem extends Component<any,AddItemState>{
         setTimeout(() => {
             store.dispatch({type: ActionType.DeleteBurger,payload:burgerID})
         }, 400);
+    }
+
+    public componentDidUpdate(){
+        let total = 0;
+       let burg = store.getState().burger[store.getState().burger.length -1];
+       Object.values(burg).forEach(function(key,index){
+           if(key === undefined){
+               key = 0
+           }
+           if(key === ''){
+               key = 0
+           }
+           if(index === 1){
+               key = 0
+           }
+           if(index === 0){
+               key = 0
+           }
+           total = total + +key;
+       })
+       this.getTotal(total)
+    }
+    private getTotal(newTotal:number){
+        let total = +document.getElementById('totalPrice').innerHTML.replace( /^\D+/g, '').replace('$','');
+        total = total + newTotal;
+        document.getElementById('totalPrice').innerHTML = ''
+        document.getElementById('totalPrice').innerHTML = 'Total: ' +total+' $'
     }
 
     public placeOrder = () =>{
@@ -57,7 +77,6 @@ export class AddItem extends Component<any,AddItemState>{
             e.preventDefault()
         } 
     }
-
 
  
 

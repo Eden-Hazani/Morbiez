@@ -101,67 +101,71 @@ export class News extends Component<any,NewsState>{
     public render(){
         return(
             <div className='news'>
-                <div className='flipCard' onClick={this.handleClick1}>
-                    <ReactCardFlip isFlipped={this.state.isFlipped1} flipDirection="horizontal">
-                    <div className='frontCard1' >
-                        <h1>News</h1> 
-                        <hr/>
-                        <h5>Join our News letter to get the hottest burger related news!</h5>
-                        <div className='cardGif'></div>
+                <h2>Flip Us</h2>
+                <div className='newsCards'>
+                    <div className='flipCard' onClick={this.handleClick1}>
+                        <ReactCardFlip isFlipped={this.state.isFlipped1} flipDirection="horizontal">
+                        <div className='frontCard1' >
+                            <h1>News</h1> 
+                            <hr/>
+                            <h5>Join our News letter to get the hottest burger related news!</h5>
+                            <div className='cardGif'></div>
+                        </div>
+                
+                        <div className='backCard1'> 
+                            <h1>Join Now and start reciving cool burger news!</h1>
+                            <div className ='formError'>{this.state.errors.emailError}</div>
+                            <span>Email</span>
+                            <input type='text' onChange={this.setMail}/>
+                            <br></br>
+                            <br></br>
+                            <br></br>
+                            <div className ='formError'>{this.state.errors.nameError}</div>
+                            <span>Name</span>
+                            <input type='text' onChange={this.setName}/>
+                            <button onClick={() => this.isNewsFormCorrect() ? this.signUp() : swal({title: "Please Complete The Form",icon:"warning"}) && this.handleClick1()} >Submit</button>
+                        </div>
+                        </ReactCardFlip>
                     </div>
-            
-                    <div className='backCard1'> 
-                        <h1>Join Now and start reciving cool burger news!</h1>
-                        <div className ='formError'>{this.state.errors.emailError}</div>
-                        <span>Email</span>
-                        <input type='text' onChange={this.setMail}/>
-                        <br></br>
-                        <br></br>
-                        <br></br>
-                        <div className ='formError'>{this.state.errors.nameError}</div>
-                        <span>Name</span>
-                        <input type='text' onChange={this.setName}/>
-                        <button onClick={() => this.isNewsFormCorrect() ? this.signUp() : swal({title: "Please Complete The Form",icon:"warning"}) && this.handleClick1()} >Submit</button>
+    {/* ----------------------------------------------------------------------------------- */}
+                    <div className='flipCard' onClick={this.handleClick2}>
+                        <ReactCardFlip isFlipped={this.state.isFlipped2} flipDirection="horizontal">
+                        <div  className='frontCard2'>
+                            <h1>TakeAway!</h1>
+                            <h5>New! order deliveries to entire Tel-Aviv</h5>
+                            <br/>
+                            <h5 className='orderNow'>Order Now!</h5>
+                            <hr/>
+                            <div className='cardGif2'></div>
+                        </div>
+                
+                        <div className='backCard2'>
+                            <h1>Delivering at light speed</h1> 
+                            <h3>*times may very</h3>
+                            <button><NavLink to='/takeAway'>Start Your Order Here!</NavLink></button>
+                        </div>
+                        </ReactCardFlip>
                     </div>
-                    </ReactCardFlip>
-                </div>
-{/* ----------------------------------------------------------------------------------- */}
-                <div className='flipCard' onClick={this.handleClick2}>
-                    <ReactCardFlip isFlipped={this.state.isFlipped2} flipDirection="horizontal">
-                    <div  className='frontCard2'>
-                        <h1>TakeAway!</h1>
-                        <h5>New! order deliveries to entire Tel-Aviv</h5>
-                        <br/>
-                        <h5 className='orderNow'>Order Now!</h5>
-                        <hr/>
-                        <div className='cardGif2'></div>
+    {/* ----------------------------------------------------------------------------------- */}
+                    <div className='flipCard'>
+                        <ReactCardFlip isFlipped={this.state.isFlipped3} flipDirection="horizontal">
+                        <div className='frontCard3'>
+                            <h1>Reviews</h1>
+                            <h5>See for yourself just how good our burger really are</h5>
+                            <hr/>
+                            <div className='cardGif3'></div>
+                        <button onClick={this.handleClick3}>Click to flip</button>
+                        </div>
+                
+                        <div className='backCard3'>
+                        This is the back of the card.
+                        <button onClick={this.handleClick3}>Click to flip</button>
+                        </div>
+                        </ReactCardFlip>
                     </div>
-            
-                    <div className='backCard2'>
-                        <h1>Delivering at light speed</h1> 
-                        <h3>*times may very</h3>
-                        <button><NavLink to='/takeAway'>Start Your Order Here!</NavLink></button>
-                    </div>
-                    </ReactCardFlip>
-                </div>
-{/* ----------------------------------------------------------------------------------- */}
-                <div className='flipCard'>
-                    <ReactCardFlip isFlipped={this.state.isFlipped3} flipDirection="horizontal">
-                    <div className='frontCard3'>
-                        <h1>Reviews</h1>
-                        <h5>See for yourself just how good our burger really are</h5>
-                        <hr/>
-                        <div className='cardGif3'></div>
-                    <button onClick={this.handleClick3}>Click to flip</button>
-                    </div>
-            
-                    <div className='backCard3'>
-                    This is the back of the card.
-                    <button onClick={this.handleClick3}>Click to flip</button>
-                    </div>
-                    </ReactCardFlip>
-                </div>
 
+                </div>
+                
             </div>
         )
     }
