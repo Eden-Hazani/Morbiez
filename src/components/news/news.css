@@ -226,10 +226,13 @@
     background-size: cover;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1600px) {
     .news {
         display: inline-block;
         width: fit-content;
+        width: 350px;
+        position: relative;
+        right: 10px;
     }
     .flipCard {
         right: 50px;

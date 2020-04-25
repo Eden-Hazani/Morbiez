@@ -61,7 +61,7 @@ export class ContactUs extends Component<any,ContactUsState>{
                 {showText && 
                 <React.Fragment>
                     <div className='contactRest'>
-                        <h3>Contact Us!</h3>
+                            <h3>Contact Us!</h3>
                         <span className='shareTxt'>What to share a burger experience or just vent about your Loud neighbors? feel free to message us</span>
                         <form style={{display:'inline-block'}}>
                             <div className='textInput'>

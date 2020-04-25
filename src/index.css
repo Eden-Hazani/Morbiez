@@ -11,19 +11,18 @@ body {
 
 #LoadingGif {
     background-repeat: no-repeat;
-    width: 500px;
+    width: 700px;
     margin: auto;
-    height: 70vh;
+    height: 100vh;
     background-image: url("/Morbiez/assets/images/burderLoading.gif");
     background-position: center;
+    background-size: contain;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1600px) {
     body {
         background-attachment: fixed;
         background-position: center;
-    }
-    #LoadingGif {
-        width: 0px;
+        overflow-x: hidden;
     }
 }

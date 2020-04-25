@@ -75,7 +75,7 @@ header {
     src: url("/Morbiez/assets/fonts/neonFuture.ttf");
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1600px) {
     .layout>header {
         height: 250px;
     }

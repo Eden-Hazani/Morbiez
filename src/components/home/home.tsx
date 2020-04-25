@@ -5,6 +5,7 @@ import 'aos/dist/aos.css';
 import { ImageSilder } from '../imageSlider/imageSlider';
 import { News } from '../news/news';
 
+
 interface HomeState{
     showText:boolean;
 }
@@ -28,7 +29,7 @@ export class Home extends Component <any,HomeState>{
         const  {showText} = this.state
         return(
             <div className='home'>
-                {showText === false &&  <div id="LoadingGif"></div>}
+                {showText === false && <div id="LoadingGif"></div>}
                 {showText && 
                 <React.Fragment>
                     <div data-aos='fade-up'>
