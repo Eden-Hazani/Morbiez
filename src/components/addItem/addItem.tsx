@@ -37,9 +37,14 @@ export class AddItem extends Component<any,AddItemState>{
     }
 
     public componentDidUpdate(){
+
         let total = 0;
        let burg = store.getState().burger[store.getState().burger.length -1];
+       if(burg === undefined){
+           return
+       }
        Object.values(burg).forEach(function(key,index){
+        console.log(key,index)
            if(key === undefined){
                key = 0
            }
@@ -49,10 +54,14 @@ export class AddItem extends Component<any,AddItemState>{
            if(index === 1){
                key = 0
            }
+           if(typeof(key) === 'string'){
+                key=0
+           }
            if(index === 0){
                key = 0
            }
            total = total + +key;
+           console.log(key)
        })
        this.getTotal(total)
     }
@@ -94,12 +103,12 @@ export class AddItem extends Component<any,AddItemState>{
                         <br/>
                         <span>Toppings:</span>
                             <div>
-                                {b.Onions && <span className='topping'>&nbsp;- Carmelized Onions - Amount: {b.Onions}<br/></span>}
-                                {b.Bacon && <span className='topping'>&nbsp;- Bacon Jam - Amount: {b.Bacon}<br/></span>}
-                                {b.Mushrooms && <span className='topping'>&nbsp;- Mushrooms - Amount: {b.Mushrooms}<br/></span>}
-                                {b.BlueCheese && <span className='topping'>&nbsp;- Blue Cheese - Amount: {b.BlueCheese}<br/></span>}
-                                {b.ChiliPepers && <span className='topping'>&nbsp;- Chili Pepers - Amount: {b.ChiliPepers}<br/></span>}
-                                {b.Egg && <span className='topping'>&nbsp;- Egg - Amount: {b.Egg}</span>}
+                                {b.Onions === 0 && <span className='topping'>&nbsp;- Carmelized Onions - Amount: {b.Onions}<br/></span>}
+                                {b.Bacon=== 0  && <span className='topping'>&nbsp;- Bacon Jam - Amount: {b.Bacon}<br/></span>}
+                                {b.Mushrooms=== 0  && <span className='topping'>&nbsp;- Mushrooms - Amount: {b.Mushrooms}<br/></span>}
+                                {b.BlueCheese=== 0  && <span className='topping'>&nbsp;- Blue Cheese - Amount: {b.BlueCheese}<br/></span>}
+                                {b.ChiliPepers === 0  && <span className='topping'>&nbsp;- Chili Pepers - Amount: {b.ChiliPepers}<br/></span>}
+                                {b.Egg === 0  && <span className='topping'>&nbsp;- Egg - Amount: {b.Egg}</span>}
                             </div>
                         <hr/>
                         <h1>Side - {b.fries || b.mashedPotatos || b.friedOnions}</h1>

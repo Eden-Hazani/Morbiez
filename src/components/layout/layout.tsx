@@ -11,10 +11,30 @@ import { TakeOrderMenu } from '../takeOrderMenu/takeOrderMenu';
 import { OrderPayment } from '../orderPayment/orderPayment';
 import { ContactUs } from '../contactUs/contatsUs';
 
+interface LayoutState{
+    showFooter:boolean
+}
 
-
-export class Layout extends Component{
+export class Layout extends Component<any,LayoutState>{
+    public constructor(props:any){
+        super(props)
+        this.state = {showFooter : false}
+    }
+    public componentDidMount(){
+        setTimeout(() => {
+            this.setState({showFooter:true})
+        }, 2000);
+    }
+    public handleToUpdate = (boolean:boolean) =>{
+        this.setState({showFooter:boolean})
+        setTimeout(() => {
+            this.setState({showFooter:true})
+            // this is set on 100 mili sec becuse JAVASCRIPT can only do one thing at a time, so when the page loads after 2 secs it will jump to loading this function and that needs
+            // to happen instantly
+        }, 100);
+    }
     public render(){
+        const {showFooter} = this.state;
         return(
             <div className ='layout'>
                 <BrowserRouter>
@@ -36,19 +56,20 @@ export class Layout extends Component{
                 </aside>
                 <main>
                     <Switch>
-                        <Route path='/reservations' component={Reservations} exact/>
-                        <Route path='/home' component={Home} exact/>
-                        <Route path='/restMenu' component={RestMenu} exact/>
-                        <Route path='/takeAway' component={TakeAway} exact/>
-                        <Route path='/takeOrderMenu' component={TakeOrderMenu} exact/>
-                        <Route path='/orderPayment' component={OrderPayment} exact/>
+                        <Route path='/reservations' render={props => <Reservations onHandleToUpdate = {this.handleToUpdate} />} exact/>
+                        {/* Pass props to child within the Route, we render the Component while also sending our props into said component */}
+                        <Route path='/home' render={props => <Home onHandleToUpdate = {this.handleToUpdate} />} exact/>
+                        <Route path='/restMenu' render={props => <RestMenu onHandleToUpdate = {this.handleToUpdate} />} exact/>
+                        <Route path='/takeAway' render={props => <TakeAway onHandleToUpdate = {this.handleToUpdate} />} exact/>
+                        <Route path='/takeOrderMenu' render={props => <TakeOrderMenu onHandleToUpdate = {this.handleToUpdate} />} exact/>
+                        <Route path='/orderPayment' render={props => <OrderPayment onHandleToUpdate = {this.handleToUpdate} />} exact/>
                         <Redirect from='/Morbiez' to='/home' exact/>
                         <Redirect from='/' to='/home' exact/>
                         <Route component={PageNotFound}/>
                     </Switch> 
                 </main>
                 <footer>
-                    <ContactUs/>
+                   {showFooter? <ContactUs/>: <div></div>} 
                 </footer>
                 </BrowserRouter>
             </div>

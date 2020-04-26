@@ -13,6 +13,7 @@ export class RestMenu extends Component<any,RestMenuState>{
         this.state = {showText:false}
     }
       componentDidMount(){
+        this.props.onHandleToUpdate(false)
         setTimeout(() => {
             this.setState({showText:true})
         }, 2000);

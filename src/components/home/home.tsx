@@ -16,6 +16,7 @@ export class Home extends Component <any,HomeState>{
         this.state = {showText: false}
     }
     componentDidMount(){
+        this.props.onHandleToUpdate(false)
         setTimeout(() => {
             this.setState({showText:true})
         }, 2000);

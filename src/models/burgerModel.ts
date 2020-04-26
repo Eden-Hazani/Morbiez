@@ -2,7 +2,7 @@ export class BurgerModel{
     public constructor(
         public id?:number,
         public burgerType?:string,
-        public price?:string,
+        public price?:number,
         public Onions?:any,
         public Bacon?:any,
         public Mushrooms?:any,

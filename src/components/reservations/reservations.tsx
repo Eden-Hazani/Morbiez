@@ -109,6 +109,7 @@ export class Reservations extends Component<any,ReservationsState>{
             this.state.errors.fullnameError === '';
     }
     componentDidMount(){
+        this.props.onHandleToUpdate(false)
         setTimeout(() => {
             this.setState({showText:true})
         }, 2000);

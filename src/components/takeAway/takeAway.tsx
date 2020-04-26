@@ -17,6 +17,7 @@ export class TakeAway extends Component<any,TakeAwayState>{
             showText: false}
     }
     componentDidMount(){
+        this.props.onHandleToUpdate(false)
         setTimeout(() => {
             this.setState({showText:true})
         }, 2000);
