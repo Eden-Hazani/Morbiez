@@ -77,8 +77,13 @@ header {
 }
 
 @media (max-width: 1600px) {
+    .layout>main {
+        grid-column: span 12;
+    }
     .layout>header {
         height: 250px;
+        grid-column: span 12;
+        position: relative;
     }
     .layout>aside {
         grid-column: 6;

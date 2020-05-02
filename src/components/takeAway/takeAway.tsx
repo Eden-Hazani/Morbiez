@@ -28,8 +28,9 @@ export class TakeAway extends Component<any,TakeAwayState>{
         <div className='takeAway'>
         {showText === false &&  <div id="LoadingGif"></div>}
         {showText &&
-        <React.Fragment>
-            <TakeOrderMenu/>
+        <React.Fragment> 
+            {/* Riding the props down to the children.*/}
+            <TakeOrderMenu onHandleToUpdate={this.props.onHandleToUpdate}/>
             <div className='takeAwayOrder'>
                 <div id='items'>
                     <AddItem/>

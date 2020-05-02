@@ -12,6 +12,18 @@ export function reduce(oldAppState:AppState,action:Action): AppState{
         case ActionType.AddBurger:
             newAppState.burger.push(action.payload);
             break;
+        case ActionType.AddToppings:
+            newAppState.toppings.push(action.payload)
+            break;
+        case ActionType.DeleteToppings:
+            let topping = newAppState.toppings.filter(item => {
+                return item.id !== +action.payload                
+            })
+            newAppState.toppings = []
+            for(let item of topping){
+                newAppState.toppings.push(item)
+            }
+            break;
         case ActionType.DeleteBurger:
             let a = newAppState.burger.filter(item => {
                     return item.id !== +action.payload                

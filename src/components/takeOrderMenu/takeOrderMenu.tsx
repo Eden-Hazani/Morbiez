@@ -5,10 +5,14 @@ import { store } from '../../redux/store';
 import { ActionType } from '../../redux/action-type';
 import Swal from 'sweetalert2'
 import swal from 'sweetalert';
+import { ToppingModel } from '../../models/toppingModule';
+import thunk from 'redux-thunk';
+
 
 
 interface TakeAwayState{
     burger:BurgerModel,
+    toppings:ToppingModel,
     showText:boolean
 }
 
@@ -17,7 +21,9 @@ export class TakeOrderMenu extends Component<any,TakeAwayState>{
     public constructor(props:any){
         super(props)
         this.state ={burger: new BurgerModel(),
-        showText:false}
+        showText:false,
+        toppings: new ToppingModel()
+      }
     }
    componentDidMount(){
     this.props.onHandleToUpdate(false)
@@ -26,9 +32,10 @@ export class TakeOrderMenu extends Component<any,TakeAwayState>{
      }, 2000);
    }
     private add = (product:string) =>{
-        let lastVal = +document.getElementById(`${product}`).innerHTML;
+      let lastVal = +document.getElementById(`${product}`).innerHTML;
         if(lastVal>=3){
             swal({title: "can only have 3 of one topping",icon:"error"})
+            return
         }
         const currVal = lastVal+1;
         document.getElementById(`${product}`).innerHTML = `${currVal}`
@@ -106,32 +113,38 @@ export class TakeOrderMenu extends Component<any,TakeAwayState>{
               })
             }
           })
-        const toppings = ['Onions','BaconJem','Mushrooms','Egg','BlueCheese','ChiliPepers']
+        const topping = ['Onions','BaconJem','Mushrooms','Egg','BlueCheese','ChiliPepers']
         const burgerType = document.getElementById(product).innerHTML;
         const price = +document.getElementById(`${product}Price`).innerHTML.replace('$','')
-        const hasOnions = +document.getElementById(`${product}${toppings[0]}`).innerHTML.replace('0','');
-        const hasBacon = +document.getElementById(`${product}${toppings[1]}`).innerHTML.replace('0','');
-        const hasMushroom = +document.getElementById(`${product}${toppings[2]}`).innerHTML.replace('0','');
-        const hasEgg = +document.getElementById(`${product}${toppings[3]}`).innerHTML.replace('0','');
-        const hasBlueCheese = +document.getElementById(`${product}${toppings[4]}`).innerHTML.replace('0','');
-        const hasChiliPepers = +document.getElementById(`${product}${toppings[5]}`).innerHTML.replace('0','');
+        const hasOnions = +document.getElementById(`${product}${topping[0]}`).innerHTML.replace('0','');
+        const hasBacon = +document.getElementById(`${product}${topping[1]}`).innerHTML.replace('0','');
+        const hasMushroom = +document.getElementById(`${product}${topping[2]}`).innerHTML.replace('0','');
+        const hasEgg = +document.getElementById(`${product}${topping[3]}`).innerHTML.replace('0','');
+        const hasBlueCheese = +document.getElementById(`${product}${topping[4]}`).innerHTML.replace('0','');
+        const hasChiliPepers = +document.getElementById(`${product}${topping[5]}`).innerHTML.replace('0','');
         const burger = {...this.state.burger};
         burger.id = Math.floor(Math.random()*10000-1)+1;
         burger.price = price
         burger.burgerType = burgerType;
-        burger.Bacon = hasBacon;
-        burger.Mushrooms = hasMushroom;
-        burger.Onions = hasOnions;
-        burger.ChiliPepers = hasChiliPepers;
-        burger.Egg = hasEgg;
-        burger.BlueCheese = hasBlueCheese;
         this.setState({burger})
+        const toppings = {...this.state.toppings};
+        toppings.id = burger.id;
+        toppings.Bacon = hasBacon;
+        toppings.Mushrooms = hasMushroom;
+        toppings.Onions = hasOnions;
+        toppings.ChiliPepers = hasChiliPepers;
+        toppings.Egg = hasEgg;
+        toppings.BlueCheese = hasBlueCheese;
+        this.setState({toppings})
         store.dispatch({type: ActionType.AddBurger,payload:burger})
-        for(let item in toppings){
-            document.getElementById(`${product}${toppings[item]}`).innerHTML = '0'
+        store.dispatch({type: ActionType.AddToppings,payload:toppings})
+        for(let item in topping){
+            document.getElementById(`${product}${topping[item]}`).innerHTML = '0'
         }
     }
     
+
+  
     public render(){
       const {showText} = this.state;
         return(

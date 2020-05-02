@@ -109,10 +109,15 @@ export class Reservations extends Component<any,ReservationsState>{
             this.state.errors.fullnameError === '';
     }
     componentDidMount(){
+        document.body.style.backgroundImage = "url('/Morbiez/assets/images/reservation-background.jpg')"
         this.props.onHandleToUpdate(false)
         setTimeout(() => {
             this.setState({showText:true})
         }, 2000);
+    }
+    componentWillUnmount(){
+        // removes the background image on component unmount so that the background will revert to the backgroup in the index.css files 
+        document.body.style.removeProperty('background-Image')
     }
 
     public render(){

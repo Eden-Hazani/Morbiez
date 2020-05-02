@@ -38,7 +38,7 @@ export class Layout extends Component<any,LayoutState>{
         return(
             <div className ='layout'>
                 <BrowserRouter>
-                <header>
+                <header style={{zIndex:1}}>
                 <div className="neon-wrapper">
                     <span className="neon-text-perm">-</span>
                     <span className="neon-text-perm">M</span>
@@ -51,14 +51,14 @@ export class Layout extends Component<any,LayoutState>{
                     <span className="neon-text-perm">-</span>
                 </div>
                 </header>
-                <aside>
+                <aside style={{zIndex:10}}>
                     <Menu/>
                 </aside>
-                <main>
+                <main style={{zIndex:1}}>
                     <Switch>
                         <Route path='/reservations' render={props => <Reservations onHandleToUpdate = {this.handleToUpdate} />} exact/>
                         {/* Pass props to child within the Route, we render the Component while also sending our props into said component */}
-                        <Route path='/home' render={props => <Home onHandleToUpdate = {this.handleToUpdate} />} exact/>
+                        <Route path='/home'  render={props => <Home onHandleToUpdate = {this.handleToUpdate}  />} exact/>
                         <Route path='/restMenu' render={props => <RestMenu onHandleToUpdate = {this.handleToUpdate} />} exact/>
                         <Route path='/takeAway' render={props => <TakeAway onHandleToUpdate = {this.handleToUpdate} />} exact/>
                         <Route path='/takeOrderMenu' render={props => <TakeOrderMenu onHandleToUpdate = {this.handleToUpdate} />} exact/>

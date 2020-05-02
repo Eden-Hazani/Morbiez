@@ -3,9 +3,14 @@ import './orderPayment.css';
 import { BurgerModel } from '../../models/burgerModel';
 import { Unsubscribe } from 'redux';
 import { store } from '../../redux/store';
+import { ToppingModel } from '../../models/toppingModule';
+import swal from 'sweetalert';
+import { Redirect } from 'react-router-dom';
+
 
 interface OrderPaymentState{
     burger:BurgerModel[],
+    toppings:ToppingModel[],
     showText:boolean
 }
 
@@ -14,11 +19,12 @@ export class OrderPayment extends Component<any,OrderPaymentState>{
     public constructor(props:any){
         super(props)
         this.state ={
+            toppings: store.getState().toppings,
             burger: store.getState().burger,
             showText:false
         }
         this.unsubscribeStore = store.subscribe(()=>{
-            this.setState({burger: store.getState().burger})
+            this.setState({burger: store.getState().burger, toppings: store.getState().toppings})
         })
     }
     public componentWillUnmount(): void{
@@ -28,41 +34,60 @@ export class OrderPayment extends Component<any,OrderPaymentState>{
         this.props.onHandleToUpdate(false)
         setTimeout(() => {
             this.setState({showText:true})
+            // this function is inside the set timeout as the DIV with the id "totalPrice" is not yet constructed when the component mounts but only 2 secs afterwards
+            let totalPrice = 0;
+            for(let burger of this.state.burger){
+                totalPrice = totalPrice + burger.price
+            }
+            // this condition stops the mounting function if the user reached this page without getting into the menu page first.
+            if(this.state.toppings.length<1){
+                return
+            }
+            let topping = this.state.toppings[this.state.toppings.length -1];
+            Object.values(topping).forEach(function(key,index){
+                if(index === 0){
+                    key = 0;
+                }
+                totalPrice = totalPrice + (key*2)
+            })
+            document.getElementById("totalPrice").innerHTML = `Total + VAT : ${Math.floor(totalPrice * 1.17)} $`;
         }, 2000);
-        let totalPrice = 0;
-        for(let burger of this.state.burger){
-           totalPrice = totalPrice + +burger.price + (+burger.Bacon*2) + (+burger.BlueCheese*2) + (+burger.ChiliPepers*2) + (+burger.Egg*2) + (+burger.Mushrooms*2) + (+burger.Onions*2) 
-        }
-        document.getElementById('totalPrice').innerHTML = `Total + VAT : ${Math.floor(totalPrice * 1.17)} $`
     }
+    
 
     public render(){
         const {showText} = this.state;
+        if(this.state.toppings.length<1){
+            swal({title: "Can't refresh Order page Rediracting You To Home Page!",icon: 'warning'})
+            return <Redirect to='/home'/>
+        }
         return(
             <div className='orderPayments'>
                 {showText === false && <div id='LoadingGif'></div>}
                 {showText && 
                     <React.Fragment>
                        {this.state.burger.map(burger => 
-                         <div className='singleBurger' key={burger.id}>
-                             <div className='typeOfBurger'>{burger.burgerType}</div>
-                                 <div className='burgerToppings'>Toppings
-                                     <hr/>
-                                     <span>{burger.Onions && `Caramelized Onions ${+burger.Onions * 2} $`}<br/></span>
-                                     <span>{burger.Bacon && `Bacon Jam ${+burger.Bacon * 2} $`}<br/></span>
-                                     <span>{burger.Mushrooms && ` Mushrooms ${+burger.Mushrooms * 2} $`}<br/></span>
-                                     <span>{burger.Egg && `Egg ${+burger.Egg * 2} $`}<br/></span>
-                                     <span>{burger.BlueCheese && `Blue Cheese ${+burger.BlueCheese * 2} $`}<br/></span>
-                                     <span>{burger.ChiliPepers && `Chili Pepers ${+burger.ChiliPepers * 2} $`}</span>
-                                 </div>
-                             <hr/>
-                             <div className='sidesAndDrinks'>
-                                 <span>Drink - {burger.fanta || burger.sprite || burger.coke}</span>
-                                 <br/>
-                                 <span>Side - {burger.friedOnions || burger.mashedPotatos || burger.fries}</span>
-                             </div>
-                         </div>)}
-                         <div id='totalPrice'></div>
+                            this.state.toppings.map(topping =>
+                                burger.id === topping.id &&
+                                <div className='singleBurger' key={burger.id}>
+                                <div className='typeOfBurger'>{burger.burgerType}</div>
+                                {this.state.toppings.length>1? <div className='burgerToppings'>
+                                        <hr/>
+                                       {topping.Onions === 0 ||<span>Caramelized Onions {+topping.Onions * 2} $<br/></span>}
+                                       {topping.Bacon === 0 || <span> Bacon Jam {+topping.Bacon * 2} $<br/></span>}
+                                       {topping.Mushrooms === 0 ||<span> Mushrooms {+topping.Mushrooms * 2} $<br/></span>}
+                                       {topping.Egg === 0 ||<span> Egg {+topping.Egg * 2} $<br/></span>}
+                                       {topping.BlueCheese === 0 ||<span> Blue Cheese {+topping.BlueCheese * 2} $<br/></span>}
+                                       {topping.ChiliPepers === 0 || <span> Chili Pepers {+topping.ChiliPepers * 2} $</span>}
+                                    </div>:<div className='burgerToppings'>No Toppings</div>}
+                                <div className='sidesAndDrinks'>
+                                    <span>Drink - {burger.fanta || burger.sprite || burger.coke}</span>
+                                    <br/>
+                                    <span>Side - {burger.friedOnions || burger.mashedPotatos || burger.fries}</span>
+                                </div>
+                            </div>
+                            ))}
+                         <div id='totalPrice'>0</div>
                      </React.Fragment>
                 }
             </div>

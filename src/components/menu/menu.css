@@ -2,19 +2,30 @@ hr {
     height: 1px;
 }
 
-@media (max-width: 1000px) {
-    .menu>a {
-        font-size: 40px;
-    }
-    .menu {
-        width: auto;
-        margin-left: 0px;
-    }
-}
-
 @font-face {
     font-family: menuFont;
     src: url("/Morbiez/assets/fonts/menuFont.otf");
+}
+
+.menuIcon {
+    background-size: 42px;
+    width: 42px;
+    height: 42px;
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+}
+
+.menuMenuIcon {
+    background-image: url('/Morbiez/assets/images/menuMenu.svg');
+}
+
+.menuBurgerIcon {
+    background-image: url('/Morbiez/assets/images/menuBurger.svg');
+}
+
+.menuReserveIcon {
+    background-image: url('/Morbiez/assets/images/menuReserve.svg');
 }
 
 
@@ -73,8 +84,7 @@ hr {
 
 .bm-menu {
     background: #373a4725;
-    padding: 2.5em 1.5em 0;
-    font-size: 1.15em;
+    padding: 2em 1em 0;
 }
 
 
@@ -90,17 +100,19 @@ hr {
 .bm-item-list {
     color: #b8b7ad;
     overflow-y: hidden;
+    width: 240px;
 }
 
 
 /* Individual item */
 
+.bm-item>div {
+    line-height: normal;
+}
+
 .bm-item {
-    display: inline-block;
     color: rgb(245, 245, 245);
     margin-top: 50px;
-    margin-bottom: 70px;
-    display: block;
     font-size: 2rem;
     text-decoration: none;
     font-family: neonFont;
@@ -108,13 +120,36 @@ hr {
     outline: none;
 }
 
+.menuFlex {
+    display: flex;
+    justify-content: space-between;
+}
+
 .bm-item:hover {
-    text-shadow: .1vw .5vw .55vw #ffd8d8, .2vw 0vw .25vw #ffd8d8, .4vw 0vw .25vw #ffd8d8, .1vw 0vw 0vw #f257dd, .2vw 0vw 0vw #d857f2, .4vw 0vw 0vw #d357f2, .1vw 0vw .1vw #f257d0, .2vw 0vw .1vw #e057f2, .4vw 0vw .1vw #f257dd, .1vw 0vw 2vw #f257f2, .2vw 0vw 2vw #ed57f2, .4vw 0vw 2vw #e057f2, .1vw 0vw 1vw #e50bd3, .2vw 0vw 1vw #e50be5, .4vw 0vw 5vw #e50bd3, .1vw 0vw 5vw #d30be5, .2vw 0vw 20vw #c10be5, .4vw 0vw 10vw #e50be5, .1vw 0vw 10vw #e50bd3, .2vw 0vw 30vw #de0be5, .4vw 0vw 10vw #e50bda;
+    text-shadow: .1vw .5vw .35vw #ffd8d8, .2vw 0vw .25vw #ffd8d8, .4vw 0vw .25vw #ffd8d8, .1vw 0vw 0vw #f257dd, .2vw 0vw 0vw #d857f2, .4vw 0vw 0vw #d357f2, .1vw 0vw .1vw #f257d0, .2vw 0vw .1vw #e057f2, .4vw 0vw .1vw #f257dd, .1vw 0vw 2vw #f257f2, .2vw 0vw 2vw #ed57f2, .4vw 0vw 2vw #e057f2, .1vw 0vw 1vw #e50bd3, .2vw 0vw 1vw #e50be5, .4vw 0vw 5vw #e50bd3, .1vw 0vw 5vw #d30be5, .2vw 0vw 20vw #c10be5, .4vw 0vw 10vw #e50be5, .1vw 0vw 10vw #e50bd3, .2vw 0vw 30vw #de0be5, .4vw 0vw 10vw #e50bda;
 }
 
 
 /* Styling of overlay */
 
-.bm-overlay {
+.menuOverlay {
     background: rgba(0, 0, 0, 0.3);
+    z-index: auto;
+}
+
+@media (max-width: 1400px) {
+    .bm-burger-button {
+        width: 50px;
+        height: 50px;
+        left: 15px;
+        top: 100px;
+    }
+    .bm-menu-wrap {
+        left: 0px;
+        top: 0px;
+    }
+    .menuOverlay,
+    .bm-overlay {
+        opacity: 0 !important;
+    }
 }
