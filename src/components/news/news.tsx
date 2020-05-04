@@ -131,11 +131,11 @@ export class News extends Component<any,NewsState>{
                     <div className='flipCard' onClick={this.handleClick2}>
                         <ReactCardFlip isFlipped={this.state.isFlipped2} flipDirection="horizontal">
                         <div  className='frontCard2'>
+                        <hr/>
                             <h1>TakeAway!</h1>
                             <h5>New! order deliveries to entire Tel-Aviv</h5>
                             <br/>
                             <h5 className='orderNow'>Order Now!</h5>
-                            <hr/>
                             <div className='cardGif2'></div>
                         </div>
                 
