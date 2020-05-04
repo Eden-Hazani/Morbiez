@@ -1,5 +1,8 @@
 .flipCard {
     margin: 30px;
+    display: inline-block;
+    vertical-align:top;
+
 }
 
 .formError {
@@ -165,9 +168,7 @@
     font-size: 53px;
 }
 
-.newsCards {
-    display: inline-flex;
-}
+
 
 .news>h2 {
     display: block;
