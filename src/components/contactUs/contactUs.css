@@ -5,7 +5,8 @@
 
 form {
     margin-top: 50px;
-    margin-right: 350px;
+    vertical-align:top;
+
 }
 
 .textInput {
@@ -79,11 +80,11 @@ form {
 }
 
 .locationSpan {
-    position: absolute;
-    margin-top: 10px;
+    position: relative;
     margin-left: 5px;
     color: white;
     text-shadow: 1px 1px 2px black;
+    margin-bottom: 15px;
 }
 
 form>button {
@@ -104,7 +105,8 @@ form>button {
 
 .shareTxt {
     display: block;
-    margin-right: 1000px;
+    width: 40%;
+    margin-left: 40px;
 }
 
 @font-face {
@@ -112,7 +114,7 @@ form>button {
     src: url('/Morbiez/assets/fonts/chalkFont.ttf');
 }
 
-@media (max-width: 1600px) {
+@media (max-width: 768px) {
     .contactRest>h3 {
         margin-left: 0px;
         text-align: center;
@@ -132,7 +134,10 @@ form>button {
         position: relative;
     }
     .shareTxt {
-        margin-right: 0px;
+        display: inline-block;
+        padding: 10px;
+        margin-left: 0px;
+        width: 90%;
     }
     .textField {
         margin-right: 0px;
@@ -141,7 +146,6 @@ form>button {
     .textField>textarea {
         width: fit-content;
     }
-    .contactUs {}
     form>button {
         margin-right: 0px;
     }

@@ -76,7 +76,7 @@ header {
     src: url("/Morbiez/assets/fonts/neonFuture.ttf");
 }
 
-@media (max-width: 1600px) {
+@media (max-width: 768px) {
     .layout>main {
         grid-column: span 12;
     }

@@ -54,7 +54,6 @@ hr {
     font-size: 30px;
     display: inline-block;
     position: absolute;
-    margin-top: 160px;
     color: wheat;
     font-family: quoteText;
     text-shadow: 1px 1px 1px black;
@@ -72,7 +71,7 @@ hr {
     border-radius: 50px;
 }
 
-@media (max-width: 1600px) {
+@media (max-width: 768px) {
     .mainChef>p {
         display: block;
         right: 10px;

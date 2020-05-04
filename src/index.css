@@ -19,7 +19,7 @@ body {
     background-size: contain;
 }
 
-@media (max-width: 1600px) {
+@media (max-width: 768px) {
     body {
         background-attachment: fixed;
         background-position: center;
