@@ -3,5 +3,7 @@ export enum ActionType{
     AddBurger,
     DeleteBurger,
     AddToppings,
-    DeleteToppings
+    DeleteToppings,
+    AddSideDish,
+    DeleteSideDish
 }

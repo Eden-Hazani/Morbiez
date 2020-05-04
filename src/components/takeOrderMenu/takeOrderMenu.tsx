@@ -6,13 +6,14 @@ import { ActionType } from '../../redux/action-type';
 import Swal from 'sweetalert2'
 import swal from 'sweetalert';
 import { ToppingModel } from '../../models/toppingModule';
-import thunk from 'redux-thunk';
+import { SideDishModel } from '../../models/sideDishModel';
 
 
 
 interface TakeAwayState{
     burger:BurgerModel,
     toppings:ToppingModel,
+    sideDish: SideDishModel,
     showText:boolean
 }
 
@@ -22,7 +23,8 @@ export class TakeOrderMenu extends Component<any,TakeAwayState>{
         super(props)
         this.state ={burger: new BurgerModel(),
         showText:false,
-        toppings: new ToppingModel()
+        toppings: new ToppingModel(),
+        sideDish: new SideDishModel()
       }
     }
    componentDidMount(){
@@ -142,7 +144,16 @@ export class TakeOrderMenu extends Component<any,TakeAwayState>{
             document.getElementById(`${product}${topping[item]}`).innerHTML = '0'
         }
     }
-    
+    private newSideDish = (product:string)=>{
+      const sideDishType = document.getElementById(product).innerHTML;
+      const price = +document.getElementById(`${product}Price`).innerHTML.replace('$','');
+      const sideDish = {...this.state.sideDish};
+      sideDish.dishType = sideDishType;
+      sideDish.id = Math.floor(Math.random()*10000-1)+1;
+      sideDish.price = price;
+      this.setState({sideDish})
+      store.dispatch({type:ActionType.AddSideDish,payload:sideDish})
+    }
 
   
     public render(){
@@ -239,10 +250,16 @@ export class TakeOrderMenu extends Component<any,TakeAwayState>{
                     <br/>
                     <button onClick={()=>{this.newBurger('cheeseBurger')}}>Add</button>
                 </div>
+                <hr/>
+                <div className='sideDishes'>
+                    <h2 id='hotWings'>Hot Wings</h2>
+                    <div>Juicy Wings with our special hot Sauce</div>
+                    <h3 id='hotWingsPrice'>10$</h3>
+                    <br/>
+                    <button onClick={()=>{this.newSideDish('hotWings')}}>Add</button>
+                </div>
                </React.Fragment>
                 }
-               
-                
             </div>
         )
     }

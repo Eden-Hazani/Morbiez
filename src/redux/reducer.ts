@@ -9,21 +9,11 @@ export function reduce(oldAppState:AppState,action:Action): AppState{
         case ActionType.GetAllBurger:
             newAppState.burger = action.payload;
             break;
+
         case ActionType.AddBurger:
             newAppState.burger.push(action.payload);
             break;
-        case ActionType.AddToppings:
-            newAppState.toppings.push(action.payload)
-            break;
-        case ActionType.DeleteToppings:
-            let topping = newAppState.toppings.filter(item => {
-                return item.id !== +action.payload                
-            })
-            newAppState.toppings = []
-            for(let item of topping){
-                newAppState.toppings.push(item)
-            }
-            break;
+
         case ActionType.DeleteBurger:
             let a = newAppState.burger.filter(item => {
                     return item.id !== +action.payload                
@@ -33,6 +23,34 @@ export function reduce(oldAppState:AppState,action:Action): AppState{
                 newAppState.burger.push(item)
             }
             break;
+
+        case ActionType.AddToppings:
+            newAppState.toppings.push(action.payload)
+            break;
+
+        case ActionType.DeleteToppings:
+            let topping = newAppState.toppings.filter(item => {
+                return item.id !== +action.payload                
+            })
+            newAppState.toppings = []
+            for(let item of topping){
+                newAppState.toppings.push(item)
+            }
+            break;
+            
+        case ActionType.AddSideDish:
+            newAppState.sideDish.push(action.payload);
+            break;
+
+        case ActionType.DeleteSideDish:
+            let sideDish = newAppState.sideDish.filter(item =>{
+                return item.id !== +action.payload
+            })
+            newAppState.sideDish = [];
+            for(let item of sideDish){
+                newAppState.sideDish.push(item)
+            }
+            break
         default: break;
     }
     return newAppState
