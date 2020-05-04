@@ -72,7 +72,7 @@ hr {
     border-radius: 50px;
 }
 
-@media (max-width: 1600px) {
+@media (max-width: 768px) {
     .mainChef>p {
         display: block;
         right: 10px;

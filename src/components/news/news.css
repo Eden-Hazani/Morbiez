@@ -232,7 +232,7 @@
     background-size: cover;
 }
 
-@media (max-width: 1600px) {
+@media (max-width: 768px) {
     .news {
         display: inline-block;
         width: fit-content;

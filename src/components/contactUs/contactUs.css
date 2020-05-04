@@ -112,7 +112,7 @@ form>button {
     src: url('/Morbiez/assets/fonts/chalkFont.ttf');
 }
 
-@media (max-width: 1600px) {
+@media (max-width: 768px) {
     .contactRest>h3 {
         margin-left: 0px;
         text-align: center;
