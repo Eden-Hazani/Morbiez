@@ -37,7 +37,7 @@
     font-size: 80px;
     font-family: neonFont;
     margin-bottom: 0px;
-    text-shadow: .1vw 0vw .25vw #ffd8d8, .2vw 0vw .25vw #ffd8d8, .4vw 0vw .25vw #ffd8d8, .1vw 0vw 0vw #f257dd, .2vw 0vw 0vw #d857f2, .4vw 0vw 0vw #d357f2, .1vw 0vw .1vw #f257d0, .2vw 0vw .1vw #e057f2, .4vw 0vw .1vw #f257dd, .1vw 0vw 2vw #f257f2, .2vw 0vw 2vw #ed57f2, .4vw 0vw 2vw #e057f2, .1vw 0vw 1vw #e50bd3, .2vw 0vw 1vw #e50be5, .4vw 0vw 5vw #e50bd3, .1vw 0vw 5vw #d30be5, .2vw 0vw 20vw #c10be5, .4vw 0vw 10vw #e50be5, .1vw 0vw 10vw #e50bd3, .2vw 0vw 30vw #de0be5, .4vw 0vw 10vw #e50bda;
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
 }
 
 .neon-text {
@@ -47,7 +47,7 @@
     font-size: 80px;
     font-family: neonFont;
     margin-bottom: 0px;
-    animation: neonAni 4s infinite alternate;
+    animation: neonAni 3s infinite;
 }
 
 header {
@@ -59,7 +59,7 @@ header {
         text-shadow: 1px 2px 3px black;
     }
     50% {
-        text-shadow: .1vw 0vw .25vw #ffd8d8, .2vw 0vw .25vw #ffd8d8, .4vw 0vw .25vw #ffd8d8, .1vw 0vw 0vw #f257dd, .2vw 0vw 0vw #d857f2, .4vw 0vw 0vw #d357f2, .1vw 0vw .1vw #f257d0, .2vw 0vw .1vw #e057f2, .4vw 0vw .1vw #f257dd, .1vw 0vw 2vw #f257f2, .2vw 0vw 2vw #ed57f2, .4vw 0vw 2vw #e057f2, .1vw 0vw 1vw #e50bd3, .2vw 0vw 1vw #e50be5, .4vw 0vw 5vw #e50bd3, .1vw 0vw 5vw #d30be5, .2vw 0vw 20vw #c10be5, .4vw 0vw 10vw #e50be5, .1vw 0vw 10vw #e50bd3, .2vw 0vw 30vw #de0be5, .4vw 0vw 10vw #e50bda;
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
     }
     100% {
         text-shadow: 1px 2px 3px black;

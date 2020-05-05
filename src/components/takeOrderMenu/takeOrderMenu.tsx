@@ -115,35 +115,35 @@ export class TakeOrderMenu extends Component<any,TakeAwayState>{
               })
             }
           })
-        const topping = ['Onions','BaconJem','Mushrooms','Egg','BlueCheese','ChiliPepers']
+  
         const burgerType = document.getElementById(product).innerHTML;
         const price = +document.getElementById(`${product}Price`).innerHTML.replace('$','')
-        const hasOnions = +document.getElementById(`${product}${topping[0]}`).innerHTML.replace('0','');
-        const hasBacon = +document.getElementById(`${product}${topping[1]}`).innerHTML.replace('0','');
-        const hasMushroom = +document.getElementById(`${product}${topping[2]}`).innerHTML.replace('0','');
-        const hasEgg = +document.getElementById(`${product}${topping[3]}`).innerHTML.replace('0','');
-        const hasBlueCheese = +document.getElementById(`${product}${topping[4]}`).innerHTML.replace('0','');
-        const hasChiliPepers = +document.getElementById(`${product}${topping[5]}`).innerHTML.replace('0','');
         const burger = {...this.state.burger};
         burger.id = Math.floor(Math.random()*10000-1)+1;
         burger.price = price
         burger.burgerType = burgerType;
         this.setState({burger})
-        const toppings = {...this.state.toppings};
-        toppings.id = burger.id;
-        toppings.Bacon = hasBacon;
-        toppings.Mushrooms = hasMushroom;
-        toppings.Onions = hasOnions;
-        toppings.ChiliPepers = hasChiliPepers;
-        toppings.Egg = hasEgg;
-        toppings.BlueCheese = hasBlueCheese;
-        this.setState({toppings})
         store.dispatch({type: ActionType.AddBurger,payload:burger})
+
+        const topping = ['Onions','Bacon','Mushrooms','Egg','BlueCheese','ChiliPepers'] as const
+        let toppings = {...this.state.toppings};
+        for(let item of topping){
+          let amountOfToppings = +document.getElementById(`${product}${item}`).innerHTML.replace('0','');
+          Object.keys(toppings).forEach(function(key){
+            if(key === item){
+              toppings[key] = amountOfToppings
+            }
+          })
+        }
+        toppings.id = burger.id;
+        this.setState({toppings})
         store.dispatch({type: ActionType.AddToppings,payload:toppings})
         for(let item in topping){
             document.getElementById(`${product}${topping[item]}`).innerHTML = '0'
         }
     }
+
+
     private newSideDish = (product:string)=>{
       const sideDishType = document.getElementById(product).innerHTML;
       const price = +document.getElementById(`${product}Price`).innerHTML.replace('$','');
@@ -176,9 +176,9 @@ export class TakeOrderMenu extends Component<any,TakeAwayState>{
                     <span className='marginSpan'>|</span>
                     {/* ----- */}
                     <span>Bacon Jam</span>
-                    <button onClick={()=>{this.add('plainBurgerBaconJem')}}>+</button>
-                    <span id='plainBurgerBaconJem'>0</span>
-                    <button onClick={()=>{this.detract('plainBurgerBaconJem')}}>-</button>
+                    <button onClick={()=>{this.add('plainBurgerBacon')}}>+</button>
+                    <span id='plainBurgerBacon'>0</span>
+                    <button onClick={()=>{this.detract('plainBurgerBacon')}}>-</button>
                     <span className='marginSpan'>|</span>
                     {/* --- */}
                     <span>Mushrooms</span>
@@ -221,9 +221,9 @@ export class TakeOrderMenu extends Component<any,TakeAwayState>{
                     <span className='marginSpan'>|</span>
                     {/* ----- */}
                     <span>Bacon Jam</span>
-                    <button onClick={()=>{this.add('cheeseBurgerBaconJem')}}>+</button>
-                    <span id='cheeseBurgerBaconJem'>0</span>
-                    <button onClick={()=>{this.detract('cheeseBurgerBaconJem')}}>-</button>
+                    <button onClick={()=>{this.add('cheeseBurgerBacon')}}>+</button>
+                    <span id='cheeseBurgerBacon'>0</span>
+                    <button onClick={()=>{this.detract('cheeseBurgerBacon')}}>-</button>
                     <span className='marginSpan'>|</span>
                     {/* --- */}
                     <span>Mushrooms</span>
@@ -252,11 +252,13 @@ export class TakeOrderMenu extends Component<any,TakeAwayState>{
                 </div>
                 <hr/>
                 <div className='sideDishes'>
-                    <h2 id='hotWings'>Hot Wings</h2>
+                  <div className='wings'>
+                    <h3 id='hotWings'>Hot Wings</h3>
                     <div>Juicy Wings with our special hot Sauce</div>
                     <h3 id='hotWingsPrice'>10$</h3>
                     <br/>
                     <button onClick={()=>{this.newSideDish('hotWings')}}>Add</button>
+                  </div>
                 </div>
                </React.Fragment>
                 }

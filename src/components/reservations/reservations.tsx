@@ -108,6 +108,7 @@ export class Reservations extends Component<any,ReservationsState>{
             this.state.errors.dateError === '' &&
             this.state.errors.fullnameError === '';
     }
+    
     componentDidMount(){
         document.body.style.backgroundImage = "url('/Morbiez/assets/images/reservation-background.jpg')"
         this.props.onHandleToUpdate(false)

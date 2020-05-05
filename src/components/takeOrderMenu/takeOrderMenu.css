@@ -96,8 +96,31 @@
     font-weight: 600;
     font-family: quoteText;
 }
+.wings{
+    background-color: rgba(245, 222, 179, 0.575);
+    border-radius: 45px;
+    border: 1px black solid;
+}
+.wings>h3,.wings>div{
+    color: white;
+    text-shadow: 1px 2px 2px black;
+}
+.wings>div{
+    font-size: 30px;
+    font-family: quoteText;
+}
 
-@media (max-width: 1000px) {
+.wings>button{
+    margin: 15px;
+    background-color: wheat;
+    border: 1px black solid;
+    border-radius: 10px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+@media (max-width: 768px) {
     .order {
         position: relative;
         display: block;

@@ -41,6 +41,12 @@ export class Menu extends Component<any,MenuState>{
                             <div className='menuReserveIcon menuIcon'></div>
                         </div>
                     </NavLink>
+                    <NavLink to='/takeAway' exact onClick={()=>this.closeMenuOnClick()}>
+                        <div className='menuFlex'>
+                            <span>Delivery</span>
+                            <div className='menuDeliverIcon menuIcon'></div>
+                        </div>
+                    </NavLink>
                 </BurgerMenu>
             </div>
         )

@@ -103,15 +103,15 @@ export class News extends Component<any,NewsState>{
             <div className='news'>
                 <h2>Flip Us</h2>
                 <div className='newsCards'>
-                    <div className='flipCard' onClick={this.handleClick1}>
+                    <div className='flipCard' >
                         <ReactCardFlip isFlipped={this.state.isFlipped1} flipDirection="horizontal">
-                        <div className='frontCard1' >
+                        <div className='frontCard1' onClick={this.handleClick1}>
                             <h1>News</h1> 
                             <h5>Join our News letter to get the hottest burger related news!</h5>
                             <div className='cardGif'></div>
                         </div>
                 
-                        <div className='backCard1'> 
+                        <div className='backCard1'>
                             <h1>Join Now and start reciving cool burger news!</h1>
                             <div className ='formError'>{this.state.errors.emailError}</div>
                             <span>Email</span>
@@ -123,6 +123,7 @@ export class News extends Component<any,NewsState>{
                             <span>Name</span>
                             <input type='text' onChange={this.setName}/>
                             <button onClick={() => this.isNewsFormCorrect() ? this.signUp() : swal({title: "Please Complete The Form",icon:"warning"}) && this.handleClick1()} >Submit</button>
+                            <div style={{width:400,height:400}}  onClick={this.handleClick1}></div>
                         </div>
                         </ReactCardFlip>
                     </div>
@@ -131,7 +132,6 @@ export class News extends Component<any,NewsState>{
                         <ReactCardFlip isFlipped={this.state.isFlipped2} flipDirection="horizontal">
                         <div  className='frontCard2'>
                             <h1>TakeAway!</h1>
-                            <h5>New! order deliveries to entire Tel-Aviv</h5>
                             <br/>
                             <h5 className='orderNow'>Order Now!</h5>
                             <div className='cardGif2'></div>
