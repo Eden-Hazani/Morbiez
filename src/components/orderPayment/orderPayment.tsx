@@ -72,13 +72,15 @@ export class OrderPayment extends Component<any,OrderPaymentState>{
                 {showText === false && <div id='LoadingGif'></div>}
                 {showText && 
                     <React.Fragment>
+                       <h3>Meals</h3>
                        {this.state.burger.map(burger => 
                             this.state.toppings.map(topping =>
                                 burger.id === topping.id &&
                                 <div className='singleBurger' key={burger.id}>
                                 <div className='typeOfBurger'>{burger.burgerType}</div>
-                                {this.state.toppings.length>1? <div className='burgerToppings'>
+                                {this.state.toppings.length>=1? <div className='burgerToppings'>
                                         <hr/>
+                                        <h3>Toppings:</h3>
                                        {topping.Onions === 0 ||<span>Caramelized Onions {+topping.Onions * 2} $<br/></span>}
                                        {topping.Bacon === 0 || <span> Bacon Jam {+topping.Bacon * 2} $<br/></span>}
                                        {topping.Mushrooms === 0 ||<span> Mushrooms {+topping.Mushrooms * 2} $<br/></span>}
@@ -86,6 +88,7 @@ export class OrderPayment extends Component<any,OrderPaymentState>{
                                        {topping.BlueCheese === 0 ||<span> Blue Cheese {+topping.BlueCheese * 2} $<br/></span>}
                                        {topping.ChiliPepers === 0 || <span> Chili Pepers {+topping.ChiliPepers * 2} $</span>}
                                     </div>:<div className='burgerToppings'>No Toppings</div>}
+                                    <br/>
                                 <div className='sidesAndDrinks'>
                                     <span>Drink - {burger.fanta || burger.sprite || burger.coke}</span>
                                     <br/>
@@ -93,12 +96,15 @@ export class OrderPayment extends Component<any,OrderPaymentState>{
                                 </div>
                             </div>
                             ))}
+                            <hr/>
                             <h3>Side Dishs</h3>
-                            {this.state.sideDish.length<1? this.state.sideDish.map(s =>
-                            <React.Fragment>
+                            {this.state.sideDish.length>=1? 
+                            <div className ='sideDishesPicked'>
+                                {this.state.sideDish.map(s =>
                                 <div>{s.dishType}</div>
-                            </React.Fragment>
-                            ):<div>No Side Dishes</div>}
+                                )}
+                            </div>
+                            :<div className ='sideDishesPicked'>No Side Dishes</div>}
                          <div id='totalPrice'>0</div>
                      </React.Fragment>
                 }

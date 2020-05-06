@@ -89,7 +89,7 @@
     font-family: quoteText;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1250px) {
     .takeAwayOrder>h1 {
         font-size: 20px;
     }

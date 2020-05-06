@@ -1,5 +1,5 @@
 .contactUs {
-    background-color: rgba(56, 56, 56, 0.692);
+    background: linear-gradient(0deg, rgb(38, 0, 39), rgba(177, 0, 162, 0.808),rgba(231, 0, 212, 0.301));
     border: 1px black solid;
 }
 
@@ -27,10 +27,12 @@ form {
 }
 
 .textInput>label {
-    font-family: chalkFont;
+    font-family: quoteText;
     font-size: 25px;
     color: white;
     margin-top: 15px;
+    text-shadow: 1px 2px 1px black;
+
 }
 
 .textField {
@@ -39,9 +41,11 @@ form {
 }
 
 .textField>span {
-    font-family: chalkFont;
+    font-family: quoteText;
     font-size: 30px;
     color: white;
+    text-shadow: 1px 2px 1px black;
+
 }
 
 .textField>textarea {
@@ -58,15 +62,17 @@ form {
 }
 
 .contactRest>h3 {
-    text-shadow: 2px 2px 1px white;
+    text-shadow: 2px 2px 2px black;
     text-align: left;
     margin-left: 620px;
+    color: white;
 }
 
 .contactRest>span {
-    font-family: chalkFont;
-    font-size: 20px;
+    font-family: quoteText;
+    font-size: 25px;
     color: white;
+    text-shadow: 1px 2px 1px black;
 }
 
 .locationIcon {
@@ -114,7 +120,7 @@ form>button {
     src: url('/Morbiez/assets/fonts/chalkFont.ttf');
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1250px) {
     .contactRest>h3 {
         margin-left: 0px;
         text-align: center;

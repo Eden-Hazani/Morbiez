@@ -34,7 +34,11 @@ export class TakeOrderMenu extends Component<any,TakeAwayState>{
      }, 2000);
    }
     private add = (product:string) =>{
-      let lastVal = +document.getElementById(`${product}`).innerHTML;
+      let lastVal = +document.getElementById(product).innerHTML;
+      document.getElementById(`${product}Icon`).classList.add('animationAdd')
+      setTimeout(() => {
+        document.getElementById(`${product}Icon`).classList.remove('animationAdd')
+      }, 200);
         if(lastVal>=3){
             swal({title: "can only have 3 of one topping",icon:"error"})
             return
@@ -169,41 +173,66 @@ export class TakeOrderMenu extends Component<any,TakeAwayState>{
                     <h3 id='plainBurgerPrice'>12$</h3>
                     <h3>All toppings are 2$</h3>
                     <hr/>
-                    <span>Carmelized Onions</span>
-                    <button onClick={()=>{this.add('plainBurgerOnions')}}>+</button>
-                    <span id='plainBurgerOnions'>0</span>
-                    <button onClick={()=>{this.detract('plainBurgerOnions')}}>-</button>
-                    <span className='marginSpan'>|</span>
-                    {/* ----- */}
-                    <span>Bacon Jam</span>
-                    <button onClick={()=>{this.add('plainBurgerBacon')}}>+</button>
-                    <span id='plainBurgerBacon'>0</span>
-                    <button onClick={()=>{this.detract('plainBurgerBacon')}}>-</button>
-                    <span className='marginSpan'>|</span>
-                    {/* --- */}
-                    <span>Mushrooms</span>
-                    <button onClick={()=>{this.add('plainBurgerMushrooms')}}>+</button>
-                    <span id='plainBurgerMushrooms'>0</span>
-                    <button onClick={()=>{this.detract('plainBurgerMushrooms')}}>-</button>
-                    <span className='marginSpan'>|</span>
-                    {/* --- */}
-                    <span>Egg</span>
-                    <button onClick={()=>{this.add('plainBurgerEgg')}}>+</button>
-                    <span id='plainBurgerEgg'>0</span>
-                    <button onClick={()=>{this.detract('plainBurgerEgg')}}>-</button>
-                    <br/>
-                    {/* --- */}
-                    <span>Blue Cheese</span>
-                    <button onClick={()=>{this.add('plainBurgerBlueCheese')}}>+</button>
-                    <span id='plainBurgerBlueCheese'>0</span>
-                    <button onClick={()=>{this.detract('plainBurgerBlueCheese')}}>-</button>
-                    <span className='marginSpan'>|</span>
-                    {/* --- */}
-                    <span>Chili Pepers</span>
-                    <button onClick={()=>{this.add('plainBurgerChiliPepers')}}>+</button>
-                    <span id='plainBurgerChiliPepers'>0</span>
-                    <button onClick={()=>{this.detract('plainBurgerChiliPepers')}}>-</button>
-                    <br/>
+                    <div className='toppingMenu'>
+                      <div id='plainBurgerOnionsIcon' className='toppingAnimation'>
+                        <div>Carmelized Onions</div>
+                        <div className='toppingMenuIcon' style={{backgroundImage:`url('/Morbiez/assets/images/onion-topping.svg')`}}></div>
+                      </div>
+                        <button onClick={()=>{this.add('plainBurgerOnions')}}>+</button>
+                        <div id='plainBurgerOnions'>0</div>
+                        <button onClick={()=>{this.detract('plainBurgerOnions')}}>-</button>
+                        {/* ----- */}
+                    </div>
+                    <div className='toppingMenu'>
+                      <div id='plainBurgerBaconIcon' className='toppingAnimation'>
+                        <div>Bacon Jam</div>
+                        <div className='toppingMenuIcon' style={{backgroundImage:`url('/Morbiez/assets/images/bacon-topping.svg')`}}></div>
+                      </div>
+                        <button onClick={()=>{this.add('plainBurgerBacon')}}>+</button>
+                        <div id='plainBurgerBacon'>0</div>
+                        <button onClick={()=>{this.detract('plainBurgerBacon')}}>-</button>
+                        {/* --- */}
+                    </div>
+                    <div className='toppingMenu'>
+                      <div id='plainBurgerMushroomsIcon' className='toppingAnimation'>
+                        <div>Mushrooms</div>
+                        <div className='toppingMenuIcon' style={{backgroundImage:`url('/Morbiez/assets/images/mushroom-topping.svg')`}}></div>
+                      </div>
+                        <button onClick={()=>{this.add('plainBurgerMushrooms')}}>+</button>
+                        <div id='plainBurgerMushrooms'>0</div>
+                        <button onClick={()=>{this.detract('plainBurgerMushrooms')}}>-</button>
+                    </div>
+                    <div className='toppingMenu'>
+                      <div id='plainBurgerEggIcon' className='toppingAnimation'>
+                        <div>Egg</div>
+                        <div className='toppingMenuIcon' style={{backgroundImage:`url('/Morbiez/assets/images/egg-topping.svg')`}}></div>
+                      </div>
+                        <button onClick={()=>{this.add('plainBurgerEgg')}}>+</button>
+                        <div id='plainBurgerEgg'>0</div>
+                        <button onClick={()=>{this.detract('plainBurgerEgg')}}>-</button>
+                        <br/>
+                        {/* --- */}
+                      </div>
+                      <div className='toppingMenu'>
+                        <div id='plainBurgerBlueCheeseIcon' className='toppingAnimation'>
+                          <div>Blue Cheese</div>
+                          <div className='toppingMenuIcon' style={{backgroundImage:`url('/Morbiez/assets/images/blueCheese-topping.svg')`}}></div>
+                        </div>
+                        <button onClick={()=>{this.add('plainBurgerBlueCheese')}}>+</button>
+                        <div id='plainBurgerBlueCheese'>0</div>
+                        <button onClick={()=>{this.detract('plainBurgerBlueCheese')}}>-</button>
+                        {/* --- */}
+                      </div>
+                      <div className='toppingMenu' >
+                        <div id='plainBurgerChiliPepersIcon' className='toppingAnimation'>
+                          <div>Chili Pepers</div>
+                          <div className='toppingMenuIcon' style={{backgroundImage:`url('/Morbiez/assets/images/chilliPepers-topping.svg')`}}></div>
+                        </div>
+                        <button onClick={()=>{this.add('plainBurgerChiliPepers')}}>+</button>
+                        <div id='plainBurgerChiliPepers'>0</div>
+                        <button onClick={()=>{this.detract('plainBurgerChiliPepers')}}>-</button>
+                      </div>
+                      <br/>
                     <button onClick={()=>{this.newBurger('plainBurger')}}>Add</button>
                 
                 </div>
@@ -214,46 +243,73 @@ export class TakeOrderMenu extends Component<any,TakeAwayState>{
                     <h3 id='cheeseBurgerPrice'>17$</h3>
                     <h3>All toppings are 2$</h3>
                     <hr/>
-                    <span>Carmelized Onions</span>
-                    <button onClick={()=>{this.add('cheeseBurgerOnions')}}>+</button>
-                    <span id='cheeseBurgerOnions'>0</span>
-                    <button onClick={()=>{this.detract('cheeseBurgerOnions')}}>-</button>
-                    <span className='marginSpan'>|</span>
-                    {/* ----- */}
-                    <span>Bacon Jam</span>
-                    <button onClick={()=>{this.add('cheeseBurgerBacon')}}>+</button>
-                    <span id='cheeseBurgerBacon'>0</span>
-                    <button onClick={()=>{this.detract('cheeseBurgerBacon')}}>-</button>
-                    <span className='marginSpan'>|</span>
-                    {/* --- */}
-                    <span>Mushrooms</span>
-                    <button onClick={()=>{this.add('cheeseBurgerMushrooms')}}>+</button>
-                    <span id='cheeseBurgerMushrooms'>0</span>
-                    <button onClick={()=>{this.detract('cheeseBurgerMushrooms')}}>-</button>
-                    <span className='marginSpan'>|</span>
-                    <span>Egg</span>
-                    <button onClick={()=>{this.add('cheeseBurgerEgg')}}>+</button>
-                    <span id='cheeseBurgerEgg'>0</span>
-                    <button onClick={()=>{this.detract('cheeseBurgerEgg')}}>-</button>
-                    <br/>
-                    {/* --- */}
-                    <span>Blue Cheese</span>
-                    <button onClick={()=>{this.add('cheeseBurgerBlueCheese')}}>+</button>
-                    <span id='cheeseBurgerBlueCheese'>0</span>
-                    <button onClick={()=>{this.detract('cheeseBurgerBlueCheese')}}>-</button>
-                    <span className='marginSpan'>|</span>
-                    {/* --- */}
-                    <span>Chili Pepers</span>
-                    <button onClick={()=>{this.add('cheeseBurgerChiliPepers')}}>+</button>
-                    <span id='cheeseBurgerChiliPepers'>0</span>
-                    <button onClick={()=>{this.detract('cheeseBurgerChiliPepers')}}>-</button>
-                    <br/>
+                    <div className='toppingMenu'>
+                        <div id='cheeseBurgerOnionsIcon' className='toppingAnimation'>
+                          <div>Carmelized Onions</div>
+                          <div className='toppingMenuIcon' style={{backgroundImage:`url('/Morbiez/assets/images/onion-topping.svg')`}}></div>
+                        </div>
+                        <button onClick={()=>{this.add('cheeseBurgerOnions')}}>+</button>
+                        <div id='cheeseBurgerOnions'>0</div>
+                        <button onClick={()=>{this.detract('cheeseBurgerOnions')}}>-</button>
+                        {/* ----- */}
+                    </div>
+                    <div className='toppingMenu'>
+                        <div id='cheeseBurgerBaconIcon' className='toppingAnimation'>
+                          <div>Bacon Jam</div>
+                          <div className='toppingMenuIcon' style={{backgroundImage:`url('/Morbiez/assets/images/bacon-topping.svg')`}}></div>
+                        </div>
+                        <button onClick={()=>{this.add('cheeseBurgerBacon')}}>+</button>
+                        <div id='cheeseBurgerBacon'>0</div>
+                        <button onClick={()=>{this.detract('cheeseBurgerBacon')}}>-</button>
+                        {/* --- */}
+                    </div>
+                    <div className='toppingMenu'>
+                        <div id='cheeseBurgerMushroomsIcon' className='toppingAnimation'>
+                          <div>Mushrooms</div>
+                          <div className='toppingMenuIcon' style={{backgroundImage:`url('/Morbiez/assets/images/mushroom-topping.svg')`}}></div>
+                        </div>
+                        <button onClick={()=>{this.add('cheeseBurgerMushrooms')}}>+</button>
+                        <div id='cheeseBurgerMushrooms'>0</div>
+                        <button onClick={()=>{this.detract('cheeseBurgerMushrooms')}}>-</button>
+                    </div>
+                    <div className='toppingMenu'>
+                        <div id='cheeseBurgerEggIcon' className='toppingAnimation'>
+                          <div>Egg</div>
+                          <div className='toppingMenuIcon' style={{backgroundImage:`url('/Morbiez/assets/images/egg-topping.svg')`}}></div>
+                        </div>
+                        <button onClick={()=>{this.add('cheeseBurgerEgg')}}>+</button>
+                        <div id='cheeseBurgerEgg'>0</div>
+                        <button onClick={()=>{this.detract('cheeseBurgerEgg')}}>-</button>
+                        <br/>
+                        {/* --- */}
+                      </div>
+                      <div className='toppingMenu'>
+                        <div id='cheeseBurgerBlueCheeseIcon' className='toppingAnimation'>
+                          <div>Blue Cheese</div>
+                          <div className='toppingMenuIcon' style={{backgroundImage:`url('/Morbiez/assets/images/blueCheese-topping.svg')`}}></div>
+                        </div>
+                        <button onClick={()=>{this.add('cheeseBurgerBlueCheese')}}>+</button>
+                        <div id='cheeseBurgerBlueCheese'>0</div>
+                        <button onClick={()=>{this.detract('cheeseBurgerBlueCheese')}}>-</button>
+                        {/* --- */}
+                      </div>
+                      <div className='toppingMenu'>
+                        <div id='cheeseBurgerChiliPepersIcon' className='toppingAnimation'>
+                          <div>Chili Pepers</div>
+                          <div className='toppingMenuIcon' style={{backgroundImage:`url('/Morbiez/assets/images/chilliPepers-topping.svg')`}}></div>
+                        </div>
+                        <button onClick={()=>{this.add('cheeseBurgerChiliPepers')}}>+</button>
+                        <div id='cheeseBurgerChiliPepers'>0</div>
+                        <button onClick={()=>{this.detract('cheeseBurgerChiliPepers')}}>-</button>
+                      </div>
+                      <br/>
                     <button onClick={()=>{this.newBurger('cheeseBurger')}}>Add</button>
                 </div>
                 <hr/>
                 <div className='sideDishes'>
                   <div className='wings'>
                     <h3 id='hotWings'>Hot Wings</h3>
+                    <div className='toppingMenuIcon' style={{backgroundImage:`url('/Morbiez/assets/images/chicken-wing-icon.svg')`}}></div>
                     <div>Juicy Wings with our special hot Sauce</div>
                     <h3 id='hotWingsPrice'>10$</h3>
                     <br/>

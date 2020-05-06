@@ -47,7 +47,7 @@ input {
     margin-top: 0px
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1250px) {
     .reservations {
         padding-left: 10px;
         padding-right: 10px;

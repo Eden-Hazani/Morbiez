@@ -72,7 +72,7 @@ export class ContactUs extends Component<any,ContactUsState>{
                                 <label>Your Name:&nbsp;<input type='text' onChange={this.setName}></input></label>
                                 <span className='errorSpan'>{this.state.errors.nameError}</span>
                             </div>
-                            <div className='textField'>
+                            <div dir="rtl" className='textField'>
                                 <span>Tell Us Whats On Your Mind!</span>
                                 <br/>
                                 <textarea></textarea>

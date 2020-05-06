@@ -124,6 +124,7 @@ export class AddItem extends Component<any,AddItemState>{
                                 <React.Fragment>
                                     <div id={`${s.id}`}>
                                         <div>{s.dishType}</div>
+                                        <hr/>
                                         <div id={`Price${s.id}`}>Price: {s.price}$</div>
                                         <button onClick={()=>{this.removeItem(s.id)}}>Delete Item</button>
                                     </div>

@@ -68,7 +68,7 @@ export class Layout extends Component<any,LayoutState>{
                         <Route component={PageNotFound}/>
                     </Switch> 
                 </main>
-                <footer>
+                <footer style={{zIndex:5}}>
                    {showFooter? <ContactUs/>: <div></div>} 
                 </footer>
                 </BrowserRouter>

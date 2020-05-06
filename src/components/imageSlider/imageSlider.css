@@ -16,7 +16,7 @@ div>img {
     height: 300px;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1250px) {
     .carousel {
         width: auto;
     }
