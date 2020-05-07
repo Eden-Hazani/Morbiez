@@ -122,7 +122,7 @@ export class AddItem extends Component<any,AddItemState>{
                         <div className ='sideDish'>
                             {this.state.sideDish.map(s=>
                                 <React.Fragment>
-                                    <div id={`${s.id}`}>
+                                    <div className='sideDishItem' id={`${s.id}`} key={s.id}>
                                         <div>{s.dishType}</div>
                                         <hr/>
                                         <div id={`Price${s.id}`}>Price: {s.price}$</div>

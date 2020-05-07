@@ -37,47 +37,43 @@ export class OrderPayment extends Component<any,OrderPaymentState>{
         this.props.onHandleToUpdate(false)
         setTimeout(() => {
             this.setState({showText:true})
-              // this condition stops the mounting function if the user reached this page without getting into the menu page first.
-            if(this.state.toppings.length<1){
-                return
-            }
+        
             // this function is inside the set timeout as the DIV with the id "totalPrice" is not yet constructed when the component mounts but only 2 secs afterwards
             let totalPrice = 0;
             for(let burger of this.state.burger){
                 totalPrice = totalPrice + burger.price
             }
-            let topping = this.state.toppings[this.state.toppings.length -1];
-            Object.values(topping).forEach(function(key,index){
-                if(index === 0){
-                    key = 0;
-                }
-                totalPrice = totalPrice + (key*2)
-            })
+            if(this.state.toppings.length>=1){
+                let topping = this.state.toppings[this.state.toppings.length -1];
+                Object.values(topping).forEach(function(key,index){
+                    if(index === 0){
+                        key = 0;
+                    }
+                    totalPrice = totalPrice + (key*2)
+                })
+            }
             for(let dish of this.state.sideDish){
                 totalPrice = totalPrice + dish.price
             }
-            document.getElementById("totalPrice").innerHTML = `Total + VAT : ${Math.floor(totalPrice * 1.17)} $`;
+            const vatPrice = totalPrice *1.17;
+            document.getElementById("totalPrice").innerHTML = `Total + VAT : ${Math.floor(vatPrice)} $`;
         }, 2000);
     }
     
 
     public render(){
         const {showText} = this.state;
-        if(this.state.toppings.length<1){
-            swal({title: "Can't refresh Order page Rediracting You To Home Page!",icon: 'warning'})
-            return <Redirect to='/home'/>
-        }
         return(
             <div className='orderPayments'>
                 {showText === false && <div id='LoadingGif'></div>}
                 {showText && 
                     <React.Fragment>
                        <h3>Meals</h3>
-                       {this.state.burger.map(burger => 
+                       {this.state.burger.length>=1? this.state.burger.map(burger => 
                             this.state.toppings.map(topping =>
                                 burger.id === topping.id &&
                                 <div className='singleBurger' key={burger.id}>
-                                <div className='typeOfBurger'>{burger.burgerType}</div>
+                                <div className='typeOfBurger'>{burger.burgerType} - {burger.price}$</div>
                                 {this.state.toppings.length>=1? <div className='burgerToppings'>
                                         <hr/>
                                         <h3>Toppings:</h3>
@@ -95,13 +91,13 @@ export class OrderPayment extends Component<any,OrderPaymentState>{
                                     <span>Side - {burger.friedOnions || burger.mashedPotatos || burger.fries}</span>
                                 </div>
                             </div>
-                            ))}
+                            )):<div className ='sideDishesPicked'>No Meals</div>}
                             <hr/>
                             <h3>Side Dishs</h3>
                             {this.state.sideDish.length>=1? 
                             <div className ='sideDishesPicked'>
                                 {this.state.sideDish.map(s =>
-                                <div>{s.dishType}</div>
+                                <div>{s.dishType} - {s.price}$</div>
                                 )}
                             </div>
                             :<div className ='sideDishesPicked'>No Side Dishes</div>}
