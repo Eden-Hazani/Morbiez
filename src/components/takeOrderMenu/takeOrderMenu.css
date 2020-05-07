@@ -145,14 +145,18 @@
 }
 
 .animationAdd{
-    animation: iconAni .2s forwards;
+    animation: iconAniUp .2s forwards;
+}
+
+.animationRemove{
+    animation: iconAniDown .2s forwards;
 }
 
 .toppingAnimation{
     position: relative;
 }
 
-@keyframes iconAni{
+@keyframes iconAniUp{
     0%{
         bottom: 0px;
     }
@@ -163,6 +167,18 @@
         bottom: 0px;
     }
 }
+@keyframes iconAniDown{
+    0%{
+        top: 0px;
+    }
+    50%{
+        top: 10px;
+    }
+    100%{
+        top: 0px;
+    }
+}
+
 
 @media (max-width: 1250px) {
     .order {

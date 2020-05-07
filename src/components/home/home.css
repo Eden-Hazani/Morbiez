@@ -83,7 +83,7 @@ hr {
     }
     .mainChef>.chefImg {
         right: 0;
-        width: 300px;
+        width: 100%;
     }
     .chefTxt {
         padding: 0px;

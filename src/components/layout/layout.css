@@ -6,6 +6,8 @@
     display: grid;
     grid-template-rows: repeat(3, minmax(75px, auto));
     grid-template-columns: repeat(12, 1fr);
+    justify-items: center;
+
     /*1fr = 1 fraction - כל עמודה תופסת חלק אחד מהד */
 }
 
@@ -79,9 +81,10 @@ header {
 @media (max-width: 768px) {
     .layout>main {
         grid-column: span 10/12;
+
     }
     .layout>header {
-        height: 250px;
+        height: 100px;
         grid-column: span 12;
         position: relative;
     }

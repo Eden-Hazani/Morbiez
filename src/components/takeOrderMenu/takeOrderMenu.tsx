@@ -47,6 +47,10 @@ export class TakeOrderMenu extends Component<any,TakeAwayState>{
         document.getElementById(`${product}`).innerHTML = `${currVal}`
     }
     private detract = (product:string) =>{
+      document.getElementById(`${product}Icon`).classList.add('animationRemove')
+      setTimeout(() => {
+        document.getElementById(`${product}Icon`).classList.remove('animationRemove')
+      }, 200);
         let lastVal = +document.getElementById(`${product}`).innerHTML;
         if(lastVal===0){
             return

@@ -78,19 +78,19 @@ form {
 .locationIcon {
     display: inline-block;
     background-image: url('/Morbiez/assets/images/location.jpg');
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     background-position: center;
     background-size: cover;
     border-radius: 70px;
 }
 
 .locationSpan {
-    position: relative;
+    display: inline-block;
     margin-left: 5px;
     color: white;
     text-shadow: 1px 1px 2px black;
-    margin-bottom: 15px;
+    vertical-align: super;
 }
 
 form>button {
