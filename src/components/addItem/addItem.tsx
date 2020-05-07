@@ -112,7 +112,7 @@ export class AddItem extends Component<any,AddItemState>{
                                     <br/>
                                     <h1 className='sides'>Drink - {b.coke || b.sprite || b.fanta}</h1>
                                     <hr/>
-                                    <span id={`Price${b.id}`}>Price - {+b.price+(t.Onions*2)+(t.Bacon*2)+(t.Mushrooms*2)+(t.BlueCheese*2)+(t.ChiliPepers*2)+(t.Egg*2)}$</span>
+                                    <span id={`Price${b.id}`}>Price - {+b.price+(t.Onions)+(t.Bacon)+(t.Mushrooms)+(t.BlueCheese)+(t.ChiliPepers)+(t.Egg)}$</span>
                                     <br/>
                                     <br/>
                                     <button onClick={()=>{this.removeItem(b.id)}}>Delete Item</button>

@@ -42,7 +42,7 @@ export class Layout extends Component<any,LayoutState>{
                 <div className="neon-wrapper">
                     <span className="neon-text-perm">-</span>
                     <span className="neon-text-perm">M</span>
-                    <span className="neon-text">O</span>
+                    <span className="neon-text-perm">O</span>
                     <span className="neon-text-perm">R</span>
                     <span className="neon-text-perm">B</span>
                     <span className="neon-text-perm">E</span>

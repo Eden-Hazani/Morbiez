@@ -156,6 +156,14 @@
     position: relative;
 }
 
+.toppingMenu>div,.toppingMenu>button{
+    display: inline-block;
+}
+
+.toppingMenu>*:last-child{
+    display: block;
+}
+
 @keyframes iconAniUp{
     0%{
         bottom: 0px;

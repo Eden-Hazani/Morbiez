@@ -6,6 +6,7 @@ import { ActionType } from '../../redux/action-type';
 import Swal from 'sweetalert2'
 import swal from 'sweetalert';
 import { ToppingModel } from '../../models/toppingModule';
+import { ToppingPriceModal } from '../../models/toppingPriceModel';
 import { SideDishModel } from '../../models/sideDishModel';
 
 
@@ -24,10 +25,11 @@ export class TakeOrderMenu extends Component<any,TakeAwayState>{
         this.state ={burger: new BurgerModel(),
         showText:false,
         toppings: new ToppingModel(),
-        sideDish: new SideDishModel()
+        sideDish: new SideDishModel(),
       }
     }
    componentDidMount(){
+    window.scrollTo(0, 0)
     this.props.onHandleToUpdate(false)
      setTimeout(() => {
        this.setState({showText:true})
@@ -137,9 +139,10 @@ export class TakeOrderMenu extends Component<any,TakeAwayState>{
         let toppings = {...this.state.toppings};
         for(let item of topping){
           let amountOfToppings = +document.getElementById(`${product}${item}`).innerHTML.replace('0','');
+          let priceOfToppings = +document.getElementById(`${product}${item}Price`).innerHTML.replace('$','')
           Object.keys(toppings).forEach(function(key){
             if(key === item){
-              toppings[key] = amountOfToppings
+              toppings[key] = amountOfToppings * priceOfToppings;
             }
           })
         }
@@ -175,7 +178,6 @@ export class TakeOrderMenu extends Component<any,TakeAwayState>{
                     <h1 id ='plainBurger'>Plain Burger</h1>
                     <h3>Our special Meat blend in a garlic butter rosted brioche bun topped with lettce tomatos pickles and onion</h3>
                     <h3 id='plainBurgerPrice'>12$</h3>
-                    <h3>All toppings are 2$</h3>
                     <hr/>
                     <div className='toppingMenu'>
                       <div id='plainBurgerOnionsIcon' className='toppingAnimation'>
@@ -185,6 +187,7 @@ export class TakeOrderMenu extends Component<any,TakeAwayState>{
                         <button onClick={()=>{this.add('plainBurgerOnions')}}>+</button>
                         <div id='plainBurgerOnions'>0</div>
                         <button onClick={()=>{this.detract('plainBurgerOnions')}}>-</button>
+                        <div id='plainBurgerOnionsPrice'> {ToppingPriceModal.onion}$ </div>
                         {/* ----- */}
                     </div>
                     <div className='toppingMenu'>
@@ -195,6 +198,7 @@ export class TakeOrderMenu extends Component<any,TakeAwayState>{
                         <button onClick={()=>{this.add('plainBurgerBacon')}}>+</button>
                         <div id='plainBurgerBacon'>0</div>
                         <button onClick={()=>{this.detract('plainBurgerBacon')}}>-</button>
+                        <div id='plainBurgerBaconPrice'> {ToppingPriceModal.bacon}$ </div>
                         {/* --- */}
                     </div>
                     <div className='toppingMenu'>
@@ -205,15 +209,17 @@ export class TakeOrderMenu extends Component<any,TakeAwayState>{
                         <button onClick={()=>{this.add('plainBurgerMushrooms')}}>+</button>
                         <div id='plainBurgerMushrooms'>0</div>
                         <button onClick={()=>{this.detract('plainBurgerMushrooms')}}>-</button>
+                        <div id='plainBurgerMushroomsPrice'> {ToppingPriceModal.mushroom}$ </div>
                     </div>
                     <div className='toppingMenu'>
                       <div id='plainBurgerEggIcon' className='toppingAnimation'>
-                        <div>Egg</div>
+                        <div>Fried Egg</div>
                         <div className='toppingMenuIcon' style={{backgroundImage:`url('/Morbiez/assets/images/egg-topping.svg')`}}></div>
                       </div>
                         <button onClick={()=>{this.add('plainBurgerEgg')}}>+</button>
                         <div id='plainBurgerEgg'>0</div>
                         <button onClick={()=>{this.detract('plainBurgerEgg')}}>-</button>
+                        <div id='plainBurgerEggPrice'> {ToppingPriceModal.egg}$ </div>
                         <br/>
                         {/* --- */}
                       </div>
@@ -225,6 +231,7 @@ export class TakeOrderMenu extends Component<any,TakeAwayState>{
                         <button onClick={()=>{this.add('plainBurgerBlueCheese')}}>+</button>
                         <div id='plainBurgerBlueCheese'>0</div>
                         <button onClick={()=>{this.detract('plainBurgerBlueCheese')}}>-</button>
+                        <div id='plainBurgerBlueCheesePrice'> {ToppingPriceModal.blueCheese}$ </div>
                         {/* --- */}
                       </div>
                       <div className='toppingMenu' >
@@ -235,6 +242,7 @@ export class TakeOrderMenu extends Component<any,TakeAwayState>{
                         <button onClick={()=>{this.add('plainBurgerChiliPepers')}}>+</button>
                         <div id='plainBurgerChiliPepers'>0</div>
                         <button onClick={()=>{this.detract('plainBurgerChiliPepers')}}>-</button>
+                        <div id='plainBurgerChiliPepersPrice'> {ToppingPriceModal.chilliPepers}$ </div>
                       </div>
                       <br/>
                     <button onClick={()=>{this.newBurger('plainBurger')}}>Add</button>
@@ -255,6 +263,7 @@ export class TakeOrderMenu extends Component<any,TakeAwayState>{
                         <button onClick={()=>{this.add('cheeseBurgerOnions')}}>+</button>
                         <div id='cheeseBurgerOnions'>0</div>
                         <button onClick={()=>{this.detract('cheeseBurgerOnions')}}>-</button>
+                        <div id='cheeseBurgerOnionsPrice'> {ToppingPriceModal.onion}$ </div>
                         {/* ----- */}
                     </div>
                     <div className='toppingMenu'>
@@ -265,6 +274,7 @@ export class TakeOrderMenu extends Component<any,TakeAwayState>{
                         <button onClick={()=>{this.add('cheeseBurgerBacon')}}>+</button>
                         <div id='cheeseBurgerBacon'>0</div>
                         <button onClick={()=>{this.detract('cheeseBurgerBacon')}}>-</button>
+                        <div id='cheeseBurgerBaconPrice'> {ToppingPriceModal.bacon}$ </div>
                         {/* --- */}
                     </div>
                     <div className='toppingMenu'>
@@ -275,15 +285,17 @@ export class TakeOrderMenu extends Component<any,TakeAwayState>{
                         <button onClick={()=>{this.add('cheeseBurgerMushrooms')}}>+</button>
                         <div id='cheeseBurgerMushrooms'>0</div>
                         <button onClick={()=>{this.detract('cheeseBurgerMushrooms')}}>-</button>
+                        <div id='cheeseBurgerMushroomsPrice'> {ToppingPriceModal.mushroom}$ </div>
                     </div>
                     <div className='toppingMenu'>
                         <div id='cheeseBurgerEggIcon' className='toppingAnimation'>
-                          <div>Egg</div>
+                          <div>Fried Egg</div>
                           <div className='toppingMenuIcon' style={{backgroundImage:`url('/Morbiez/assets/images/egg-topping.svg')`}}></div>
                         </div>
                         <button onClick={()=>{this.add('cheeseBurgerEgg')}}>+</button>
                         <div id='cheeseBurgerEgg'>0</div>
                         <button onClick={()=>{this.detract('cheeseBurgerEgg')}}>-</button>
+                        <div id='cheeseBurgerEggPrice'> {ToppingPriceModal.egg}$ </div>
                         <br/>
                         {/* --- */}
                       </div>
@@ -295,6 +307,7 @@ export class TakeOrderMenu extends Component<any,TakeAwayState>{
                         <button onClick={()=>{this.add('cheeseBurgerBlueCheese')}}>+</button>
                         <div id='cheeseBurgerBlueCheese'>0</div>
                         <button onClick={()=>{this.detract('cheeseBurgerBlueCheese')}}>-</button>
+                        <div id='cheeseBurgerBlueCheesePrice'> {ToppingPriceModal.blueCheese}$ </div>
                         {/* --- */}
                       </div>
                       <div className='toppingMenu'>
@@ -305,6 +318,7 @@ export class TakeOrderMenu extends Component<any,TakeAwayState>{
                         <button onClick={()=>{this.add('cheeseBurgerChiliPepers')}}>+</button>
                         <div id='cheeseBurgerChiliPepers'>0</div>
                         <button onClick={()=>{this.detract('cheeseBurgerChiliPepers')}}>-</button>
+                        <div id='cheeseBurgerChiliPepersPrice'> {ToppingPriceModal.chilliPepers}$ </div>
                       </div>
                       <br/>
                     <button onClick={()=>{this.newBurger('cheeseBurger')}}>Add</button>

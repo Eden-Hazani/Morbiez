@@ -74,13 +74,13 @@
 .backCard1>input {
     position: absolute;
     margin-top: 150px;
-    right: 100px;
+    right: 20%;
 }
 
 .backCard1>span {
     position: absolute;
     margin-top: 165px;
-    right: 300px;
+    right: 280px;
 }
 
 
@@ -235,6 +235,12 @@
 }
 
 @media (max-width: 1250px) {
+    .formError{
+        position: absolute;
+        display: block;
+        margin-top: 35%;
+        left: 25%;
+    }
     .news {
         display: inline-block;
         width: fit-content;
