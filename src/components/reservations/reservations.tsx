@@ -6,7 +6,8 @@ import axios from 'axios';
 interface ReservationsState{
     showText:boolean;
     reservations: ReservationsModel;
-    errors: {fullnameError:string, dateError:string, NumberOfPeopleError:string};
+    errors: {fullnameError:string, dateError:string, NumberOfPeopleError:string,timeError:string};
+    
 }
 
 export class Reservations extends Component<any,ReservationsState>{
@@ -15,8 +16,20 @@ export class Reservations extends Component<any,ReservationsState>{
         this.state = {
             showText: false,
             reservations: new ReservationsModel(),
-            errors: { fullnameError: "*",dateError: '*',NumberOfPeopleError: '*'}
+            errors: { fullnameError: "*",dateError: '*',NumberOfPeopleError: '*', timeError:'*'}
         }
+    }
+    componentDidMount(){
+        document.body.style.backgroundImage = "url('/Morbiez/assets/images/reservation-background.jpg')"
+        this.props.onHandleToUpdate(false)
+        setTimeout(() => {
+            this.setState({showText:true})
+            this.timeOptions()
+        }, 1000);
+    }
+    componentWillUnmount(){
+        // removes the background image on component unmount so that the background will revert to the backgroup in the index.css files 
+        document.body.style.removeProperty('background-Image')
     }
     private setFullName = (args: ChangeEvent<HTMLInputElement>) =>{
         const fullname = args.target.value;
@@ -77,8 +90,6 @@ export class Reservations extends Component<any,ReservationsState>{
         if (numberOfPeople<0){
             NumberOfPeopleError = "Can't be negative!"
         }
-
-
         const reservations = {...this.state.reservations}
         reservations.numberOfPeople = numberOfPeople
         this.setState({reservations});
@@ -89,6 +100,56 @@ export class Reservations extends Component<any,ReservationsState>{
     } 
 
     // ------------------------------------------------------------------
+    private setTime= (args: ChangeEvent<HTMLSelectElement>) =>{
+        const time = args.target.value;
+        const hours = time.split(':')[0]
+        const minuets = time.split(':')[1]
+        const date = new Date();
+        const today = date.getTime()
+        const resDate = new Date(date.getFullYear(),date.getMonth(),date.getDate(),+hours,+minuets).getTime()
+
+        let timeError = '';
+        if (time === ""){
+            timeError = 'Missing Time Of Arrivel!'
+        }
+        console.log('time', today)
+        console.log('picked time',resDate)
+        if(resDate<today){
+            timeError = 'Cannot reserve table in the past'
+        }
+        const reservations = {...this.state.reservations}
+        reservations.timeOfArrivel = time
+        this.setState({reservations});
+
+        const errors = {...this.state.errors}
+        errors.timeError = timeError;
+        this.setState({errors});
+    } 
+
+    // ------------------------------------------------------------------
+
+    private timeOptions = () =>{
+        var sel = document.getElementById('selector');
+        let hour = 8;
+        let min = 0;
+        for(let i=23;hour<i;min= min + 30){
+            if(min === 60){
+                min = 0;
+                hour++
+            }
+            let opt = document.createElement('option');
+            if(hour<10){
+                opt.appendChild( document.createTextNode(`0${hour}:${min===0 ?'00':min}`) );
+            }
+            if(hour>=10){
+                opt.appendChild( document.createTextNode(`${hour}:${min===0 ?'00':min}`) );
+            }
+            opt.value = `${hour}:${min}`; 
+            sel.appendChild(opt); 
+        }
+        return null
+    }
+
     private addReservation = async() =>{
         try{
             if(!this.isFormLegal()){
@@ -109,17 +170,7 @@ export class Reservations extends Component<any,ReservationsState>{
             this.state.errors.fullnameError === '';
     }
     
-    componentDidMount(){
-        document.body.style.backgroundImage = "url('/Morbiez/assets/images/reservation-background.jpg')"
-        this.props.onHandleToUpdate(false)
-        setTimeout(() => {
-            this.setState({showText:true})
-        }, 2000);
-    }
-    componentWillUnmount(){
-        // removes the background image on component unmount so that the background will revert to the backgroup in the index.css files 
-        document.body.style.removeProperty('background-Image')
-    }
+
 
     public render(){
         const  {showText} = this.state
@@ -127,7 +178,7 @@ export class Reservations extends Component<any,ReservationsState>{
             <div className = 'reservation'>
                 {showText === false && <div id="LoadingGif"></div>}
                 {showText && 
-                        <div className = 'reservations'  data-aos='fade-up'>
+                        <div className = 'reservations' >
                             <h1>Reserve your table now!</h1>
                             <hr/>
                             <span className='fieldTitle'>Full Name</span>
@@ -141,6 +192,11 @@ export class Reservations extends Component<any,ReservationsState>{
                             <span className='fieldTitle'>Number of Diners</span>
                             <input type='number' value={this.state.reservations.numberOfPeople || undefined} onChange={this.setNumberOfPeople}/>
                             <span>{this.state.errors.NumberOfPeopleError}</span>
+                            <br /><br />
+                            <span className='fieldTitle'>Time Of Arrivel</span>
+                            <select id='selector' value={this.state.reservations.timeOfArrivel || undefined} onChange={this.setTime}>
+                            </select>
+                            <span>{this.state.errors.timeError}</span>
                             <br /><br />
                             <button onClick={this.addReservation}>Approve Reservation</button>
                         </div>

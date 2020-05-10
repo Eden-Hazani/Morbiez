@@ -4,6 +4,6 @@ export class ReservationsModel{
         public fullName?:string,
         public numberOfPeople?:number,
         public date?:string,
-        public timeOfArrivel?:number){
+        public timeOfArrivel?:string){
     }
 }
