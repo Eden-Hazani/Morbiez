@@ -20,21 +20,12 @@ export class Layout extends Component<any,LayoutState>{
         super(props)
         this.state = {showFooter : false}
     }
-    public componentDidMount(){
-        setTimeout(() => {
-            this.setState({showFooter:true})
-        }, 2000);
-    }
     public handleToUpdate = (boolean:boolean) =>{
-        this.setState({showFooter:boolean})
-        setTimeout(() => {
-            this.setState({showFooter:true})
-            // this is set on 100 mili sec becuse JAVASCRIPT can only do one thing at a time, so when the page loads after 2 secs it will jump to loading this function and that needs
-            // to happen instantly
-        }, 100);
+        this.setState({ showFooter: boolean})       
     }
+
+    
     public render(){
-        const {showFooter} = this.state;
         return(
             <div className ='layout'>
                 <BrowserRouter>
@@ -69,7 +60,7 @@ export class Layout extends Component<any,LayoutState>{
                     </Switch> 
                 </main>
                 <footer style={{zIndex:5}}>
-                   {showFooter? <ContactUs/>: <div></div>} 
+                   {this.state.showFooter ? <ContactUs/>: <div></div>} 
                 </footer>
                 </BrowserRouter>
             </div>
