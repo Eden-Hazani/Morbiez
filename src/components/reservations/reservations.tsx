@@ -118,7 +118,7 @@ export class Reservations extends Component<any,ReservationsState>{
                 timeError = 'Cannot reserve table in the past'
             }
         }
-        if(this.state.reservations.date === undefined){
+        if(this.state.reservations.date === ''){
             timeError = 'Must fill date first!'
         }
         if(time === 'Select Time'){
