@@ -56,9 +56,9 @@ export class Reservations extends Component<any,ReservationsState>{
 
     private setDate= (args: ChangeEvent<HTMLInputElement>) =>{
         const date = args.target.value;
-        const today = new Date().getTime()
-        const resDate = new Date(date).getTime()
-
+        const todayDate = new Date();
+        const today = new Date(+todayDate.getFullYear(),+todayDate.getMonth(),+todayDate.getDate()).getTime()
+        const resDate = new Date(+date.split('-')[0],+date.split('-')[1]-1,+date.split('-')[2]).getTime()
         let dateError = '';
         if (date === ""){
             dateError = 'Missing Date!'
@@ -73,6 +73,7 @@ export class Reservations extends Component<any,ReservationsState>{
         const errors = {...this.state.errors}
         errors.dateError = dateError;
         this.setState({errors});
+        return date
     } 
 
     // ------------------------------------------------------------------
@@ -102,21 +103,27 @@ export class Reservations extends Component<any,ReservationsState>{
     // ------------------------------------------------------------------
     private setTime= (args: ChangeEvent<HTMLSelectElement>) =>{
         const time = args.target.value;
-        const hours = time.split(':')[0]
-        const minuets = time.split(':')[1]
-        const date = new Date();
-        const today = date.getTime()
-        const resDate = new Date(date.getFullYear(),date.getMonth(),date.getDate(),+hours,+minuets).getTime()
-
         let timeError = '';
+        if(this.state.reservations.date){
+            const hours = time.split(':')[0]
+            const minuets = time.split(':')[1]
+            const date = new Date();
+            const today = date.getTime()
+           
+            const resDate = new Date(+this.state.reservations.date.split('-')[0],+this.state.reservations.date.split('-')[1]-1,
+                +this.state.reservations.date.split('-')[2],+hours,+minuets).getTime()
+            if(resDate<today){
+                timeError = 'Cannot reserve table in the past'
+            }
+        }
+        if(this.state.reservations.date === undefined){
+            timeError = 'Must fill date first!'
+        }
+        
         if (time === ""){
             timeError = 'Missing Time Of Arrivel!'
         }
-        console.log('time', today)
-        console.log('picked time',resDate)
-        if(resDate<today){
-            timeError = 'Cannot reserve table in the past'
-        }
+        
         const reservations = {...this.state.reservations}
         reservations.timeOfArrivel = time
         this.setState({reservations});
