@@ -92,7 +92,7 @@ export class Reservations extends Component<any,ReservationsState>{
             NumberOfPeopleError = "Can't be negative!"
         }
         const reservations = {...this.state.reservations}
-        reservations.numberOfPeople = numberOfPeople
+        reservations.numberOfPeople = `${numberOfPeople}`
         this.setState({reservations});
 
         const errors = {...this.state.errors}
@@ -119,7 +119,9 @@ export class Reservations extends Component<any,ReservationsState>{
         if(this.state.reservations.date === undefined){
             timeError = 'Must fill date first!'
         }
-        
+        if(time === 'Select Time'){
+            timeError = 'Pick Time Of Arrivel'
+        }
         if (time === ""){
             timeError = 'Missing Time Of Arrivel!'
         }
@@ -174,13 +176,15 @@ export class Reservations extends Component<any,ReservationsState>{
     private isFormLegal = () =>{
         return this.state.errors.NumberOfPeopleError === '' &&
             this.state.errors.dateError === '' &&
-            this.state.errors.fullnameError === '';
+            this.state.errors.fullnameError === '' &&
+            this.state.errors.timeError === '';
     }
     
 
 
     public render(){
         const  {showText} = this.state
+        
         return(
             <div className = 'reservation'>
                 {showText === false && <div id="LoadingGif"></div>}
@@ -201,7 +205,8 @@ export class Reservations extends Component<any,ReservationsState>{
                             <span>{this.state.errors.NumberOfPeopleError}</span>
                             <br /><br />
                             <span className='fieldTitle'>Time Of Arrivel</span>
-                            <select id='selector' value={this.state.reservations.timeOfArrivel || undefined} onChange={this.setTime}>
+                            <select id='selector' defaultValue={'DEFAULT'} value={this.state.reservations.timeOfArrivel || undefined} onChange={this.setTime}>
+                                <option value="DEFAULT" disabled hidden>Select Time</option>
                             </select>
                             <span>{this.state.errors.timeError}</span>
                             <br /><br />
