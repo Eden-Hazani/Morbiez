@@ -32,10 +32,11 @@ export class OrderPayment extends Component<any,OrderPaymentState>{
     }
     public componentWillUnmount(): void{
         this.unsubscribeStore() 
+        this.props.onHandleToUpdate(false)
     }
     public componentDidMount(){
-        this.props.onHandleToUpdate(false)
         setTimeout(() => {
+            this.props.onHandleToUpdate(true)
             this.setState({showText:true})
         
             // this function is inside the set timeout as the DIV with the id "totalPrice" is not yet constructed when the component mounts but only 2 secs afterwards
@@ -57,8 +58,24 @@ export class OrderPayment extends Component<any,OrderPaymentState>{
             }
             const vatPrice = totalPrice *1.17;
             document.getElementById("totalPrice").innerHTML = `Total + VAT : ${Math.floor(vatPrice)} $`;
-        }, 2000);
+        }, 1000);
     }
+
+    public getBurgerPrice = (ID:number):any =>{
+        let totalPrice = 0;
+        let burger = this.state.burger.filter(b=> b.id === ID)
+        totalPrice = totalPrice + burger[0].price;
+        if(this.state.toppings.length>=1){
+            let topping = this.state.toppings.filter(t=> t.id === ID)
+            Object.values(topping[0]).forEach(function(key,index){
+                if(index === 0){
+                    key = 0;
+                }
+                totalPrice = totalPrice + key
+        })
+        return totalPrice
+    }
+}
     
 
     public render(){
@@ -89,6 +106,9 @@ export class OrderPayment extends Component<any,OrderPaymentState>{
                                     <span>Drink - {burger.fanta || burger.sprite || burger.coke}</span>
                                     <br/>
                                     <span>Side - {burger.friedOnions || burger.mashedPotatos || burger.fries}</span>
+                                    <hr/>
+                                    <span>Price: </span>
+                                    <span>{this.getBurgerPrice(burger.id)}</span>
                                 </div>
                             </div>
                             )):<div className ='sideDishesPicked'>No Meals</div>}

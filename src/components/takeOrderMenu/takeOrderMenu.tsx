@@ -28,12 +28,15 @@ export class TakeOrderMenu extends Component<any,TakeAwayState>{
         sideDish: new SideDishModel(),
       }
     }
-   componentDidMount(){
-    window.scrollTo(0, 0)
+   public componentWillUnmount(){
     this.props.onHandleToUpdate(false)
+    }
+   public componentDidMount(){
+    window.scrollTo(0, 0)
      setTimeout(() => {
+       this.props.onHandleToUpdate(true)
        this.setState({showText:true})
-     }, 2000);
+     }, 1000);
    }
     private add = (product:string) =>{
       let lastVal = +document.getElementById(product).innerHTML;
@@ -220,7 +223,6 @@ export class TakeOrderMenu extends Component<any,TakeAwayState>{
                         <div id='plainBurgerEgg'>0</div>
                         <button onClick={()=>{this.detract('plainBurgerEgg')}}>-</button>
                         <div id='plainBurgerEggPrice'> {ToppingPriceModal.egg}$ </div>
-                        <br/>
                         {/* --- */}
                       </div>
                       <div className='toppingMenu'>
@@ -296,7 +298,6 @@ export class TakeOrderMenu extends Component<any,TakeAwayState>{
                         <div id='cheeseBurgerEgg'>0</div>
                         <button onClick={()=>{this.detract('cheeseBurgerEgg')}}>-</button>
                         <div id='cheeseBurgerEggPrice'> {ToppingPriceModal.egg}$ </div>
-                        <br/>
                         {/* --- */}
                       </div>
                       <div className='toppingMenu'>

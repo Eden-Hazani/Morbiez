@@ -18,14 +18,16 @@ export class TakeAway extends Component<any,TakeAwayState>{
     }
     componentDidMount(){
         document.body.style.backgroundImage = "url('/Morbiez/assets/images/takeout-background.jpg')"
-        this.props.onHandleToUpdate(false)
         setTimeout(() => {
             this.setState({showText:true})
-        }, 2000);
+            this.props.onHandleToUpdate(true)
+        }, 1000);
     }
     componentWillUnmount(){
         // removes the background image on component unmount so that the background will revert to the backgroup in the index.css files 
         document.body.style.removeProperty('background-Image')
+        this.props.onHandleToUpdate(false)
+
     }
     public render(){
         const  {showText} = this.state

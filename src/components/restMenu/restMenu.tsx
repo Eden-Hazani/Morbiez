@@ -12,15 +12,19 @@ export class RestMenu extends Component<any,RestMenuState>{
         super(props)
         this.state = {showText:false}
     }
-      componentDidMount(){
-        this.props.onHandleToUpdate(false)
+    public  componentDidMount(){
         setTimeout(() => {
             this.setState({showText:true})
-        }, 2000);
+            this.props.onHandleToUpdate(true)
+        }, 1000);
         AOS.init({
           duration : 1000
         })
       }
+    public componentWillUnmount(){
+        this.props.onHandleToUpdate(false)
+
+    }
     public render(){
         const  {showText} = this.state
         return(

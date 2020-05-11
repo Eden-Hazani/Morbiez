@@ -51,7 +51,7 @@ export class ContactUs extends Component<any,ContactUsState>{
     componentDidMount(){
         setTimeout(() => {
             this.setState({showText:true})
-        }, 2000);
+        }, 1000);
     }
 
     render(){

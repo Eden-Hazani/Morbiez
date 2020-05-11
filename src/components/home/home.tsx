@@ -16,13 +16,17 @@ export class Home extends Component <any,HomeState>{
         this.state = {showText: false}
     }
     componentDidMount(){
-        this.props.onHandleToUpdate(false)
         setTimeout(() => {
             this.setState({showText:true})
-        }, 2000);
+            this.props.onHandleToUpdate(true)
+        }, 1000);
         AOS.init({
           duration : 1000
         })
+      }
+      public componentWillUnmount(){
+        this.props.onHandleToUpdate(false)
+
       }
 
 
