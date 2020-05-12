@@ -16,6 +16,13 @@ div>p {
     margin-top: 15px;
     border: 1px black solid;
 }
+.drinks{
+    background: linear-gradient(0deg, rgba(255, 0, 149, 0.178), rgba(255, 0, 149, 0.205));
+    padding: 15px;
+    border-radius: 120px;
+    margin-top: 15px;
+    border: 1px black solid;
+}
 
 hr {
     height: .5px;
@@ -50,4 +57,34 @@ div>h3 {
 hr {
     width: 50%;
     height: 1px;
+}
+.scrollButtons{
+    position: -webkit-sticky; 
+    position: sticky;
+    top: 0;
+    background-color: rgba(216, 112, 147, 0.61);
+    padding: 10px;
+    border-radius: 25px;
+}
+
+.scrollButtons>a{
+    color: black;
+    margin: 10px;
+    background-color: rgba(255, 255, 255, 0.397);
+    border-radius: 15px;
+    padding: 5px;
+    font-size: 25px;
+    text-decoration: none;
+}
+
+.drinks>h5{
+    font-size: 20px;
+    color: wheat;
+    text-shadow: 1px 1px 1px black;
+}
+.drinks>h3{
+    font-size: 35px;
+    color: wheat;
+    text-shadow: 1px 1px 1px black;
+
 }

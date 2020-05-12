@@ -36,7 +36,12 @@ export class RestMenu extends Component<any,RestMenuState>{
                         <div>
                         <h2>Menu</h2>
                         </div>
-                        <span>- Burgers -</span>
+                        <div className='scrollButtons'>
+                            <a href='#sideSection'>Sides</a>
+                            <a href='#burgerSection'>Burgers</a>
+                            <a href='#drinksSection'>Drinks</a>
+                        </div>
+                        <span id='burgerSection'>- Burgers -</span>
                         <br/>
                         <div className='dish'>
                             <h3> - Burger - </h3>
@@ -55,7 +60,7 @@ export class RestMenu extends Component<any,RestMenuState>{
                         </div>
                         <br/>
                         <br/>
-                        <span>- Sides -</span>
+                        <span id='sideSection'>- Sides -</span>
                         <div className = 'dish sideDish'>
                             <h3>Fries</h3>
                             <hr/>
@@ -68,6 +73,14 @@ export class RestMenu extends Component<any,RestMenuState>{
                             <p>Hot chili wings, Hot as Chili Wings should be </p>
                             <br/>
                             <p>Toppings - Cheese Mountain, Bacon, Antricot Chunks, Chile Pepers - 0.5$ -</p>
+                        </div>
+                        <span id='drinksSection'>- Drinks -</span>
+                        <div className = 'drinks'>
+                            <h5>Coke</h5>
+                            <h5>Pepsi</h5>
+                            <h5>Sprite</h5>
+                            <h5>Fanta</h5>  
+                            <h3>All drinks are 2$ each</h3>                          
                         </div>
                     </div>
                 </React.Fragment>
