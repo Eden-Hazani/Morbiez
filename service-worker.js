@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/Morbiez/precache-manifest.fd3d4815695c175a4e36034d3ff46f43.js"
+  "/Morbiez/precache-manifest.d48a8d9e6cccd3ad8941ffe8d0ed34ab.js"
 );
 
 self.addEventListener('message', (event) => {
