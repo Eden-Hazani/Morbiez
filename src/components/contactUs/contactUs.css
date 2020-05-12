@@ -63,9 +63,10 @@ form {
 
 .contactRest>h3 {
     text-shadow: 2px 2px 2px black;
-    text-align: left;
-    margin-left: 620px;
+    right: 30%;
     color: white;
+    position: relative;
+    display: inline-block;
 }
 
 .contactRest>span {
@@ -122,6 +123,7 @@ form>button {
 
 @media (max-width: 1250px) {
     .contactRest>h3 {
+        right: 0;
         margin-left: 0px;
         text-align: center;
     }

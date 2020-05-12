@@ -62,8 +62,9 @@ hr {
     position: -webkit-sticky; 
     position: sticky;
     top: 0;
-    background-color: rgba(216, 112, 147, 0.61);
+    background-color: rgba(216, 112, 147, 0.658);
     padding: 10px;
+    border: black 1px solid;
     border-radius: 25px;
 }
 
@@ -75,6 +76,11 @@ hr {
     padding: 5px;
     font-size: 25px;
     text-decoration: none;
+}
+
+.scrollButtons>a:active{
+    color: wheat;
+    background-color: violet;
 }
 
 .drinks>h5{
