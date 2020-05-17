@@ -4,12 +4,12 @@ export class BurgerModel{
         public burgerType?:string,
         public price?:number,
         // --------------------------------sides
-        public fries?:any,
-        public mashedPotatos?:any,
-        public friedOnions?:any,
+        // public fries?:any,
+        // public mashedPotatos?:any,
+        // public friedOnions?:any,
+        public sides?:any,
         // --------------------------------drinks
-        public coke?:any,
-        public sprite?:any,
-        public fanta?:any){
+        public drink?:any
+        ){
     }
 }

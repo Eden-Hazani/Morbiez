@@ -35,6 +35,7 @@ export class OrderPayment extends Component<any,OrderPaymentState>{
         this.props.onHandleToUpdate(false)
     }
     public componentDidMount(){
+        window.scrollTo(0, 0)
         setTimeout(() => {
             this.props.onHandleToUpdate(true)
             this.setState({showText:true})
@@ -45,19 +46,26 @@ export class OrderPayment extends Component<any,OrderPaymentState>{
                 totalPrice = totalPrice + burger.price
             }
             if(this.state.toppings.length>=1){
-                let topping = this.state.toppings[this.state.toppings.length -1];
-                Object.values(topping).forEach(function(key,index){
-                    if(index === 0){
-                        key = 0;
-                    }
-                    totalPrice = totalPrice + key
-                })
+                let topping = this.state.toppings;
+                for(let item of topping){
+                    let totalTopping = 0;
+                    Object.values(item).forEach(function(key,index){
+                        if(index === 0){
+                            key = 0;
+                        }
+                        totalTopping = totalTopping+key
+                    })
+                    totalPrice = totalPrice + totalTopping
+                }
+               
             }
+
             for(let dish of this.state.sideDish){
                 totalPrice = totalPrice + dish.price
             }
             const vatPrice = totalPrice *1.17;
-            document.getElementById("totalPrice").innerHTML = `Total + VAT : ${Math.floor(vatPrice)} $`;
+
+            document.getElementById("totalPrice").innerHTML = `Total + VAT : ${vatPrice} $`;
         }, 1000);
     }
 
@@ -103,12 +111,12 @@ export class OrderPayment extends Component<any,OrderPaymentState>{
                                     </div>:<div className='burgerToppings'>No Toppings</div>}
                                     <br/>
                                 <div className='sidesAndDrinks'>
-                                    <span>Drink - {burger.fanta || burger.sprite || burger.coke}</span>
+                                    <span>Drink - {burger.drink}</span>
                                     <br/>
-                                    <span>Side - {burger.friedOnions || burger.mashedPotatos || burger.fries}</span>
+                                    <span>Side - {burger.sides}</span>
                                     <hr/>
                                     <span>Price: </span>
-                                    <span>{this.getBurgerPrice(burger.id)}</span>
+                                    <span>{this.getBurgerPrice(burger.id)}$</span>
                                 </div>
                             </div>
                             )):<div className ='sideDishesPicked'>No Meals</div>}

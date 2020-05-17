@@ -32,7 +32,6 @@ export class TakeOrderMenu extends Component<any,TakeAwayState>{
     this.props.onHandleToUpdate(false)
     }
    public componentDidMount(){
-    window.scrollTo(0, 0)
      setTimeout(() => {
        this.props.onHandleToUpdate(true)
        this.setState({showText:true})
@@ -70,28 +69,38 @@ export class TakeOrderMenu extends Component<any,TakeAwayState>{
             inputOptions: {
               fries: 'Fries',
               mashedPotatos: 'Mashed Potatos',
-              friedOnions: 'Fried Onions',},
+              friedOnions: 'Fried Onions',
+              noSide: 'No Side'},
             inputPlaceholder: 'Select a Side',
-            showCancelButton: true,
+            allowOutsideClick: false,
             inputValidator: (value) => {
               return new Promise((resolve) => {
                   if(value === 'fries'){
                     const burger = {...this.state.burger};
-                    burger.fries = 'Fries';
+                    burger.sides = 'Fries';
                     this.setState({burger})
                     resolve()
                   }
                   if(value === 'mashedPotatos'){
                     const burger = {...this.state.burger};
-                    burger.mashedPotatos = 'Mashed Potatos';
+                    burger.sides = 'Mashed Potatos';
                     this.setState({burger})
                     resolve()
                   }
                   if(value === 'friedOnions'){
                     const burger = {...this.state.burger};
-                    burger.friedOnions = 'Fried Onions';
+                    burger.sides = 'Fried Onions';
                     this.setState({burger})
                     resolve()
+                  }
+                  if(value === 'noSide'){
+                    const burger = {...this.state.burger};
+                    burger.sides = 'No Side';
+                    this.setState({burger})
+                    resolve()
+                  }
+                  else{
+                    resolve('Please Select An Option')
                   }
               })
             }
@@ -102,28 +111,38 @@ export class TakeOrderMenu extends Component<any,TakeAwayState>{
             inputOptions: {
               coke: 'Coke',
               sprite: 'Sprite',
-              fanta: 'Fanta',},
+              fanta: 'Fanta',
+              noDrink: 'No Drink'},
             inputPlaceholder: 'Select a Drink',
-            showCancelButton: true,
+            allowOutsideClick: false,
             inputValidator: (value) => {
               return new Promise((resolve) => {
                   if(value === 'coke'){
                     const burger = {...this.state.burger};
-                    burger.coke = 'Coke';
+                    burger.drink = 'Coke';
                     this.setState({burger})
                     resolve()
                   }
                   if(value === 'sprite'){
                     const burger = {...this.state.burger};
-                    burger.sprite = 'Sprite';
+                    burger.drink = 'Sprite';
                     this.setState({burger})
                     resolve()
                   }
                   if(value === 'fanta'){
                     const burger = {...this.state.burger};
-                    burger.fanta = 'Fanta';
+                    burger.drink = 'Fanta';
                     this.setState({burger})
                     resolve()
+                  }
+                  if(value === 'noDrink'){
+                    const burger = {...this.state.burger};
+                    burger.drink = 'No Drink';
+                    this.setState({burger})
+                    resolve()
+                  }
+                  else{
+                    resolve('Please Select An Option')
                   }
               })
             }

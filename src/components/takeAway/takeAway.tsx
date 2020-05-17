@@ -17,6 +17,7 @@ export class TakeAway extends Component<any,TakeAwayState>{
             showText: false}
     }
     componentDidMount(){
+        window.scrollTo(0, 0)
         document.body.style.backgroundImage = "url('/Morbiez/assets/images/takeout-background.jpg')"
         setTimeout(() => {
             this.setState({showText:true})

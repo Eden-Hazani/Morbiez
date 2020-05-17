@@ -100,17 +100,17 @@ export class AddItem extends Component<any,AddItemState>{
                                 <span>Toppings:</span>
                                 <React.Fragment>
                                     <div>
-                                        {t.Onions === 0 || <span className='topping'>&nbsp;- Carmelized Onions - Amount: {t.Onions}<br/></span>}
-                                        {t.Bacon=== 0  || <span className='topping'>&nbsp;- Bacon Jam - Amount: {t.Bacon}<br/></span>}
-                                        {t.Mushrooms=== 0  || <span className='topping'>&nbsp;- Mushrooms - Amount: {t.Mushrooms}<br/></span>}
-                                        {t.BlueCheese=== 0  || <span className='topping'>&nbsp;- Blue Cheese - Amount: {t.BlueCheese}<br/></span>}
-                                        {t.ChiliPepers === 0  || <span className='topping'>&nbsp;- Chili Pepers - Amount: {t.ChiliPepers}<br/></span>}
-                                        {t.Egg === 0  || <span className='topping'>&nbsp;- Egg - Amount: {t.Egg}</span>}
+                                        {t.Onions === 0 || <span className='topping'>&nbsp;- Carmelized Onions -  {t.Onions}$<br/></span>}
+                                        {t.Bacon=== 0  || <span className='topping'>&nbsp;- Bacon Jam - {t.Bacon}$<br/></span>}
+                                        {t.Mushrooms=== 0  || <span className='topping'>&nbsp;- Mushrooms - {t.Mushrooms}$<br/></span>}
+                                        {t.BlueCheese=== 0  || <span className='topping'>&nbsp;- Blue Cheese - {t.BlueCheese}$<br/></span>}
+                                        {t.ChiliPepers === 0  || <span className='topping'>&nbsp;- Chili Pepers - {t.ChiliPepers}$<br/></span>}
+                                        {t.Egg === 0  || <span className='topping'>&nbsp;- Egg - {t.Egg}$</span>}
                                     </div>  
                                     <hr/>
-                                    <h1 className='sides'>Side - {b.fries || b.mashedPotatos || b.friedOnions}</h1>
+                                    <h1 className='sides'>Side - {b.sides}</h1>
                                     <br/>
-                                    <h1 className='sides'>Drink - {b.coke || b.sprite || b.fanta}</h1>
+                                    <h1 className='sides'>Drink - {b.drink}</h1>
                                     <hr/>
                                     <span id={`Price${b.id}`}>Price - {+b.price+(t.Onions)+(t.Bacon)+(t.Mushrooms)+(t.BlueCheese)+(t.ChiliPepers)+(t.Egg)}$</span>
                                     <br/>

@@ -20,6 +20,7 @@ export class Reservations extends Component<any,ReservationsState>{
         }
     }
       componentDidMount(){
+        window.scrollTo(0, 0)
       document.body.style.backgroundImage = "url('/Morbiez/assets/images/reservation-background.jpg')"
       setTimeout(() => {
           this.setState({showText:true})

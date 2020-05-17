@@ -16,6 +16,8 @@ export class Home extends Component <any,HomeState>{
         this.state = {showText: false}
     }
     componentDidMount(){
+        window.scrollTo(0, 0)
+
         setTimeout(() => {
             this.setState({showText:true})
             this.props.onHandleToUpdate(true)
