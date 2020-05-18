@@ -33,7 +33,7 @@
 }
 
 .burger {
-    background-color: rgba(245, 222, 179, 0.575);
+    background-color: rgba(255, 192, 75, 0.815);
     border-radius: 45px;
     border: 1px black solid;
 }
@@ -63,7 +63,7 @@
 }
 
 .cheeseBurger {
-    background-color: rgba(245, 222, 179, 0.575);
+    background-color: rgba(255, 192, 75, 0.815);
     border-radius: 45px;
     border: 1px black solid;
 }
@@ -98,7 +98,7 @@
     font-family: quoteText;
 }
 .wings{
-    background-color: rgba(245, 222, 179, 0.575);
+    background-color: rgba(255, 192, 75, 0.815);
     border-radius: 45px;
     border: 1px black solid;
 }

@@ -57,7 +57,7 @@ export class ContactUs extends Component<any,ContactUsState>{
     render(){
         const  {showText} = this.state
         return(
-            <div className='contactUs'>
+            <div className='contactUs' id='contactUs'>
                 {showText && 
                 <React.Fragment>
                     <div className='contactRest'>
