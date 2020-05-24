@@ -35,7 +35,7 @@ export class Home extends Component <any,HomeState>{
         document.getElementById(`${element}`).classList.add("clickedanimation");
         setTimeout(() => {
             document.getElementById(`${element}`).classList.remove("clickedanimation");
-        }, 500);
+        }, 1000);
       }
 
     public render(){

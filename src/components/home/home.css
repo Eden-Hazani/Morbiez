@@ -29,7 +29,7 @@
 
 
 .clickedanimation{
-    animation: jumpMenuActive .5s ;
+    animation: jumpMenuActive 1s ;
 }
 
 .jumpMenu>a>span{
@@ -132,4 +132,8 @@ hr {
     .chefTxt {
         padding: 0px;
     }
+    .jumpMenu{
+        display: none;
+    }
+
 }
