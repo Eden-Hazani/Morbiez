@@ -82,7 +82,6 @@ header {
 @media (max-width: 768px) {
     .layout>main {
         grid-column: span 10/12;
-
     }
     .layout>header {
         height: 100px;

@@ -49,8 +49,6 @@ export class Home extends Component <any,HomeState>{
                         <a href='#flipBoards' id='clickFlipBoards' onClick={() => this.clickedJumpMenu('clickFlipBoards')}><span>&#9632;</span> Flip Boards</a>
                         <hr/>
                         <a href='#aboutUs' id='clickAboutUs' onClick={() => this.clickedJumpMenu('clickAboutUs')}><span>&#9632;</span> About Us</a>
-                        <hr/>
-                        <a href='#contactUs' id='clickContactUs' onClick={() => this.clickedJumpMenu('clickContactUs')}><span>&#9632;</span> Contact Us</a>
                     </div>
                     <div data-aos='fade-up'>
                         <div>
@@ -62,7 +60,7 @@ export class Home extends Component <any,HomeState>{
                             <div>
                                 <ImageSilder/>
                             </div>
-                            <div id='flipBoards'>
+                            <div id='flipBoards' data-aos="zoom-in-left">
                                 <News/>
                             </div>
                             <div className='about'  data-aos="zoom-in-up">
@@ -78,6 +76,27 @@ export class Home extends Component <any,HomeState>{
                                         <br/>
                                             -Aharon Cohen-
                                         </p>
+                                </div>
+                                <div className='resturant'>
+                                    <div className='kitchen'></div>
+                                    <div className='resturantText'>Opend in Febuary 2001 Morbize has always taken pride in serving 
+                                        simple yet delicious burgers.
+                                        <br/>
+                                        <hr/>
+                                        serving over 2400 meals a day we are one of Tel Aviv's most iconic burger joints.    
+                                    </div>
+                                </div>
+                                <div className='ourBurgers'>
+                                    <div className='cow' data-aos="zoom-in-left"></div>
+                                    <div className='ourBurgersTxt' data-aos="zoom-in-up">We use the best parts in the market,
+                                        <br/>
+                                        <br/>
+                                        The fries and onion rings are also provided from a special farm from the Golan heights
+                                        <br/>
+                                        <br/>
+                                        coming to your burger stright from our private butcher!
+                                    </div>
+                                    <div className='pig' data-aos="zoom-in-right"></div>
                                 </div>
                             </div>
                         </div>
