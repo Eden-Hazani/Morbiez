@@ -63,8 +63,8 @@ export class Home extends Component <any,HomeState>{
                             <div id='flipBoards' data-aos="zoom-in-left">
                                 <News/>
                             </div>
-                            <div className='about'  data-aos="zoom-in-up">
-                                <div className ='mainChef' id='aboutUs'>
+                            <div className='about'  data-aos="zoom-in-up"  id='aboutUs'>
+                                <div className ='mainChef'>
                                     <div data-aos="zoom-in-up">
                                         <h4> - Aharon Cohen - </h4>
                                         <hr/>
@@ -91,10 +91,10 @@ export class Home extends Component <any,HomeState>{
                                     <div className='ourBurgersTxt' data-aos="zoom-in-up">We use the best parts in the market,
                                         <br/>
                                         <br/>
-                                        The fries and onion rings are also provided from a special farm from the Golan heights
-                                        <br/>
-                                        <br/>
                                         coming to your burger stright from our private butcher!
+                                        <br/>
+                                        <br/>
+                                        The fries and onion rings are also provided from a special farm from the Golan heights
                                     </div>
                                     <div className='pig' data-aos="zoom-in-right"></div>
                                 </div>

@@ -84,6 +84,14 @@ export class OrderPayment extends Component<any,OrderPaymentState>{
         return totalPrice
     }
 }
+private getToppingObject =(objects)=>{
+    return Object.entries(objects).map((key,index)=>{
+        if(index === 0){
+            key[1] = 0
+        }
+        return key[1] === 0 ||<span>{key[0]} {key[1]} $<br/></span>; 
+    })    
+}
     
 
     public render(){
@@ -102,12 +110,7 @@ export class OrderPayment extends Component<any,OrderPaymentState>{
                                 {this.state.toppings.length>=1? <div className='burgerToppings'>
                                         <hr/>
                                         <h3>Toppings:</h3>
-                                       {topping.Onions === 0 ||<span>Caramelized Onions {+topping.Onions} $<br/></span>}
-                                       {topping.Bacon === 0 || <span> Bacon Jam {+topping.Bacon} $<br/></span>}
-                                       {topping.Mushrooms === 0 ||<span> Mushrooms {+topping.Mushrooms} $<br/></span>}
-                                       {topping.Egg === 0 ||<span> Egg {+topping.Egg} $<br/></span>}
-                                       {topping.BlueCheese === 0 ||<span> Blue Cheese {+topping.BlueCheese} $<br/></span>}
-                                       {topping.ChiliPepers === 0 || <span> Chili Pepers {+topping.ChiliPepers} $</span>}
+                                        {this.getToppingObject(topping)}
                                     </div>:<div className='burgerToppings'>No Toppings</div>}
                                     <br/>
                                 <div className='sidesAndDrinks'>

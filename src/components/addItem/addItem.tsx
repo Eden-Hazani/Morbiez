@@ -82,6 +82,24 @@ export class AddItem extends Component<any,AddItemState>{
             e.preventDefault()
         } 
     }
+    private returnToppingObjects = (objects) =>{
+            return Object.entries(objects).map((key,index)=>{
+                if(index === 0){
+                    key[1] = 0
+                }
+                return key[1] === 0 || <span className='topping'>&nbsp;- {key[0]} -  {key[1]} $<br/></span>; 
+            })    
+    }
+    private getPrice =(objects)=>{
+        let price = 0;
+        Object.entries(objects).map((key:any,index)=>{
+            if(index === 0){
+                key[1] = 0
+            }
+            price = price + key[1];
+        })  
+        return price;  
+    }
 
 
     
@@ -100,19 +118,14 @@ export class AddItem extends Component<any,AddItemState>{
                                 <span>Toppings:</span>
                                 <React.Fragment>
                                     <div>
-                                        {t.Onions === 0 || <span className='topping'>&nbsp;- Carmelized Onions -  {t.Onions}$<br/></span>}
-                                        {t.Bacon=== 0  || <span className='topping'>&nbsp;- Bacon Jam - {t.Bacon}$<br/></span>}
-                                        {t.Mushrooms=== 0  || <span className='topping'>&nbsp;- Mushrooms - {t.Mushrooms}$<br/></span>}
-                                        {t.BlueCheese=== 0  || <span className='topping'>&nbsp;- Blue Cheese - {t.BlueCheese}$<br/></span>}
-                                        {t.ChiliPepers === 0  || <span className='topping'>&nbsp;- Chili Pepers - {t.ChiliPepers}$<br/></span>}
-                                        {t.Egg === 0  || <span className='topping'>&nbsp;- Egg - {t.Egg}$</span>}
+                                        {this.returnToppingObjects(t)}
                                     </div>  
                                     <hr/>
                                     <h1 className='sides'>Side - {b.sides}</h1>
                                     <br/>
                                     <h1 className='sides'>Drink - {b.drink}</h1>
                                     <hr/>
-                                    <span id={`Price${b.id}`}>Price - {+b.price+(t.Onions)+(t.Bacon)+(t.Mushrooms)+(t.BlueCheese)+(t.ChiliPepers)+(t.Egg)}$</span>
+                                    <span id={`Price${b.id}`}>Price - {+b.price+this.getPrice(t)}$</span>
                                     <br/>
                                     <br/>
                                     <button onClick={()=>{this.removeItem(b.id)}}>Delete Item</button>
