@@ -4,8 +4,6 @@ import { BurgerModel } from '../../models/burgerModel';
 import { Unsubscribe } from 'redux';
 import { store } from '../../redux/store';
 import { ToppingModel } from '../../models/toppingModule';
-import swal from 'sweetalert';
-import { Redirect } from 'react-router-dom';
 import { SideDishModel } from '../../models/sideDishModel';
 
 
