@@ -1,0 +1,160 @@
+hr {
+    height: 1px;
+}
+
+@font-face {
+    font-family: menuFont;
+    src: url("/Morbiez/assets/fonts/menuFont.otf");
+}
+
+.menuIcon {
+    background-size: 42px;
+    width: 42px;
+    height: 42px;
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+}
+
+.menuMenuIcon {
+    background-image: url('/Morbiez/assets/images/menuMenu.svg');
+}
+
+.menuBurgerIcon {
+    background-image: url('/Morbiez/assets/images/menuBurger.svg');
+}
+
+.menuReserveIcon {
+    background-image: url('/Morbiez/assets/images/menuReserve.svg');
+}
+
+.menuDeliverIcon{
+    background-image: url('/Morbiez/assets/images/menu-delivery.svg');
+}
+
+/* Position and sizing of burger button */
+
+.bm-burger-button {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    left: 36px;
+    top: 36px;
+}
+
+
+/* Color/shape of burger icon bars */
+
+.bm-burger-bars {
+    background: #373a47;
+}
+
+
+/* Color/shape of burger icon bars on hover*/
+
+.bm-burger-bars-hover {
+    background: #a90000;
+}
+
+
+/* Position and sizing of clickable cross button */
+
+.bm-cross-button {
+    height: 24px;
+    width: 24px;
+}
+
+
+/* Color/shape of close button cross */
+
+.bm-cross {
+    background: #bdc3c7;
+}
+
+
+/*
+  Sidebar wrapper styles
+  Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
+  */
+
+.bm-menu-wrap {
+    position: fixed;
+    height: 100%;
+}
+
+
+/* General sidebar styles */
+
+.bm-menu {
+    background: #373a4725;
+    padding: 2em 1em 0;
+}
+
+
+/* Morph shape necessary with bubble or elastic */
+
+.bm-morph-shape {
+    fill: #53325a;
+}
+
+
+/* Wrapper for item list */
+
+.bm-item-list {
+    color: #b8b7ad;
+    overflow-y: hidden;
+    width: 240px;
+}
+
+
+/* Individual item */
+
+.bm-item>div {
+    line-height: normal;
+}
+
+.bm-item {
+    color: rgb(245, 245, 245);
+    margin-top: 50px;
+    margin-left: 27px;
+    font-size: 2rem;
+    text-decoration: none;
+    font-family: neonFont;
+    text-shadow: 1px 1px 1px black;
+    outline: none;
+    display: flex;
+}
+
+.menuFlex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.bm-item:hover {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+}
+
+
+/* Styling of overlay */
+
+.menuOverlay {
+    background: rgba(0, 0, 0, 0.3);
+    z-index: auto;
+}
+
+@media (max-width: 1250px) {
+    .bm-burger-button {
+        width: 50px;
+        height: 50px;
+        left: 15px;
+        top: 100px;
+    }
+    .bm-menu-wrap {
+        left: 0px;
+        top: 0px;
+    }
+    .menuOverlay,
+    .bm-overlay {
+        opacity: 0 !important;
+    }
+}

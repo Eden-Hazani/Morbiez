@@ -1,0 +1,215 @@
+.takeAwayItem {
+    width: 600px;
+    height: 1000px;
+    background: linear-gradient(0deg, rgba(247, 0, 255, 0.815), rgba(225, 0, 255, 0.212));
+    border-radius: 30px;
+}
+
+.takeAwayItem>h1 {
+    font-size: 40px;
+}
+
+.takeAway span {
+    font-size: 20px;
+    font-weight: 600;
+    color: wheat;
+    text-shadow: 2px 2px 1px black;
+}
+
+.marginSpan {
+    margin: 20px;
+}
+
+.order {
+    display: inline-block;
+    margin-right: 400px;
+}
+
+.takeAwayItem {
+    display: inline-block;
+    position: absolute;
+    right: 0px;
+}
+
+.burger {
+    margin-top: 40px;
+    background-color: rgba(245, 222, 179, 0.575);
+    border-radius: 45px;
+    border: 1px black solid;
+}
+
+.burger>h1 {
+    display: block;
+    font-size: 30px;
+    margin-bottom: 0px;
+}
+
+.burger>h3 {
+    margin-top: 0px;
+    font-size: 30px;
+    color: white;
+    text-shadow: 2px 2px 1px black;
+}
+
+.burger>button {
+    margin: 15px;
+    background-color: wheat;
+    border: 1px black solid;
+    border-radius: 10px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.cheeseBurger {
+    background-color: rgba(245, 222, 179, 0.575);
+    border-radius: 45px;
+    border: 1px black solid;
+}
+
+.cheeseBurger>h1 {
+    display: block;
+    font-size: 30px;
+    margin-bottom: 0px;
+}
+
+.cheeseBurger>h3 {
+    margin-top: 0px;
+    font-size: 30px;
+    color: white;
+    text-shadow: 2px 2px 1px black;
+}
+
+.topping {
+    color: white;
+    text-shadow: 2px 2px 1px black;
+    font-weight: 600;
+    font-family: quoteText;
+}
+
+.wings {
+    background-color: rgba(245, 222, 179, 0.575);
+    border-radius: 45px;
+    border: 1px black solid;
+}
+
+.wings>h3,
+.wings>div {
+    color: white;
+    text-shadow: 1px 2px 2px black;
+}
+
+.wings>div {
+    font-size: 30px;
+    font-family: quoteText;
+}
+
+.sideDish>button {
+    margin: 15px;
+    background-color: wheat;
+    border: 1px black solid;
+    border-radius: 10px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.toppingMenu {
+    display: inline-block;
+    margin: 10px;
+    width: 150px;
+}
+
+.toppingMenuIcon {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background-size: 50px;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.toppingMenu>div {
+    color: white;
+    text-shadow: 1px 2px 2px black;
+    font-family: quoteText;
+    font-size: 25px;
+    display: contents;
+}
+
+.sideDishIcon {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background-size: 100px;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.sideDish {
+    margin-top: 40px;
+    background-color: rgba(245, 222, 179, 0.575);
+    border-radius: 45px;
+    border: 1px black solid;
+    font-family: quoteText;
+    color: white;
+    font-size: 30px;
+    text-shadow: 1px 2px 2px black;
+}
+
+.animationAdd {
+    animation: iconAniUp .2s forwards;
+}
+
+.animationRemove {
+    animation: iconAniDown .2s forwards;
+}
+
+.toppingAnimation {
+    position: relative;
+}
+
+.toppingMenu>*:last-child {
+    display: block;
+}
+
+@keyframes iconAniUp {
+    0% {
+        bottom: 0px;
+    }
+    50% {
+        bottom: 10px;
+    }
+    100% {
+        bottom: 0px;
+    }
+}
+
+@keyframes iconAniDown {
+    0% {
+        top: 0px;
+    }
+    50% {
+        top: 10px;
+    }
+    100% {
+        top: 0px;
+    }
+}
+
+@media (max-width: 1250px) {
+    .order {
+        position: relative;
+        display: block;
+        margin-right: 0px;
+    }
+    .burger>span,
+    .cheeseBurger>span {
+        display: block;
+    }
+    .layout>footer {
+        margin-top: 500px;
+    }
+}

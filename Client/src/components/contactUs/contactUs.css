@@ -1,0 +1,161 @@
+.contactUs {
+    background: linear-gradient(0deg, rgb(38, 0, 39), rgba(177, 0, 162, 0.808),rgba(231, 0, 212, 0.301));
+    border: 1px black solid;
+}
+
+form {
+    margin-top: 50px;
+    vertical-align:top;
+
+}
+
+.textInput {
+    margin-right: 250px;
+}
+
+.textInput>.errorSpan {
+    position: absolute;
+    color: red;
+    text-shadow: 1px 2px 1px black;
+}
+
+.textInput>label>input {
+    height: 20px;
+    flex: 0 0 200px;
+    margin-left: 10px;
+    border: 1px white solid;
+}
+
+.textInput>label {
+    font-family: quoteText;
+    font-size: 25px;
+    color: white;
+    margin-top: 15px;
+    text-shadow: 1px 2px 1px black;
+
+}
+
+.textField {
+    margin-right: 150px;
+    padding: 10px;
+}
+
+.textField>span {
+    font-family: quoteText;
+    font-size: 30px;
+    color: white;
+    text-shadow: 1px 2px 1px black;
+
+}
+
+.textField>textarea {
+    padding: 15px;
+    width: 500px;
+    height: 150px;
+    background-color: wheat;
+    border-radius: 25px;
+    border: 1px white solid;
+}
+
+.textInput>.errorSpan {
+    font-size: 20px;
+}
+
+.contactRest>h3 {
+    text-shadow: 2px 2px 2px black;
+    text-align: left;
+    margin-left: 620px;
+    color: white;
+}
+
+.contactRest>span {
+    font-family: quoteText;
+    font-size: 25px;
+    color: white;
+    text-shadow: 1px 2px 1px black;
+}
+
+.locationIcon {
+    display: inline-block;
+    background-image: url('/Morbiez/assets/images/location.jpg');
+    width: 30px;
+    height: 30px;
+    background-position: center;
+    background-size: cover;
+    border-radius: 70px;
+}
+
+.locationSpan {
+    display: inline-block;
+    margin-left: 5px;
+    color: white;
+    text-shadow: 1px 1px 2px black;
+    vertical-align: super;
+}
+
+form>button {
+    background-color: wheat;
+    margin-right: 140px;
+    padding: 10px 20px 10px 20px;
+    border-radius: 25px;
+    border: 1px white solid;
+}
+
+.googleMap {
+    border: 0;
+    width: 600px;
+    height: 400px;
+    border-radius: 25px;
+    display: 'inline-block';
+}
+
+.shareTxt {
+    display: block;
+    width: 40%;
+    margin-left: 40px;
+}
+
+@font-face {
+    font-family: chalkFont;
+    src: url('/Morbiez/assets/fonts/chalkFont.ttf');
+}
+
+@media (max-width: 1250px) {
+    .contactRest>h3 {
+        margin-left: 0px;
+        text-align: center;
+    }
+    form {
+        margin-right: 0px;
+        margin-bottom: 70px;
+    }
+    .textInput {
+        margin-right: 0px;
+    }
+    .textInput>label>input {
+        display: block;
+        margin: auto;
+    }
+    .textInput>.errorSpan {
+        position: relative;
+    }
+    .shareTxt {
+        display: inline-block;
+        padding: 10px;
+        margin-left: 0px;
+        width: 90%;
+    }
+    .textField {
+        margin-right: 0px;
+        width: fit-content;
+    }
+    .textField>textarea {
+        width: fit-content;
+    }
+    form>button {
+        margin-right: 0px;
+    }
+    .googleMap {
+        width: fit-content;
+    }
+}

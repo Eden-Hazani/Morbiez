@@ -1,0 +1,32 @@
+body {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-size: large;
+    background: linear-gradient(0deg, rgba(216, 95, 166, 0.541), rgba(153, 71, 119, 0.438)), url("/Morbiez/assets/images/home_background.jpg");
+    font-family: 'Rubik', sans-serif;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+#LoadingGif {
+    background-repeat: no-repeat;
+    width: 700px;
+    margin: auto;
+    height: 100vh;
+    background-image: url("/Morbiez/assets/images/burderLoading.gif");
+    background-position: center;
+    background-size: contain;
+}
+
+@media (max-width: 1250px) {
+    body {
+        background-attachment: fixed;
+        background-position: center;
+        overflow-x: hidden;
+    }
+    #LoadingGif {
+        width: auto;
+    }
+}
