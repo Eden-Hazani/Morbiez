@@ -51,7 +51,8 @@
     text-shadow: 2px 2px 1px black;
 }
 
-.burger>button {
+.burger>button,
+.toppingMenu>div>button {
     margin: 15px;
     background-color: wheat;
     border: 1px black solid;

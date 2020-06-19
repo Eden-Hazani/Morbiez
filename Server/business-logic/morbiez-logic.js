@@ -36,6 +36,22 @@ async function getSideDishes() {
     return sideDish;
 }
 
+async function addOrder(order) {
+    console.log(order[1])
+    const sql = `INSERT INTO orders(customerInfo, mealInfo, sideDishInfo) VALUES('${JSON.stringify(order[0])}','${JSON.stringify(order[1])}','${JSON.stringify(order[2])}')`;
+    const info = await dal.executeAsync(sql);
+    order.orderId = info.insertId;
+    return order;
+}
+
+async function test() {
+    const sql = 'SELECT * FROM orders'
+    const orders = await dal.executeAsync(sql);
+    return orders;
+}
+
+
+
 
 module.exports = {
     getAllBurgers,
@@ -43,5 +59,7 @@ module.exports = {
     getAllDrinks,
     getBurgerVsTopping,
     getAllSides,
-    getSideDishes
+    getSideDishes,
+    addOrder,
+    test
 }

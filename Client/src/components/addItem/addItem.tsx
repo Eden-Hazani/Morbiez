@@ -9,7 +9,6 @@ import { ToppingModel } from '../../models/toppingModule';
 import { SideDishModel } from '../../models/sideDishModel';
 import { NewMealModel } from '../../models/newMealModel';
 import { NewSideDishModel } from '../../models/newSideDishModel';
-import axios from 'axios';
 
 
 interface AddItemState{
@@ -30,14 +29,17 @@ export class AddItem extends Component<any,AddItemState>{
             linkDisabled:true,
             deletingId:null,
             totalPrice:null,
-            toppings:[],
+            toppings:store.getState().toppings,
             deleting:false,
-            sideDish: store.getState().sideDish,
+            sideDish: store.getState().newSideDish,
             burger: store.getState().meal //עדכון המוצרים ישירות מהסטור
 
         }
         this.unsubscribeStore = store.subscribe(()=>{
-            this.setState({burger: store.getState().meal, sideDish: store.getState().sideDish})
+            this.setState({burger: store.getState().meal,
+                 sideDish: store.getState().newSideDish,
+                 toppings: store.getState().toppings
+                })
         })
 
     }
@@ -45,19 +47,7 @@ export class AddItem extends Component<any,AddItemState>{
         this.unsubscribeStore() // להפסיק להאזין לסטור כי הקומפוננט הפסיק להיות בשימוש
     }
 
-    public componentWillMount(){
-        this.getLists();
-    }
-    public getLists = async()=>{
-        const url = 'http://localhost:3000/api/morbiez';
-         try{
-           const toppingResp = await axios.get<ToppingModel[]>(`${url}/toppings`);
-           const toppings = toppingResp.data;
-           this.setState({toppings});        
-         }catch(err){
-           alert(err.message)
-         }
-      }
+
 
     public removeMeal =(ID:string)=>{ 
        this.setState({deleting:true,deletingId:ID})
@@ -82,6 +72,7 @@ export class AddItem extends Component<any,AddItemState>{
             b.pickedToppings.map(pickedT=>this.state.toppings.filter(t=>pickedT.toppingId === t.toppingId).map(list=> totalPrice = totalPrice + (list.price * pickedT.amount)))
         })
         this.state.burger.map(b=> totalPrice = totalPrice + b.burgerPrice)
+        this.state.sideDish.map(s=>  totalPrice = totalPrice + s.price)
         if(this.state.totalPrice === totalPrice){
             return
         }
@@ -131,7 +122,7 @@ export class AddItem extends Component<any,AddItemState>{
                 </div>
                 <br/>
                 <div>Total Price: {this.state.totalPrice}$</div>
-                <Link className='placeOrder'  to={`/orderPayment/${this.state.totalPrice}`} onClick={this.linkEnabler} >Place Order</Link>
+                <Link className='placeOrder'  to={`/customerInformation/${this.state.totalPrice}`} onClick={this.linkEnabler} >Place Order</Link>
             </div>
         )
     }

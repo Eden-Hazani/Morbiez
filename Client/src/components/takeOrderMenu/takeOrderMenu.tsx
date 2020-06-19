@@ -14,6 +14,7 @@ import { NewMealModel } from '../../models/newMealModel';
 import { BurgerVsToppingModel } from '../../models/burgerVsToppingModel';
 import { NewSideDishModel } from '../../models/newSideDishModel';
 import uuid from 'react-uuid'
+import { Unsubscribe } from 'redux';
 
 
 
@@ -36,14 +37,15 @@ interface TakeAwayState{
 
 
 export class TakeOrderMenu extends Component<any,TakeAwayState>{
+  private unsubscribeStore: Unsubscribe;
     public constructor(props:any){
         super(props)
-        this.state ={burger: [],
-        toppings: [],
-        drinks:[],
-        sides:[],
-        sideDish: [],
-        burgerVsTopping:[],
+        this.state ={burger: store.getState().burger,
+        toppings: store.getState().toppings,
+        drinks:store.getState().drinks,
+        sides:store.getState().sides,
+        sideDish: store.getState().sideDish,
+        burgerVsTopping: store.getState().burgerVsTopping,
         showText:false,
         pickedAddAnimation:false,
         pickedRemoveAnimation:false,
@@ -51,43 +53,29 @@ export class TakeOrderMenu extends Component<any,TakeAwayState>{
         newMeal: new NewMealModel(),
         newSideDish: new NewSideDishModel()
       }
+      this.unsubscribeStore = store.subscribe(()=>{
+        this.setState({
+           burger: store.getState().burger,
+           sideDish: store.getState().sideDish,
+           toppings: store.getState().toppings,
+           drinks: store.getState().drinks,
+           sides: store.getState().sides,
+           burgerVsTopping: store.getState().burgerVsTopping
+          })
+    })
     }
    public componentWillUnmount(){
+    this.unsubscribeStore() 
+    this.resetBvT();
     this.props.onHandleToUpdate(false)
     }
    public componentDidMount(){
+    this.resetBvT();
     window.scrollTo(0, 0)
      setTimeout(() => {
        this.props.onHandleToUpdate(true)
        this.setState({showText:true})
      }, 1000);
-   }
-
-   public componentWillMount(){
-    this.getLists();
-
-   }
-
-
-   public getLists = async()=>{
-     const url = 'http://localhost:3000/api/morbiez';
-      try{
-        const burgerResp = await axios.get<BurgerModel[]>(`${url}/burgers`);
-        const toppingResp = await axios.get<ToppingModel[]>(`${url}/toppings`);
-        const drinksResp = await axios.get<DrinksModel[]>(`${url}/drinks`);
-        const sidesResp = await axios.get<SidesModel[]>(`${url}/sides`);
-        const bVtResp = await axios.get<BurgerVsToppingModel[]>(`${url}/burgers-vs-toppings`);
-        const sideDishResp = await axios.get<SideDishModel[]>(`${url}/sidedishes`);
-        const burger = burgerResp.data;
-        const toppings = toppingResp.data;
-        const drinks = drinksResp.data;
-        const sides = sidesResp.data;
-        const burgerVsTopping = bVtResp.data;
-        const sideDish = sideDishResp.data;
-        this.setState({burger,toppings,drinks,sides,burgerVsTopping,sideDish});        
-      }catch(err){
-        alert(err.message)
-      }
    }
 
     private add = (id:number) =>{
@@ -230,7 +218,7 @@ export class TakeOrderMenu extends Component<any,TakeAwayState>{
 
     private newSideDish = (id:number)=>{
       const newSideDish = {...this.state.newSideDish};
-      newSideDish.id =  this.state.sideDish.filter(s=>s.sideDishId === id)[0].sideDishId;
+      newSideDish.id =  uuid();
       newSideDish.price =  this.state.sideDish.filter(s=>s.sideDishId === id)[0].price;
       newSideDish.dishType =  this.state.sideDish.filter(s=>s.sideDishId === id)[0].name;
       this.setState({newSideDish})
@@ -252,20 +240,20 @@ export class TakeOrderMenu extends Component<any,TakeAwayState>{
                 <React.Fragment>
                   <h1>Burgers</h1>
                       {this.state.burger.map(b=> 
-                            <div className='burger'>
+                            <div className='burger' key={b.burgerId}>
                                 <h1>{b.name}</h1>
                                 <h3>{b.description}</h3>
                                 <h3>Price - {b.price}$</h3>
                                 <br/>
                                {this.state.toppings.map(t=>
-                                  <div className='toppingMenu'>
+                                  <div className='toppingMenu' key={t.toppingId}>
                                     {this.state.burgerVsTopping.map(bVt=>
-                                      <React.Fragment>                 
+                                      <div key={bVt.burgerToppingId}>                 
                                         {bVt.toppingId === t.toppingId && b.burgerId === bVt.burgerId ?                           
                                            <React.Fragment>
                                             <div className='toppingAnimation'>
                                               <div>{t.name}</div>
-                                              <div key={bVt.burgerToppingId} className={`toppingMenuIcon ${ addAni && 
+                                              <div className={`toppingMenuIcon ${ addAni && 
                                                 bVt.burgerToppingId === pickedTopping ? 'animationAdd' : null} ${removeAni && bVt.burgerToppingId === pickedTopping ? 'animationRemove': null}`}
                                                 style={{backgroundImage:`url(http://localhost:3000/uploads/${t.imageFileLocation})`}}></div>
                                             </div>
@@ -274,7 +262,7 @@ export class TakeOrderMenu extends Component<any,TakeAwayState>{
                                             <button onClick={()=>this.detract(bVt.burgerToppingId)}>-</button>
                                             </React.Fragment> 
                                         : null}
-                                      </React.Fragment> 
+                                      </div> 
                                       )}
                                     <div>{t.price}$</div>
                                </div>
@@ -286,9 +274,10 @@ export class TakeOrderMenu extends Component<any,TakeAwayState>{
                 <div>
                   <h1>Sides</h1>
                   {this.state.sideDish.map(sD => 
-                      <div className='sideDish'>
+                      <div className='sideDish' key={sD.sideDishId}>
                           <h3>{sD.name}</h3>
                           <br/>
+                          <div>Price - {sD.price}$</div>
                           <div>{sD.description}</div>
                           <div className='sideDishIcon' style={{backgroundImage:`url(http://localhost:3000/uploads/${sD.imageFileLocation})`}}>{}</div>
                           <button onClick={()=>this.newSideDish(sD.sideDishId)}>Add</button>

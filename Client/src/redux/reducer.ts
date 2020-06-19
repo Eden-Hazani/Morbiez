@@ -7,14 +7,36 @@ export function reduce(oldAppState:AppState,action:Action): AppState{
     const newAppState = {...oldAppState} // duplicate the old state into the new state
     switch(action.type){
         case ActionType.GetAllBurger:
-            newAppState.meal = action.payload;
+            newAppState.burger = action.payload;
             break;
-
+        case ActionType.GetAllBurgerVsTopping:
+            newAppState.burgerVsTopping = action.payload;
+            break;
+        case ActionType.GetAllDrinks:
+            newAppState.drinks = action.payload;
+            break;
+        case ActionType.GetAllSideDish:
+            newAppState.sideDish = action.payload;
+            break
+        case ActionType.GetAllSides:
+            newAppState.sides = action.payload;
+            break;
+        case ActionType.GetAllToppings:
+            newAppState.toppings = action.payload;
+            break;
         case ActionType.AddBurger:
             newAppState.meal.push(action.payload);
-
             break;
-
+        case ActionType.SendInformationToOrder:
+            newAppState.sendOrder.push(action.payload)
+            console.log(newAppState.sendOrder)
+            break;
+        case ActionType.SendMealItemsToOrder:
+            newAppState.sendOrder.push(action.payload)
+            break;
+        case ActionType.SendSideDishItemsToOrder:
+            newAppState.sendOrder.push(action.payload)
+            break;
         case ActionType.DeleteBurger:
             let a = newAppState.meal.filter(item => {
                     return item.id !== action.payload                
@@ -26,18 +48,23 @@ export function reduce(oldAppState:AppState,action:Action): AppState{
             break;
             
         case ActionType.AddSideDish:
-            newAppState.sideDish.push(action.payload);
+            newAppState.newSideDish.push(action.payload);
             break;
 
         case ActionType.DeleteSideDish:
-            let sideDish = newAppState.sideDish.filter(item =>{
-                return item.sideDishId !== +action.payload
+            let sideDish = newAppState.newSideDish.filter(item =>{
+                return item.id !== action.payload
             })
-            newAppState.sideDish = [];
+            newAppState.newSideDish = [];
             for(let item of sideDish){
-                newAppState.sideDish.push(item)
+                newAppState.newSideDish.push(item)
             }
-            break
+            break;
+        case ActionType.ResetStore:
+            newAppState.newSideDish = [];
+            newAppState.meal = [];
+            newAppState.sendOrder = [];
+            break;
         default: break;
     }
     return newAppState

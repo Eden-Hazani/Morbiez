@@ -1,0 +1,63 @@
+.personalInfo,
+.addressInfo {
+    vertical-align: top;
+    display: inline-flex;
+    align-items: center;
+    width: 300px;
+    height: 400px;
+    margin: 30px;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.486);
+    border: 1px black solid;
+    border-radius: 25px;
+}
+
+.creditInfo {
+    display: inline-flex;
+    align-items: center;
+    width: 100%;
+    height: 400px;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.486);
+    border: 1px black solid;
+    border-radius: 25px;
+    box-sizing: border-box;
+}
+
+.creditInfo>div>input {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.personalInfo>div>input,
+.addressInfo>div>input {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.cardTypes {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    color: white;
+    text-shadow: 1px 2px 2px black;
+}
+
+.cardTypes>div>img {
+    width: 50px;
+    margin: 5px;
+    height: 50px;
+}
+
+.cardIcons {
+    flex-basis: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.creditInfo>div {
+    margin-right: 150px;
+    margin-left: 150px;
+}

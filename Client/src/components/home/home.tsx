@@ -26,7 +26,6 @@ export class Home extends Component <any,HomeState>{
       }
       public componentWillUnmount(){
         this.props.onHandleToUpdate(false)
-
       }
 
 

@@ -19,6 +19,8 @@
     background-color: rgba(255, 255, 255, 0.322);
     border-radius: 25px;
     margin-bottom: 10px;
+    color: white;
+    text-shadow: 1px 2px 2px black;
 }
 
 .sides,
@@ -30,7 +32,8 @@
 }
 
 .burgerItem>button,
-.sideDish>div>button {
+.sideDish>div>button,
+.dish>button {
     background-color: wheat;
     padding: 10px;
     border: 1px black solid;

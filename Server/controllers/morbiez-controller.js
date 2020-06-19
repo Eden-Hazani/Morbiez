@@ -57,5 +57,26 @@ router.get('/sidedishes', async(request, response) => {
         response.status(500).send(err.message)
     }
 })
+router.get('/test', async(request, response) => {
+    try {
+        const morbiez = await morbiezLogic.test();
+        response.json(morbiez);
+    } catch (err) {
+        response.status(500).send(err.message)
+    }
+})
+
+router.post('/sendOrder', async(request, response) => {
+    try {
+        const order = request.body;
+        let addedOrder = await morbiezLogic.addOrder(order);
+        response.json(addedOrder);
+        response.status(201);
+    } catch (err) {
+        response.status(500).send(err.message)
+    }
+})
+
+
 
 module.exports = router;

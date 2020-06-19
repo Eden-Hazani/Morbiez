@@ -4,17 +4,20 @@ import { Unsubscribe } from 'redux';
 import { store } from '../../redux/store';
 import { ToppingModel } from '../../models/toppingModule';
 import swal from 'sweetalert';
-import { Redirect } from 'react-router-dom';
-import { SideDishModel } from '../../models/sideDishModel';
+import { Redirect, Link } from 'react-router-dom';
 import { NewMealModel } from '../../models/newMealModel';
 import axios from 'axios';
+import { NewSideDishModel } from '../../models/newSideDishModel';
+import { SendOrderModel } from '../../models/sendOrderModel';
+import { ActionType } from '../../redux/action-type';
 
 
 interface OrderPaymentState{
     meal:NewMealModel[],
-    sideDish:SideDishModel[],
+    sideDish:NewSideDishModel[],
     showText:boolean
     toppings:ToppingModel[]
+    sendOrder: SendOrderModel[]
 }
 
 export class OrderPayment extends Component<any,OrderPaymentState>{
@@ -22,13 +25,18 @@ export class OrderPayment extends Component<any,OrderPaymentState>{
     public constructor(props:any){
         super(props)
         this.state ={
-            toppings:[],
-            sideDish : store.getState().sideDish,
+            sendOrder:store.getState().sendOrder,
+            toppings:store.getState().toppings,
+            sideDish : store.getState().newSideDish,
             meal: store.getState().meal,
             showText:false
         }
         this.unsubscribeStore = store.subscribe(()=>{
-            this.setState({meal: store.getState().meal, sideDish: store.getState().sideDish})
+            this.setState({meal: store.getState().meal,
+                 sideDish: store.getState().newSideDish,
+                 toppings:store.getState().toppings,
+                 sendOrder:store.getState().sendOrder
+                })
         })
     }
     public componentWillUnmount(): void{
@@ -36,22 +44,28 @@ export class OrderPayment extends Component<any,OrderPaymentState>{
         this.props.onHandleToUpdate(false)
     }
     public componentDidMount(){
-        this.getLists();
         setTimeout(() => {
             this.props.onHandleToUpdate(true)
             this.setState({showText:true})
         }, 1000);
     }
 
-    public getLists = async()=>{
-        const url = 'http://localhost:3000/api/morbiez';
-         try{
-           const toppingResp = await axios.get<ToppingModel[]>(`${url}/toppings`);
-           const toppings = toppingResp.data;
-           this.setState({toppings});        
-         }catch(err){
-           alert(err.message)
-         }
+    public sendOrder = async() =>{
+        try{
+            console.log(this.state.sendOrder)   
+            const url = 'http://localhost:3000/api/morbiez';
+            const response = await axios.post<SendOrderModel>(`${url}/sendOrder`,this.state.sendOrder)
+            const order = response.data;
+            this.resetStates();
+            this.props.history.push('/home');
+        }catch(err){
+            alert(err.message)
+        }
+    }
+
+    private resetStates = async()=>{
+        store.dispatch({type:ActionType.ResetStore})
+
       }
     
 
@@ -61,10 +75,10 @@ export class OrderPayment extends Component<any,OrderPaymentState>{
             <div className='orderPayments'>
                 {showText === false && <div id='LoadingGif'></div>}
                 {showText && 
-                    <React.Fragment>
+                    <div>
                        <h3>Meals</h3>
                         {this.state.meal.map(m=>
-                        <div className='meal'>
+                        <div className='orderedItem' key={m.id}>
                             <h5>{m.burgerName}</h5>
                             <div>Base Burger Price: {m.burgerPrice}$</div>
                             <br/>
@@ -79,8 +93,18 @@ export class OrderPayment extends Component<any,OrderPaymentState>{
                                 ))}</div>
                         </div>
                             )}
-                         <div>{this.props.match.params.totalPrice}$</div>
-                     </React.Fragment>
+                            <h3>Side Dishes</h3>
+                            <br/>
+                        {this.state.sideDish.map(s=>
+                            <div className='orderedItem' key={s.id}>
+                                <div>{s.dishType}</div>
+                                <hr/>
+                                <div>{s.price}</div>
+                            </div>
+                            )}
+                         <div>{this.props.match.params.orderInformation}$</div>
+                         <Link className='placeOrder' to={`/home`} onClick={this.sendOrder}>Order!</Link>
+                     </div>
                 }
             </div>
         )
